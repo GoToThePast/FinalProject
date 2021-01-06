@@ -1,6 +1,6 @@
 package com.tuogen.dao;
 
-import com.tuogen.utils.JDBCUtils;
+import com.tuogen.utils.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
