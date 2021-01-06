@@ -1,5 +1,4 @@
 # FinalProject
-javaweb final project
 
 ## 数据库
 * 地址:59.110.212.15
