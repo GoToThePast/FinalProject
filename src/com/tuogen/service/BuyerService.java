@@ -1,5 +1,5 @@
 package com.tuogen.service;
 
 public interface BuyerService {
-    void addUser(Buyer buyer);
+    int addUser(Buyer buyer);
 }
