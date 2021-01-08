@@ -27,6 +27,7 @@
 <body>
 <div class="container">
     <h1>账号注册失败！</h1>
+    <a href="register.html">注册</a>
 </div>
 </body>
 </html>

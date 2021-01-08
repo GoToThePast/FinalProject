@@ -1,4 +1,4 @@
 package com.tuogen.model;
 
-public class Buyer {
+public class Buyer implements User{
 }

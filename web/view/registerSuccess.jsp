@@ -28,6 +28,7 @@
 <div class="container">
     <h1>&nbsp;&nbsp;账号注册成功！</h1>
     <h1>账号：${account}</h1>
+    <a href="login.jsp">登录</a>
 </div>
 </body>
 </html>

@@ -9,8 +9,6 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import javax.print.attribute.standard.Fidelity;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +24,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Made By 王炜
+ * 供注册使用Servlet
+ */
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     private static final HashMap<String,Field> BuyerFieldMap=getFieldMap(Buyer.class);
@@ -36,7 +38,7 @@ public class RegisterServlet extends HttpServlet {
     private SellerService sellerService=new SellerServiceImpl();
     @Override
     public void init() throws ServletException {
-        //获得卖家/卖家model构造方法
+        //获得买家和卖家model构造方法
         try {
             BuyerConstructor= Buyer.class.getConstructor();
             SellerConstructor=Seller.class.getConstructor();
@@ -58,6 +60,7 @@ public class RegisterServlet extends HttpServlet {
         if ("Buyer".equals(registerType)){
             //注册用户
             Buyer buyer = (Buyer)getUser(request, BuyerFieldMap, BuyerConstructor);
+            // TODO: 2021/1/8 buyerService.addUser
             account = buyerService.addUser(buyer);
         }else if ("Seller".equals(registerType)){
             //注册商家
@@ -71,7 +74,6 @@ public class RegisterServlet extends HttpServlet {
             response.sendRedirect("./view/registerFailed.jsp");
         }
     }
-
 
     /**
      * 封装属性至map

@@ -1,7 +1,6 @@
 package com.tuogen.utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
-
 import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.*;

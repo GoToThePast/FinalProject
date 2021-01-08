@@ -1,24 +1,22 @@
 package com.tuogen.model;
 
-import java.lang.reflect.Field;
-
 public class Seller implements User{
     //账号id
-    protected int id;
+    private int id;
     //名字
-    protected String name;
+    private String name;
     //密码
-    protected String password;
+    private String password;
     //类型
-    protected String type;
+    private String type;
     //邮箱
-    protected String email;
+    private String email;
     //银行卡
-    protected String bankCard;
+    private String bankCard;
     //发货地址
-    protected String deliveryAddr;
+    private String deliveryAddr;
     //头像
-    protected String icon;
+    private String icon;
 
     public Seller() { }
     public Seller(int id, String name, String password, String type, String email, String bankCard, String deliveryAddr, String icon) {
