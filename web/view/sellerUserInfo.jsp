@@ -16,9 +16,9 @@
 <div id="main_body">
     <div class="title">个人信息</div>
     <div class="content">
-        <div class="info">
+        <div class="info clearFix">
             <div class="text">头像</div>
-            <img class="icon" src="../image/1610027341950.jpg">
+            <img class="icon" src="${onlineUser.user.icon}">
         </div>
         <div class="info">
             <div class="text">账号</div>

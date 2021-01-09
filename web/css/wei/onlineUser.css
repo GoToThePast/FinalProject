@@ -23,7 +23,7 @@ table{
     height: auto;
     margin-left: 10%;
     margin-top: 3%;
-    background-color: rgb(255,103,0);
+    background-color: rgb(170,23,23);
     border-spacing: 0px;
 }
 table tr td{
@@ -39,5 +39,8 @@ table tr td{
     margin: 0 auto;
 }
 .td_info{
-    background-color: rgb(231,231,231);
+    background-color: rgb(230,234,242);
+}
+.td_head{
+    color: white;
 }
