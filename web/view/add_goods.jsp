@@ -149,10 +149,13 @@
                 <li>
                     <span class="item_name" style="width:120px;">商品类型：</span>
                     <select name="gtype" class="select">
-                        <option>手机数码</option>
-                        <option>防疫家电</option>
-                        <option>家用照明</option>
-                        <option>电池插座</option>
+                        <option>卧室家具</option>
+                        <option>客厅家具</option>
+                        <option>餐厅家具</option>
+                        <option>书房家具</option>
+                        <option>厨房家具</option>
+                        <option>卫生间家具</option>
+                        <option>户外家具</option>
                     </select>
                 </li>
                 <li>

@@ -140,7 +140,7 @@
             <ul class="ulColumn2">
                 <li >
                     <span class="item_name" style="width:120px;">商品编号：</span>
-                    <input name="gid" type="text" class="textbox textbox_295" value="${requestScope.goods.goodsID}"/>
+                    <input name="gid" type="text" class="textbox textbox_295" readonly="readonly" value="${requestScope.goods.goodsID}"/>
                 </li>
                 <li>
                     <span class="item_name" style="width:120px;">商品名称：</span>
@@ -149,10 +149,13 @@
                 <li>
                     <span class="item_name" style="width:120px;">商品类型：</span>
                     <select name="gtype" class="select" >
-                        <option value="手机数码" <c:if test="${requestScope.goods.goodsType=='手机数码'}">selected</c:if>>手机数码</option>
-                        <option value="防疫家电" <c:if test="${requestScope.goods.goodsType=='防疫家电'}">selected</c:if>>防疫家电</option>
-                        <option value="家用照明" <c:if test="${requestScope.goods.goodsType=='家用照明'}">selected</c:if>>家用照明</option>
-                        <option value="电池插座" <c:if test="${requestScope.goods.goodsType=='电池插座'}">selected</c:if>>电池插座</option>
+                        <option value="卧室家具" <c:if test="${requestScope.goods.goodsType=='卧室家具'}">selected</c:if>>卧室家具</option>
+                        <option value="客厅家具" <c:if test="${requestScope.goods.goodsType=='客厅家具'}">selected</c:if>>客厅家具</option>
+                        <option value="餐厅家具" <c:if test="${requestScope.goods.goodsType=='餐厅家具'}">selected</c:if>>餐厅家具</option>
+                        <option value="书房家具" <c:if test="${requestScope.goods.goodsType=='书房家具'}">selected</c:if>>书房家具</option>
+                        <option value="厨房家具" <c:if test="${requestScope.goods.goodsType=='厨房家具'}">selected</c:if>>厨房家具</option>
+                        <option value="卫生间家具" <c:if test="${requestScope.goods.goodsType=='卫生间家具'}">selected</c:if>>卫生间家具</option>
+                        <option value="户外家具" <c:if test="${requestScope.goods.goodsType=='户外家具'}">selected</c:if>>户外家具</option>
                     </select>
                 </li>
                 <li>
