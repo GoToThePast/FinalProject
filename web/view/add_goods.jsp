@@ -12,18 +12,7 @@
     <title>后台管理系统</title>
 </head>
 <style>
-    header{
-        width: 100%;
-        height: 80px;
-        background: #3567AC;
-    }
-    .as1{
-        width:210px;
-        height:100%;
-        position:absolute;
-        top:88px;
-        background:green;
-    }
+
     .rt_wrap{
         margin-left:218px;
         margin-right:10px;
@@ -141,10 +130,6 @@
 
 </style>
 <body>
-<header>
-</header>
-<aside class="as1">
-</aside>
 <form  class="rt_wrap content mCustomScrollbar"  action="/web_war_exploded/AddGoods" method="post" enctype="multipart/form-data">
     <div class="rt_content">
         <div class="page_title">

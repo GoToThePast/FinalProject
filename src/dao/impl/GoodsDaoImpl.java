@@ -64,6 +64,23 @@ public class GoodsDaoImpl implements  GoodsDao {
     }
 
     @Override
+    public List<Goods> getGoodsListType(String goodstype) throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select * from goods where goodsType=?");
+        statement.setString(1,goodstype);
+        ResultSet resultSet = statement.executeQuery();
+        List<Goods> listty=new ArrayList<>();
+        while (resultSet.next()){
+            Goods goods=new Goods();
+            getGoodsInfo(resultSet, goods);
+            listty.add(goods);
+        }
+        JDBCUtils.close(connection,statement,resultSet);
+        return listty;
+    }
+
+
+    @Override
     public int deleteGoods(int goodsId) throws SQLException {
         Connection connection = JDBCUtils.getConnection();
         PreparedStatement statement = connection.prepareStatement("delete from goods where goodsID=?");
@@ -79,20 +96,6 @@ public class GoodsDaoImpl implements  GoodsDao {
         Connection connection = JDBCUtils.getConnection();
         PreparedStatement statement = connection.prepareStatement("select * from goods where goodsID=?");
         statement.setInt(1,goodsid);
-        ResultSet resultSet = statement.executeQuery();
-        Goods goods=new Goods();
-        while (resultSet.next()){
-            getGoodsInfo(resultSet, goods);
-        }
-        JDBCUtils.close(connection,statement,resultSet);
-        return goods;
-    }
-
-    @Override
-    public Goods queryGoodsList(String goodstype) throws SQLException {
-        Connection connection = JDBCUtils.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select * from goods where goodsType=?");
-        statement.setString(1,goodstype);
         ResultSet resultSet = statement.executeQuery();
         Goods goods=new Goods();
         while (resultSet.next()){

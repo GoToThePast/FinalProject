@@ -39,6 +39,16 @@ public class GoodsServiceImpl implements GoodsService{
         }
         return goodsList;
     }
+    @Override
+    public List<Goods> GoodsListType(String goodstype) {
+        List<Goods> goodsListType=null;
+        try {
+            goodsListType= goodsDao.getGoodsListType(goodstype);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return goodsListType;
+    }
 
     @Override
     public int deleteGoods(int goodsId) {
@@ -62,16 +72,7 @@ public class GoodsServiceImpl implements GoodsService{
         return goods;
     }
 
-    @Override
-    public Goods queryGoodsList(String goodstype) {
-        Goods goods=null;
-        try {
-            goods= goodsDao.queryGoodsList(goodstype);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return goods;
-    }
+
 
     @Override
     public int updateGoods(Goods goods) {
