@@ -95,4 +95,9 @@ public class GoodsServiceImpl implements GoodsService{
         }
         return goods;
     }
+
+    @Override
+    public void getGoodsList(String type) {
+
+    }
 }
