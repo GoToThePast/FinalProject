@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -6,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="./js/jquery2_14.js"></script>
 <html>
 <head>
@@ -34,32 +35,39 @@
         </form>
     </div>
     <div class="order-container">
-        <c:forEach var="order" items="${sessionScope.orderList}">
+        <c:forEach var="orderQuery" items="${sessionScope.orderList}">
         <div class="order-info">
             <div class="order-status">
-                <p>${order.orderStatus}</p>
+                <p>${orderQuery.order.orderStatus}</p>
             </div>
             <div class="order-infomation">
-                <div class="info-data">${order.createrTime}</div>
-                <div class="info-buyerName">${order.orderUserNum}</div>
-                <div class="info-roderNum">${order.orderNum}</div>
+                <div class="info-data">${orderQuery.order.createrTime}</div>
+                <div class="info-buyerName">${orderQuery.order.orderUserNum}</div>
+                <div class="info-roderNum">${orderQuery.order.orderNum}</div>
             </div>
+            <div class="good-button">
+                <div class="but-1"><p class="on">确认发货</p></div>
+            </div>
+            <c:forEach var="good" items="${orderQuery.goods}">
             <div class="order-good">
                 <div class="good-img">
-                    <img src="" alt="">
+                    <img src="..${good.goodsPicUrl}" alt="">
                 </div>
                 <div class="goodInfo">
-                    <div class="good-name"><p>${order.goodsListId}</p></div>
-                    <div class="good-price">￥<span>99.45</span></div>
-                </div>
-                <div class="good-button">
-                    <div class="but-1">确认</div>
-                    <div class="but-2">详情</div>
+                    <div class="good-name"><p>${good.goodsName}</p></div>
+                    <div class="good-price">￥<span>${good.goodsPrice}</span></div>
                 </div>
             </div>
+            </c:forEach>
         </div>
         </c:forEach>
+        <div class="orderPag">
+            <div class="prePage"><a href="#">上一页</a></div>
+            <div class="indexPage">1</div>
+            <div class="nextPage"><a href="#">下一页</a></div>
+        </div>
     </div>
 </div>
+
 </body>
 </html>

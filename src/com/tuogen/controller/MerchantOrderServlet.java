@@ -1,7 +1,10 @@
 package com.tuogen.controller;
 
 import com.tuogen.model.Order;
+import com.tuogen.model.OrderQuery;
+import com.tuogen.service.GoodsService;
 import com.tuogen.service.OrderService;
+import com.tuogen.service.impl.GoodsServiceImpl;
 import com.tuogen.service.impl.OrderServiceImpl;
 import com.tuogen.utils.BaseServlet;
 
@@ -14,9 +17,10 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/MerOrder/*")
+@WebServlet(name = "merOrder",urlPatterns = "/MerOrder/*")
 public class MerchantOrderServlet extends BaseServlet {
     OrderService orderService=new OrderServiceImpl();
+    GoodsService goodsService=new GoodsServiceImpl();
     public void addOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Order order=getOrder(req,resp);
         boolean tag=orderService.addOrder(order);
@@ -59,9 +63,11 @@ public class MerchantOrderServlet extends BaseServlet {
     }
 
     public void listOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Order> orderList = orderService.getOrderList();
+        int merchantID = 45;
+        List<OrderQuery> orderQueryList = orderService.getOrderQueryList(merchantID);
+        System.out.println(orderQueryList.toString());
         HttpSession session = req.getSession();
-        session.setAttribute("orderList",orderList);
+        session.setAttribute("orderList",orderQueryList);
 //        req.getRequestDispatcher("/manage/index.jsp").forward(req,resp);
         resp.sendRedirect("/web/manage/index.jsp");
     }

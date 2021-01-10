@@ -15,7 +15,7 @@ import java.io.IOException;
  * 根据类型获取商品类型
  * 参数：商品类型 type
  */
-@WebServlet("/getGoodsByType")
+@WebServlet(urlPatterns = "/getGoodsByType")
 public class GetGoodsByTypeServlet extends HttpServlet {
     private GoodsService goodsService=new GoodsServiceImpl();
 

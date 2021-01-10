@@ -1,8 +1,8 @@
 package com.tuogen.controller;
 
-import com.tuogen.model.Googs;
 import com.tuogen.service.GoodsService;
 import com.tuogen.service.impl.GoodsServiceImpl;
+import com.tuogen.model.Goods;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * 将购物车中的信息封装成 ArrayList<Googs> cart 保存至session
  * 查看购物车只需使用session中的cart即可
  */
-@WebServlet("/addToCart")
+@WebServlet(urlPatterns = "/addToCart")
 public class CartOperationServlet extends HttpServlet {
     private GoodsService goodsService=new GoodsServiceImpl();
     @Override
@@ -36,18 +36,18 @@ public class CartOperationServlet extends HttpServlet {
         //类型
         String type="type";
         HttpSession session = request.getSession();
-        ArrayList<Googs> cart = (ArrayList<Googs>) session.getAttribute("cart");
+        ArrayList<Goods> cart = (ArrayList<Goods>) session.getAttribute("cart");
         if(cart==null){
-            cart=new ArrayList<Googs>();
+            cart=new ArrayList<Goods>();
             session.setAttribute("cart",cart);
         }
         String action = request.getParameter(type);
-        Googs googs=null;
+        Goods goods=null;
         // TODO: 2021/1/7 根据商品ID获取商品
-        googs=goodsService.queryGoods(Integer.parseInt(request.getParameter(goodsID)));
+        goods=goodsService.queryGoods(Integer.parseInt(request.getParameter(goodsID)));
         if ("add".equals(action)){
             //添加商品至购物车
-            cart.add(googs);
+            cart.add(goods);
             //设置session存活时长
             session.setMaxInactiveInterval(60*60*2);
             //设置cookie存活时间
@@ -56,7 +56,7 @@ public class CartOperationServlet extends HttpServlet {
             response.addCookie(cookie);
         }else if ("remove".equals(action)){
             //移除购物车中商品
-            cart.remove(googs);
+            cart.remove(goods);
         }
     }
 }

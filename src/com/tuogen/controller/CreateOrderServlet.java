@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * 根据用户ID和商品生成订单
  * 作用：携带生成订单 跳转至支付页面
  */
-@WebServlet("/createOrder")
+@WebServlet(urlPatterns = "/createOrder")
 public class CreateOrderServlet extends HttpServlet {
     OrderService orderService=new OrderServiceImpl();
     @Override

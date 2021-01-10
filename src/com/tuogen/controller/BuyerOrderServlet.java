@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 
-@WebServlet(urlPatterns = "/BuyOrder/*")
+@WebServlet(name = "BuyerOrder",urlPatterns = "/BuyOrder/*")
 public class BuyerOrderServlet extends BaseServlet {
     OrderService orderService=new OrderServiceImpl();
     public void addOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

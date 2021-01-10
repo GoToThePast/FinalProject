@@ -1,6 +1,6 @@
 package com.tuogen.model;
 
-public class Goods extends Googs {
+public class Goods {
     int goodsID;
     String goodsName="";
     String goodsType="";
@@ -24,7 +24,10 @@ public class Goods extends Googs {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "商品名："+goodsName+"商品ID:"+goodsID;
+    }
 
     public int getGoodsID() {
         return goodsID;

@@ -2,6 +2,7 @@ package com.tuogen.service.impl;
 
 import com.tuogen.dao.impl.OrderDaoImpl;
 import com.tuogen.model.Order;
+import com.tuogen.model.OrderQuery;
 import com.tuogen.service.OrderService;
 
 import java.sql.SQLException;
@@ -42,10 +43,20 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getOrderList(int orderUserNum) {
+    public List<Order> getOrderListByMerchantID(int merchantID) {
         List<Order> orderList=null;
         try {
-            orderList=orderDao.getOrderList(orderUserNum);
+            orderList=orderDao.getOrderListByMerchantID(merchantID);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return orderList;
+    }
+
+    public List<Order> getOrderListByBuyerID(int BuyerID) {
+        List<Order> orderList=null;
+        try {
+            orderList=orderDao.getOrderListByBuyerID(BuyerID);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -94,4 +105,16 @@ public class OrderServiceImpl implements OrderService {
     public boolean payOrder(int orderID) {
         return false;
     }
+
+    @Override
+    public List<OrderQuery> getOrderQueryList(int merchantID) {
+        List<OrderQuery> orderList=null;
+        try {
+            orderList=orderDao.getOrderQueryListMer(merchantID);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return orderList;
+    }
+
 }

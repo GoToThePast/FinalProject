@@ -1,6 +1,7 @@
 package com.tuogen.service;
 
 import com.tuogen.model.Order;
+import com.tuogen.model.OrderQuery;
 
 import java.util.List;
 
@@ -13,7 +14,9 @@ public interface OrderService {
     public List<Order> getOrderList(int start, int num);
 
     //get order by buyerID
-    public List<Order> getOrderList(int orderUserNum);
+    public List<Order> getOrderListByBuyerID(int orderUserNum);
+
+    public List<Order> getOrderListByMerchantID(int merchantID);
 
     //get orderList
     public List<Order> getOrderList();
@@ -41,4 +44,6 @@ public interface OrderService {
      * @return 支付是否成功
      */
     boolean payOrder(int orderID);
+
+    public List<OrderQuery> getOrderQueryList(int merchantID);
 }

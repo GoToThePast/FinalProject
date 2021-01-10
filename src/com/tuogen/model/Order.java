@@ -27,6 +27,12 @@ public class Order {
     this.totalPrice = totalPrice;
   }
 
+  @Override
+  public String toString() {
+    return "ID:"+orderNum+" Buyer:"+orderUserNum+" GoodListId:"+goodsListId+" 订单状态:"+orderStatus+
+            " 时间:"+createrTime+" 商家ID:"+merchantId+" 总价:"+totalPrice;
+  }
+
   public long getOrderNum() {
     return orderNum;
   }

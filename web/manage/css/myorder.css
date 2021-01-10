@@ -1,6 +1,7 @@
 
 
 .order-head{
+    margin-left: 10px;
     display: flex;
 }
 
@@ -55,18 +56,19 @@ body{
     background-color: rgb(233, 236, 236);
 }
 .all{
-    margin-left: 5%;
-    width: 80%;
+    border: 1px solid #ced3d5;
+    margin-left: 3%;
+    width: 90%;
     background-color: #ffffff;
 }
 
 .order-infomation{
-  display: flex;
+    display: flex;
     padding-bottom: 10px;
 }
 
 .order-good{
-  display: flex;
+    display: flex;
 }
 
 .order-container{
@@ -89,11 +91,51 @@ body{
     padding-right: 10px;
 }
 
-.order-good{
-    margin-left: 20px;
-
-}
 
 .order-infomation{
     border-bottom: 1px solid #2f96b4;
+}
+
+.good-img{
+    width: 100px;
+    height: 100px;
+}
+.good-img img{
+    position: relative;
+    margin: 10% 10%;
+    width: 80%;
+    height: 80%;
+}
+.good-button{
+    position: absolute;
+    left:60%;
+}
+
+.good-button p{
+    color: #24272b;
+}
+
+.good-button .on{
+    color: rgba(191,14,36,0.93);
+}
+
+.orderPag{
+    display: flex;
+    margin: 0 40%;
+    width: 20%;
+    height: 50px;
+}
+.orderPag div{
+    width: 33.3%;
+}
+.indexPage{
+    text-align: center;
+}
+
+.iframe-contain{
+    position: fixed;
+    margin: 10% 10%;
+}
+::-webkit-scrollbar {
+    display: none;
 }
