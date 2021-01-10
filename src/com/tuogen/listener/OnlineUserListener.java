@@ -1,63 +1,35 @@
 package com.tuogen.listener;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
+import com.tuogen.model.OnlineUser;
+
+import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
 import javax.servlet.http.HttpSessionBindingEvent;
+import java.util.ArrayList;
 
 @WebListener()
-public class OnlineUserListener implements ServletContextListener,
-        HttpSessionListener, HttpSessionAttributeListener {
-
-    // Public constructor is required by servlet spec
+public class OnlineUserListener implements HttpSessionAttributeListener {
+    ArrayList<OnlineUser> onlineUserList;
     public OnlineUserListener() {
     }
-
-    // -------------------------------------------------------
-    // ServletContextListener implementation
-    // -------------------------------------------------------
-    public void contextInitialized(ServletContextEvent sce) {
-      /* This method is called when the servlet context is
-         initialized(when the Web application is deployed). 
-         You can initialize servlet context related data here.
-      */
-    }
-
-    public void contextDestroyed(ServletContextEvent sce) {
-      /* This method is invoked when the Servlet Context 
-         (the Web application) is undeployed or 
-         Application Server shuts down.
-      */
-    }
-
-    // -------------------------------------------------------
-    // HttpSessionListener implementation
-    // -------------------------------------------------------
-    public void sessionCreated(HttpSessionEvent se) {
-        /* Session is created. */
-    }
-
-    public void sessionDestroyed(HttpSessionEvent se) {
-        /* Session is destroyed. */
-    }
-
-    // -------------------------------------------------------
-    // HttpSessionAttributeListener implementation
-    // -------------------------------------------------------
-
     public void attributeAdded(HttpSessionBindingEvent sbe) {
-      /* This method is called when an attribute 
-         is added to a session.
-      */
+        if (onlineUserList==null){
+            ServletContext servletContext = sbe.getSession().getServletContext();
+            onlineUserList=new ArrayList<>();
+            servletContext.setAttribute("onlineUserList",onlineUserList);
+        }
+        //监听到添加user属性 表明有用户登录
+        if ("onlineUser".equals(sbe.getName())){
+            //并添加至域对象
+            onlineUserList.add((OnlineUser)sbe.getValue());
+        }
     }
-
     public void attributeRemoved(HttpSessionBindingEvent sbe) {
-      /* This method is called when an attribute
-         is removed from a session.
-      */
+        //监听到用户注销，删除该对象
+        if ("onlineUser".equals(sbe.getName())){
+            onlineUserList.remove(sbe.getValue());
+        }
     }
 
     public void attributeReplaced(HttpSessionBindingEvent sbe) {
@@ -65,4 +37,6 @@ public class OnlineUserListener implements ServletContextListener,
          is replaced in a session.
       */
     }
+
+
 }

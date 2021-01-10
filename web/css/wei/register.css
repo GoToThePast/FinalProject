@@ -1,0 +1,145 @@
+body{
+    background-color: rgb(249,249,249);
+    font-size: 14px;
+    font-family: Helvetica,arial,"MI Lan Pro","Hiragino Sans GB","PingFang SC","Microsoft YaHei","微軟正黑體","儷黑 Pro",sans-serif;
+}
+#container{
+    width: 854px;
+    height: 560px;
+    margin: 5% auto;
+    background-color: white;
+}
+.icon{
+    width: 50px;
+    height: 48px;
+    margin: 0 auto;
+    background-image: url(https://account.xiaomi.com/static/res/349d9c1/account-static/respassport/acc-2014/img/milogo.png);
+}
+.title{
+    font-size: 30px;
+    font-weight: normal;
+    color: #333;
+    line-height: 1.5;
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+#content{
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+.type{
+    float: left;
+    width: 50%;
+    height: 50px;
+    font-size: 25px;
+    font-weight: normal;
+    color: #333;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 40px;
+    background-color: #f3f3f3;
+}
+.type:hover{
+    background-color: #dbdada;
+}
+.selected{
+    background-color: rgb(255,103,0);
+    color: #f1f1f1;
+}
+.selected:hover{
+    background-color: rgb(255,103,0);
+}
+
+.registerCont{
+    position: absolute;
+    left: 0;
+    width: 854px;
+    height: auto;
+    display: none;
+    color: black;
+    font-family: "Microsoft soft";
+    font-size: 16px;
+    margin-top: 20px;
+}
+.selectCont{
+    display: block;
+}
+.name{
+    display: inline-block;
+    width: 80px;
+}
+input[type=text],input[type=password]{
+    outline-style: none ;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 13px 14px;
+    width: 200px;
+    height: 10px;
+    font-size: 14px;
+    margin-right: 76px;
+}
+input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+select{
+    outline-style: none ;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 230px;
+    height: 38px;
+    font-size: 14px;
+    text-align: center;
+    text-align-last: center;
+    margin-right: 76px;
+}
+
+.centerEle {
+    height: 50px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: -8px;
+}
+#viewfile1,#viewfile{
+    width: 71%;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+
+}
+.form-group{
+    margin-left: 5px;
+}
+label{
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    line-height: 38px;
+    font-weight: bold;
+    border-radius: 5%;
+}
+#upText1,#upText{
+    margin-top: 5px;
+    margin-left: -43px;
+    background-color: #eeeded;
+    color: #b6b4b4;
+    border-color:  white;
+}
+input[type=submit]{
+    width: 150px;
+    height: 42px;
+    background-color: #add6ff;
+    border: 0;
+    color: white;
+    background-color: rgb(255,103,0);
+    margin: 10px auto;
+}

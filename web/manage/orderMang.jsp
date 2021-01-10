@@ -1,5 +1,4 @@
-<%@ page import="com.tuogen.model.Order" %>
-<%@ page import="java.util.List" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2021/1/8
@@ -8,10 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="./js/jquery2_14.js"></script>
 <html>
 <head>
     <title>订单管理</title>
     <link rel="stylesheet" type="text/css" href="css/myorder.css"/>
+    <script src="./js/jquery2_14.js"></script>
+    <script src="./js/myorder.js"></script>
 </head>
 <body>
 
@@ -35,7 +37,7 @@
         <c:forEach var="order" items="${sessionScope.orderList}">
         <div class="order-info">
             <div class="order-status">
-                <h3>${order.orderStatus}</h3>
+                <p>${order.orderStatus}</p>
             </div>
             <div class="order-infomation">
                 <div class="info-data">${order.createrTime}</div>

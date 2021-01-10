@@ -84,4 +84,14 @@ public class OrderServiceImpl implements OrderService {
         }
         return tag;
     }
+
+    @Override
+    public Order createOrder(int userID, List<Integer> goodsID) {
+        return null;
+    }
+
+    @Override
+    public boolean payOrder(int orderID) {
+        return false;
+    }
 }
