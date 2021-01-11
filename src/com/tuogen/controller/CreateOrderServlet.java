@@ -39,9 +39,9 @@ public class CreateOrderServlet extends HttpServlet {
                 collect(Collectors.toList());
         // TODO: 2021/1/8 创建订单
         //创建订单并获取订单
-        Order order = orderService.createOrder(Integer.parseInt(userID), goodsID);
+        List<Order> orderList = orderService.createOrder(Integer.parseInt(userID), goodsID);
         //将订单信息加入属性供支付使用
-        request.setAttribute("order",order);
+        request.setAttribute("orderList",orderList);
         // TODO: 2021/1/8 跳转支付页面
         request.getRequestDispatcher("./view/").forward(request,response);
     }

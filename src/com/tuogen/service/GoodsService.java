@@ -16,5 +16,5 @@ public interface GoodsService {
      * @param type
      * @return 商品List
      */
-    List<Googs> getGoodsList(String type);
+    List<Googs> getGoodsListType(String type);
 }

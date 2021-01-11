@@ -7,7 +7,7 @@ import java.util.List;
 
 public class OrderServiceImpl implements OrderService {
     @Override
-    public Order createOrder(int userID, List<Integer> goodsID) {
+    public List<Order> createOrder(int userID, List<Integer> goodsID) {
         return null;
     }
 

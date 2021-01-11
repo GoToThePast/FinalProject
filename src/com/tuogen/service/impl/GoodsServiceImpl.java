@@ -12,7 +12,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public List<Googs> getGoodsList(String type) {
+    public List<Googs> getGoodsListType(String type) {
         return null;
     }
 }

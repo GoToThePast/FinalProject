@@ -11,7 +11,7 @@ public interface OrderService {
      * @param goodsID 商品编号
      * @return 生成的订单
      */
-    Order createOrder(int userID, List<Integer> goodsID);
+    List<Order> createOrder(int userID, List<Integer> goodsID);
 
     /**
      * 支付订单
