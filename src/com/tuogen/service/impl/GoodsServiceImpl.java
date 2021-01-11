@@ -105,4 +105,9 @@ public class GoodsServiceImpl implements GoodsService{
     public int goodsMerchantID(int merId) {
         return 16;
     }
+
+    @Override
+    public double getGoodsPriceByID(int goodID) {
+        return 0;
+    }
 }

@@ -14,8 +14,9 @@ public interface GoodsService {
     public int updateGoods(Goods goods) ;
     public Goods getGoods(String goodsname) ;
 
-
     void getGoodsList(String type);
 
-    int goodsMerchantID(int goodID);
+    public int goodsMerchantID(int goodID);        //通过商品ID得到商家ID
+
+    public double getGoodsPriceByID(int goodID);        //通过商品ID得到价格
 }

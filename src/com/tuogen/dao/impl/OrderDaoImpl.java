@@ -13,10 +13,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Vector;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class OrderDaoImpl implements OrderDao {
     GoodsService goodsService=new GoodsServiceImpl();
@@ -100,7 +99,8 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public Order creatOder(int userID, List<Integer> goodsID) throws SQLException {
+    public List<Order> creatOder(int userID, List<Integer> goodsID) throws SQLException {
+        List<Order> orders=new ArrayList<>();
         Connection connection = JDBCUtils.getConnection();
         Order order=new Order();
         long orderNum=System.currentTimeMillis();
@@ -114,29 +114,64 @@ public class OrderDaoImpl implements OrderDao {
         //orderStatus
         order.setOrderStatus("未付款");
 
-        //goodListId
+        //creatTime
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        simpleDateFormat.setLenient(false);
+        Date timeDate = null;//util类型
+        try {
+            timeDate = simpleDateFormat.parse(simpleDateFormat.format(new Date()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        java.sql.Timestamp dateTime = new java.sql.Timestamp(timeDate.getTime());//Timestamp类型,timeDate.getTime()返回一个long型
+        order.setCreaterTime(dateTime);
 
+        //getMap
         HashMap<Integer, List<Integer>> merchantMap = getMerMap(goodsID);
+        //遍历Map添加订单
+        int i=0;
+        for(Map.Entry<Integer, List<Integer>> entry : merchantMap.entrySet()){
+            //totalPrice
+            double totalPrice=getAllPrice(entry.getValue());
+            order.setTotalPrice(totalPrice);
+            //merchantID
+            order.setMerchantId(entry.getKey());
+            //goodsListID
+            order.setGoodsListId((int)orderNum+i);
+            //添加GoodList表
+            doAddGoodsListId((int)orderNum+i,entry.getValue());
+            //执行添加订单SQL操作
+            this.addOrder(order);
+            i++;
+            orders.add(order);
+        }
+        return orders;
+    }
 
-//        order.setGoodsListId((int)orderNum);
-//        //添加GoodsList
-//
-//        //
+    @Override
+    public boolean updateUser(int orderID, String status) throws SQLException {
+        Order order=this.queryOrderByOrderNum(Long.valueOf((int)orderID));
+        order.setOrderStatus(status);
+        return this.updateUser(order);
+    }
 
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        simpleDateFormat.setLenient(false);
-//        Date timeDate = null;//util类型
-//        try {
-//            timeDate = simpleDateFormat.parse(simpleDateFormat.format(new Date()));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//        java.sql.Timestamp dateTime = new java.sql.Timestamp(timeDate.getTime());//Timestamp类型,timeDate.getTime()返回一个long型
-//        order.setCreaterTime(dateTime);
-//        order.setMerchantId();
-//        PreparedStatement statement = connection.prepareStatement("select prodectNum from `goodsList` where goodsListID=?");
-//        JDBCUtils.close(connection,statement,resultSet);
-        return order;
+    private void doAddGoodsListId(int listID, List<Integer> value) throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        for(int goodId:value){
+            PreparedStatement statement =JDBCUtils.getConnection().prepareStatement("insert into `goodsList` values(?,?)");
+            statement.setInt(1,listID);
+            statement.setInt(2,goodId);
+            statement.executeUpdate();
+            JDBCUtils.close(connection,statement);
+        }
+    }
+    //需要更改
+    private double getAllPrice(List<Integer> goodsID) {
+        double price = 0;
+        for(int goodID:goodsID){
+            price+=goodsService.getGoodsPriceByID(goodID);
+        }
+        return price;
     }
 
     private HashMap<Integer, List<Integer>> getMerMap(List<Integer> goodsID) {
@@ -156,7 +191,6 @@ public class OrderDaoImpl implements OrderDao {
         }
         return merchantMap;
     }
-
 
     public Vector<Integer> getGoodList(int goodListId) throws SQLException {
         Connection connection = JDBCUtils.getConnection();
@@ -197,10 +231,24 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public Order queryUser(Long orderNum) throws SQLException {
+    public Order queryOrderByOrderNum(Long orderNum) throws SQLException {
         Connection connection = JDBCUtils.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select * from `order` where userID=?");
+        PreparedStatement statement = connection.prepareStatement("select * from `order` where orderNum=?");
         statement.setLong(1,orderNum);
+        ResultSet resultSet = statement.executeQuery();
+        Order order=new Order();
+        while (resultSet.next()){
+            getOrderInfo(resultSet, order);
+        }
+        JDBCUtils.close(connection,statement,resultSet);
+        return order;
+    }
+
+    @Override
+    public Order queryOrderByUserID(int BuyerID) throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select * from `order` where orderUserNum=?");
+        statement.setLong(1,BuyerID);
         ResultSet resultSet = statement.executeQuery();
         Order order=new Order();
         while (resultSet.next()){

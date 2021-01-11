@@ -60,8 +60,6 @@ public class BuyerDaoImpl implements BuyerDao{
             getBuyerInfo(resultSet, buyer);
         }
         JDBCUtils.close(connection,statement,resultSet);
-        System.out.println(buyer.toString());
-        System.out.println(buyer.getPwd());
         if(pwd.equals(buyer.getPwd())){
             return buyer;
         }

@@ -15,7 +15,9 @@ public interface OrderDao {
 
     public boolean deleteOrder(long orderNum) throws SQLException;
 
-    public Order queryUser(Long orderNum) throws SQLException;
+    public Order queryOrderByOrderNum(Long orderNum) throws SQLException;
+
+    public Order queryOrderByUserID(int BuyerID) throws SQLException;
 
     public boolean updateUser(Order order) throws SQLException;
 
@@ -25,5 +27,7 @@ public interface OrderDao {
 
     List<OrderQuery> getOrderQueryListMer(int merchantID) throws SQLException;
 
-    public Order creatOder(int userID, List<Integer> goodsID) throws SQLException;
+    public List<Order> creatOder(int userID, List<Integer> goodsID) throws SQLException;
+
+    public boolean updateUser(int orderID, String status) throws SQLException;
 }

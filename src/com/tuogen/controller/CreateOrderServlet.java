@@ -39,7 +39,12 @@ public class CreateOrderServlet extends HttpServlet {
                 collect(Collectors.toList());
         // TODO: 2021/1/8 创建订单
         //创建订单并获取订单
-        Order order = orderService.createOrder(Integer.parseInt(userID), goodsID);
+        /**
+         * Breeze
+         * 更改方法接受类型为List
+         * 2021.1.11 22：43
+         */
+        List<Order> order = orderService.createOrder(Integer.parseInt(userID), goodsID);
         //将订单信息加入属性供支付使用
         request.setAttribute("order",order);
         // TODO: 2021/1/8 跳转支付页面

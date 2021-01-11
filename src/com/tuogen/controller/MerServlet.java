@@ -4,7 +4,9 @@ import com.tuogen.model.Buyer;
 import com.tuogen.model.OnlineUser;
 import com.tuogen.model.Type;
 import com.tuogen.service.BuyerService;
+import com.tuogen.service.SellerService;
 import com.tuogen.service.impl.BuyerServiceImpl;
+import com.tuogen.service.impl.SellerServiceImpl;
 import com.tuogen.utils.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -17,10 +19,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-@WebServlet(name = "BuyerServlet",urlPatterns = "/Buyer/*")
-public class BuyerServlet extends BaseServlet {
-    BuyerService buyerService=new BuyerServiceImpl();
-
+@WebServlet(name = "MerServlet",urlPatterns = "/Mer/*")
+public class MerServlet extends BaseServlet {
+    SellerService sellerService=new SellerServiceImpl();
     public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String userAccout=req.getParameter("userName");

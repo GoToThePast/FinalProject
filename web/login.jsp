@@ -17,6 +17,7 @@
         <p><input type="text" name="passWord" value="" placeholder="密码"></p>
         <p><input type="submit" name="" value="登  录"></p>
         <p class="txt">
+            <a href="manage/login.jsp">商家登陆</a>
             <a class="" href="view/register.html">免费注册</a>
             <a href="#">忘记密码？</a>
         </p>
