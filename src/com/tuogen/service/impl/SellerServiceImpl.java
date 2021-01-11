@@ -20,4 +20,15 @@ public class SellerServiceImpl implements SellerService {
         }
         return id;
     }
+
+    @Override
+    public Seller loginUseID(int ID, String pwd) {
+        Seller seller=null;
+        try {
+            seller = sellerDao.sellerLoginUseID(ID,pwd);
+        } catch (SQLException throwables) {
+            System.out.println("添加商家用户出错");
+        }
+        return seller;
+    }
 }

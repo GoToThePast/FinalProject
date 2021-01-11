@@ -65,7 +65,6 @@ public class MerchantOrderServlet extends BaseServlet {
     public void listOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int merchantID = 45;
         List<OrderQuery> orderQueryList = orderService.getOrderQueryList(merchantID);
-        System.out.println(orderQueryList.toString());
         HttpSession session = req.getSession();
         session.setAttribute("orderList",orderQueryList);
 //        req.getRequestDispatcher("/manage/index.jsp").forward(req,resp);

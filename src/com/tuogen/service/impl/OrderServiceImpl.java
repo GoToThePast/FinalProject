@@ -78,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
     public Order queryUser(Long orderNum) {
         Order order=null;
         try {
-            order= orderDao.queryUser(orderNum);
+            order= orderDao.queryOrderByOrderNum(orderNum);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -97,8 +97,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order createOrder(int userID,List<Integer> goodsID) {
-        Order order=null;
+    public List<Order> createOrder(int userID,List<Integer> goodsID) {
+        List<Order> order=null;
         try {
             order=orderDao.creatOder(userID,goodsID);
         } catch (SQLException throwables) {
@@ -109,7 +109,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public boolean payOrder(int orderID) {
-        return false;
+        List<Order> order=null;
+        try {
+            boolean tag=orderDao.updateUser(orderID,"已付款");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return true;
     }
 
     @Override

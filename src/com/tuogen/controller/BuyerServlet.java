@@ -25,18 +25,18 @@ public class BuyerServlet extends BaseServlet {
         req.setCharacterEncoding("utf-8");
         String userAccout=req.getParameter("userName");
         String userPwd=req.getParameter("passWord");
-        System.out.println(userAccout+" "+userPwd);
         Buyer buyer=checkIdentity(userAccout,userPwd);
         if(buyer==null){
             System.out.println("登陆失败");
         }else{
-            System.out.println(buyer.toString() );
             System.out.println("登陆成功");
         }
         //添加OnlineUser session属性
         addOnlineUser(req,resp,buyer);
-
+//        req.getRequestDispatcher("/view/index.jsp").forward(req,resp);
+        resp.sendRedirect("../view/index.jsp");
     }
+
 
     private void addOnlineUser(HttpServletRequest req, HttpServletResponse resp, Buyer buyer) {
         HttpSession session = req.getSession();

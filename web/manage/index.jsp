@@ -69,7 +69,7 @@
         <div class="crumb-wrap">
             <div class="crumb-list" id="navLocation"><i class="icon-font">&#xe06b;</i><span>欢迎使用 Breeze商城。</span></div>
         </div>
-        <iframe class="iframe-contain" id="iframe-contains" src="orderMang.jsp" frameborder="0" width="100%" height="100%"></iframe>
+        <iframe class="iframe-contain" id="iframe-contains" src="welcome.jsp" frameborder="0" width="100%" height="100%"></iframe>
     </div>
     <!--/main-->
 </div>

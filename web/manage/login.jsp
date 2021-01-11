@@ -16,7 +16,7 @@
     <h1>后台管理</h1>
     <div class="adming_login_border">
         <div class="admin_input">
-            <form action="/MonkeyShop/manage/adminlogin" method="post">
+            <form action="../Mer/login" method="post">
                 <ul class="admin_items">
                     <li>
                         <label for="user">用户名：</label>
@@ -33,7 +33,7 @@
             </form>
         </div>
     </div>
-    <p class="admin_copyright"><a tabindex="5" href="#" target="_blank">返回首页</a> &copy; 2014 Powered by 更多模板：<a href="http://www.lmonkey.com/" target="_blank">学习猿地</a></p>
+    <p class="admin_copyright"><a tabindex="5" href="#" target="_blank">返回首页</a> &copy; 2021 Powered by 查看更多：<a href="http://www.4tuogen.com" target="_blank">托根</a></p>
 </div>
 </body>
 </html>
