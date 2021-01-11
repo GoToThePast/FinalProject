@@ -97,8 +97,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order createOrder(int userID, List<Integer> goodsID) {
-        return null;
+    public Order createOrder(int userID,List<Integer> goodsID) {
+        Order order=null;
+        try {
+            order=orderDao.creatOder(userID,goodsID);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return order;
     }
 
     @Override

@@ -14,11 +14,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
 public class OrderDaoImpl implements OrderDao {
     GoodsService goodsService=new GoodsServiceImpl();
+
     @Override
     public void addOrder(Order order) throws SQLException {
         Connection connection = JDBCUtils.getConnection();
@@ -95,6 +97,64 @@ public class OrderDaoImpl implements OrderDao {
             orderList.add(orderQuery);
         }
         return orderList;
+    }
+
+    @Override
+    public Order creatOder(int userID, List<Integer> goodsID) throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        Order order=new Order();
+        long orderNum=System.currentTimeMillis();
+
+        //orderID
+        order.setOrderNum(orderNum);
+
+        //BuyerID
+        order.setOrderUserNum(userID);
+
+        //orderStatus
+        order.setOrderStatus("未付款");
+
+        //goodListId
+
+        HashMap<Integer, List<Integer>> merchantMap = getMerMap(goodsID);
+
+//        order.setGoodsListId((int)orderNum);
+//        //添加GoodsList
+//
+//        //
+
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        simpleDateFormat.setLenient(false);
+//        Date timeDate = null;//util类型
+//        try {
+//            timeDate = simpleDateFormat.parse(simpleDateFormat.format(new Date()));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        java.sql.Timestamp dateTime = new java.sql.Timestamp(timeDate.getTime());//Timestamp类型,timeDate.getTime()返回一个long型
+//        order.setCreaterTime(dateTime);
+//        order.setMerchantId();
+//        PreparedStatement statement = connection.prepareStatement("select prodectNum from `goodsList` where goodsListID=?");
+//        JDBCUtils.close(connection,statement,resultSet);
+        return order;
+    }
+
+    private HashMap<Integer, List<Integer>> getMerMap(List<Integer> goodsID) {
+        HashMap<Integer, List<Integer>> merchantMap=new HashMap<>();
+        int[] goodIDs=new int[goodsID.size()];       //goodIDs
+        for(int i=0;i<goodsID.size();i++){
+
+            int merID=goodsService.goodsMerchantID(goodIDs[i]);
+
+            if(merchantMap.containsKey(merID)){
+                merchantMap.get(merID).add(goodIDs[i]);
+            }else{
+                List<Integer> ls=new ArrayList<>();
+                ls.add(goodIDs[i]);
+                merchantMap.put(merID,ls);
+            }
+        }
+        return merchantMap;
     }
 
 

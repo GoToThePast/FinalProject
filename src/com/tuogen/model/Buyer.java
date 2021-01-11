@@ -1,7 +1,7 @@
 package com.tuogen.model;
 
 
-public class Buyer {
+public class Buyer implements User {
 
   private long id;
   private String name;

@@ -100,4 +100,9 @@ public class GoodsServiceImpl implements GoodsService{
     public void getGoodsList(String type) {
 
     }
+
+    @Override
+    public int goodsMerchantID(int merId) {
+        return 16;
+    }
 }

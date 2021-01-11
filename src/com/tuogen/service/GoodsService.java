@@ -16,4 +16,6 @@ public interface GoodsService {
 
 
     void getGoodsList(String type);
+
+    int goodsMerchantID(int goodID);
 }
