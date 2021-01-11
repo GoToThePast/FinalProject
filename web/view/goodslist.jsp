@@ -13,21 +13,7 @@
     <title>后台管理系统</title>
 </head>
 <style>
-    header{
-        width: 100%;
-        height: 80px;
-        background: #3567AC;
-    }
-    .as1{
-        width:210px;
-        height:100%;
-        position:absolute;
-        top:88px;
-        background:green;
-    }
     .rt_wrap{
-        margin-left:218px;
-        margin-right:10px;
         height:100%;
         position:relative;
     }
@@ -134,15 +120,11 @@
     }
 </style>
 <body>
-<header>
-</header>
-<aside class="as1">
-</aside>
 <section class="rt_wrap content mCustomScrollbar">
     <div class="rt_content">
         <div class="page_title">
             <h2 class="fl">商品列表</h2>
-            <a href="./view/add_goods.jsp" class="fr top_rt_btn add_icon">添加商品</a>
+            <a href="./add_goods.jsp" class="fr top_rt_btn add_icon">添加商品</a>
         </div>
         <table class="table">
             <tr>
@@ -156,7 +138,7 @@
                 <th>商品介绍</th>
                 <th>操作</th>
             </tr>
-            <c:forEach var="goods" items="${requestScope.goodsList}">
+            <c:forEach var="goods" items="${goodsList}">
             <tr>
                 <td class="center"><img src="${goods.goodsPicUrl}" width="50" height="50"/></td>
                 <td class="center" id="gid">${goods.goodsID}</td>
@@ -167,8 +149,8 @@
                 <td class="center" id="gsellid">${goods.goodsSellID}</td>
                 <td class="center" id="gintroduce">${goods.goodsIntroduce}</td>
                 <td class="center">
-                    <a href="gmodPer?goodsId=${goods.goodsID}" title="编辑" ><img src="../photo/page/编辑.png" width="30" height="30"/></a>
-                    <a href="delGoods?goodsId=${goods.goodsID}" title="删除" ><img src="../photo/page/删除.png" width="30" height="30"/></a>
+                    <a href="../gmodPer?goodsId=${goods.goodsID}" title="编辑" ><img src="../photo/page/编辑.png" width="30" height="30"/></a>
+                    <a href="../delGoods?goodsId=${goods.goodsID}" title="删除" ><img src="../photo/page/删除.png" width="30" height="30"/></a>
                 </td>
             </tr>
             </c:forEach>

@@ -16,7 +16,7 @@ import java.io.IOException;
  * 在订单页面供支付使用
  * 参数：订单编号 orderID
  */
-@WebServlet(urlPatterns = "/pay")
+@WebServlet("/pay")
 public class PayServlet extends HttpServlet {
     OrderService orderService=new OrderServiceImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * 根据用户ID和商品生成订单
  * 作用：携带生成订单 跳转至支付页面
  */
-@WebServlet(urlPatterns = "/createOrder")
+@WebServlet("/createOrder")
 public class CreateOrderServlet extends HttpServlet {
     OrderService orderService=new OrderServiceImpl();
     @Override
@@ -39,14 +39,9 @@ public class CreateOrderServlet extends HttpServlet {
                 collect(Collectors.toList());
         // TODO: 2021/1/8 创建订单
         //创建订单并获取订单
-        /**
-         * Breeze
-         * 更改方法接受类型为List
-         * 2021.1.11 22：43
-         */
-        List<Order> order = orderService.createOrder(Integer.parseInt(userID), goodsID);
+        List<Order> orderList = orderService.createOrder(Integer.parseInt(userID), goodsID);
         //将订单信息加入属性供支付使用
-        request.setAttribute("order",order);
+        request.setAttribute("orderList",orderList);
         // TODO: 2021/1/8 跳转支付页面
         request.getRequestDispatcher("./view/").forward(request,response);
     }

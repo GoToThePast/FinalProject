@@ -10,6 +10,7 @@ public class Buyer implements User {
   private String email;
   private String homeAddress;
   private String phoneNum;
+
   @Override
   public String toString() {
     return "用户名"+name+"电子邮箱"+email;

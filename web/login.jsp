@@ -10,7 +10,7 @@
 </head>
 <body><!-------------------login-------------------------->
 <div class="login">
-    <form action="Buyer/login" method="post"><h1><a href="#"><img src="manage/img/temp/logo.png"></a></h1>
+    <form action="Buyer/login" method="post"><h1><a href="#"><img src="photo/cc_img/temp/logo.png"></a></h1>
         <p></p>
         <div class="msg-warn hide"><b></b>公共场所不建议自动登录，以防账号丢失</div>
         <p><input type="text" name="userName" value="" placeholder="昵称/邮箱/手机号"></p>

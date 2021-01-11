@@ -4,7 +4,7 @@ public class Goods {
     int goodsID;
     String goodsName="";
     String goodsType="";
-    int goodsPrice;
+    double goodsPrice;
     int goodsStock;
     int goodsSellID;
     String goodsIntroduce="";
@@ -12,7 +12,7 @@ public class Goods {
     public Goods() {
     }
 
-    public Goods(int goodsID, String goodsName, String goodsType, int goodsPrice, int goodsStock, int goodsSellID, String goodsIntroduce, String goodsPicUrl) {
+    public Goods(int goodsID, String goodsName, String goodsType, double goodsPrice, int goodsStock, int goodsSellID, String goodsIntroduce, String goodsPicUrl) {
         this.goodsID=goodsID;
         this.goodsName=goodsName;
         this.goodsType=goodsType;
@@ -24,10 +24,7 @@ public class Goods {
 
     }
 
-    @Override
-    public String toString() {
-        return "商品名："+goodsName+"商品ID:"+goodsID;
-    }
+
 
     public int getGoodsID() {
         return goodsID;
@@ -54,11 +51,11 @@ public class Goods {
         this.goodsType = goodsType;
     }
 
-    public int getGoodsPrice() {
+    public double getGoodsPrice() {
         return goodsPrice;
     }
 
-    public void setGoodsPrice(int goodsPrice) {
+    public void setGoodsPrice(double goodsPrice) {
         this.goodsPrice = goodsPrice;
     }
 

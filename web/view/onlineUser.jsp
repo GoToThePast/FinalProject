@@ -15,13 +15,30 @@
 <body>
 <article>
     <h1>在线用户列表</h1>
-    <table >
+    <table>
         <tr>
-            <td class="td_head td_icon">Icon</td>
-            <td class="td_head td_name">ID</td>
-            <td class="td_head td_name">Name</td>
-            <td class="td_head td_name">Type</td>
-            <td class="td_head td_name">LoginDate</td>
+            <td class="td_head">Icon</td>
+            <td class="td_head">ID</td>
+            <td class="td_head">Name</td>
+            <td class="td_head">Type</td>
+            <td class="td_head">LoginDate</td>
+        </tr>
+        <tr>
+            <td class="td_info">
+                <img class="pic" src="66062860_p0.jpg">
+            </td>
+            <td class="td_info">
+                12345
+            </td>
+            <td class="td_info">
+                wangwei
+            </td>
+            <td class="td_info">
+                BUYER
+            </td>
+            <td class="td_info">
+                2020-12-12 12:31:22
+            </td>
         </tr>
         <tr>
             <td class="td_info">

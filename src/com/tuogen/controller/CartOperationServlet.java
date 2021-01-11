@@ -1,8 +1,8 @@
 package com.tuogen.controller;
 
 import com.tuogen.service.GoodsService;
-import com.tuogen.service.impl.GoodsServiceImpl;
 import com.tuogen.model.Goods;
+import com.tuogen.service.impl.GoodsServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

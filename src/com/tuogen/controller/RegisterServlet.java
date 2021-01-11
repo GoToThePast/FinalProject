@@ -28,7 +28,7 @@ import java.util.List;
  * Made By 王炜
  * 供注册使用Servlet
  */
-@WebServlet(urlPatterns = "/register")
+@WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     private static final HashMap<String,Field> BuyerFieldMap=getFieldMap(Buyer.class);
     private static final HashMap<String,Field> SellerFieldMap=getFieldMap(Seller.class);

@@ -3,7 +3,6 @@ package com.tuogen.service.impl;
 import com.tuogen.dao.impl.GoodsDaoImpl;
 import com.tuogen.model.Goods;
 import com.tuogen.service.GoodsService;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -31,14 +30,36 @@ public class GoodsServiceImpl implements GoodsService{
     }
 
     @Override
-    public List<Goods> getGoodsList(int goodsstart, int goodsnum) {
+    public List<Goods> getGoodsList(int goodsstart, int goodsnum,int sellid) {
         List<Goods> goodsList=null;
         try {
-            goodsList= goodsDao.getGoodsList(goodsstart,goodsnum);
+            goodsList= goodsDao.getGoodsList(goodsstart,goodsnum,sellid);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return goodsList;
+    }
+
+    @Override
+    public List<Goods> getGoodsListUser(int goodsstart, int goodsnum) {
+        List<Goods> goodsList=null;
+        try {
+            goodsList= goodsDao.getGoodsListUser(goodsstart,goodsnum);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return goodsList;
+    }
+
+    @Override
+    public List<Goods> GoodsListType(String goodstype) {
+        List<Goods> goodsListType=null;
+        try {
+            goodsListType= goodsDao.getGoodsListType(goodstype);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return goodsListType;
     }
 
     @Override
@@ -64,14 +85,31 @@ public class GoodsServiceImpl implements GoodsService{
     }
 
     @Override
-    public Goods queryGoodsList(String goodstype) {
-        Goods goods=null;
+    public int goodsMerchantID(int goodID) {
+        int goodsSellID=0;
         try {
-            goods= goodsDao.queryGoodsList(goodstype);
+            goodsSellID= goodsDao.goodsMerchantID(goodID);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return goods;
+        return goodsSellID;
+    }
+
+    @Override
+    public double getGoodsPriceByID(int goodID) {
+        double price=0;
+        try {
+            price= goodsDao.getGoodsPriceByID(goodID);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return price;
+    }
+
+    @Override
+    public void getGoodsListType(String type) {
+        // 待实现
+
     }
 
     @Override
@@ -94,20 +132,5 @@ public class GoodsServiceImpl implements GoodsService{
             throwables.printStackTrace();
         }
         return goods;
-    }
-
-    @Override
-    public void getGoodsList(String type) {
-
-    }
-
-    @Override
-    public int goodsMerchantID(int merId) {
-        return 16;
-    }
-
-    @Override
-    public double getGoodsPriceByID(int goodID) {
-        return 0;
     }
 }

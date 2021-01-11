@@ -12,21 +12,8 @@
     <title>后台管理系统</title>
 </head>
 <style>
-    header{
-        width: 100%;
-        height: 80px;
-        background: #3567AC;
-    }
-    .as1{
-        width:210px;
-        height:100%;
-        position:absolute;
-        top:88px;
-        background:green;
-    }
+
     .rt_wrap{
-        margin-left:218px;
-        margin-right:10px;
         height:100%;
         position:relative;
     }
@@ -141,10 +128,6 @@
 
 </style>
 <body>
-<header>
-</header>
-<aside class="as1">
-</aside>
 <form  class="rt_wrap content mCustomScrollbar"  action="/web_war_exploded/AddGoods" method="post" enctype="multipart/form-data">
     <div class="rt_content">
         <div class="page_title">
@@ -164,10 +147,13 @@
                 <li>
                     <span class="item_name" style="width:120px;">商品类型：</span>
                     <select name="gtype" class="select">
-                        <option>手机数码</option>
-                        <option>防疫家电</option>
-                        <option>家用照明</option>
-                        <option>电池插座</option>
+                        <option>卧室家具</option>
+                        <option>客厅家具</option>
+                        <option>餐厅家具</option>
+                        <option>书房家具</option>
+                        <option>厨房家具</option>
+                        <option>卫生间家具</option>
+                        <option>户外家具</option>
                     </select>
                 </li>
                 <li>

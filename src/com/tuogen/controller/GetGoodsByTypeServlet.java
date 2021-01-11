@@ -15,7 +15,7 @@ import java.io.IOException;
  * 根据类型获取商品类型
  * 参数：商品类型 type
  */
-@WebServlet(urlPatterns = "/getGoodsByType")
+@WebServlet("/getGoodsByType")
 public class GetGoodsByTypeServlet extends HttpServlet {
     private GoodsService goodsService=new GoodsServiceImpl();
 
@@ -23,7 +23,8 @@ public class GetGoodsByTypeServlet extends HttpServlet {
         // TODO: 2021/1/8 编码待删除
         request.setCharacterEncoding("utf-8");
         String type = request.getParameter("type");
-        goodsService.getGoodsList(type);
+        // TODO: 2021/1/9
+        goodsService.getGoodsListType(type);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

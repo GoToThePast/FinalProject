@@ -2,18 +2,20 @@ body{
     background-color: rgb(249,249,249);
     font-size: 14px;
     font-family: Helvetica,arial,"MI Lan Pro","Hiragino Sans GB","PingFang SC","Microsoft YaHei","微軟正黑體","儷黑 Pro",sans-serif;
+    user-select: none;
 }
 #container{
     width: 854px;
-    height: 560px;
+    height: 580px;
     margin: 5% auto;
     background-color: white;
 }
-.icon{
-    width: 50px;
-    height: 48px;
-    margin: 0 auto;
-    background-image: url(https://account.xiaomi.com/static/res/349d9c1/account-static/respassport/acc-2014/img/milogo.png);
+h1{
+    padding-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(170,23,23);
 }
 .title{
     font-size: 30px;
@@ -40,17 +42,18 @@ body{
     line-height: 50px;
     text-align: center;
     margin-top: 40px;
-    background-color: #f3f3f3;
+    background-color: rgb(230,234,242);
 }
 .type:hover{
-    background-color: #dbdada;
+    background-color: rgb(239, 246, 255);
 }
 .selected{
-    background-color: rgb(255,103,0);
+    background-color: rgb(170,23,23);
+
     color: #f1f1f1;
 }
 .selected:hover{
-    background-color: rgb(255,103,0);
+    background-color: rgb(170,23,23);
 }
 
 .registerCont{
@@ -141,5 +144,7 @@ input[type=submit]{
     border: 0;
     color: white;
     background-color: rgb(255,103,0);
+    background-color: rgb(170,23,23);
+
     margin: 10px auto;
 }
