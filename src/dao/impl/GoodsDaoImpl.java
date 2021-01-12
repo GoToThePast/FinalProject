@@ -59,6 +59,7 @@ public class GoodsDaoImpl implements  GoodsDao {
             getGoodsInfo(resultSet, goods);
             list.add(goods);
         }
+
         JDBCUtils.close(connection,statement,resultSet);
         return list;
     }
@@ -106,6 +107,32 @@ public class GoodsDaoImpl implements  GoodsDao {
     }
 
     @Override
+    public int goodsMerchantID(int goodID) throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select goodsSellID from goods where goodsID=?");
+        statement.setInt(1,goodID);
+        ResultSet resultSet = statement.executeQuery();
+        resultSet.next();
+        int sellid = resultSet.getInt(1);
+        //System.out.println(sellid);
+        JDBCUtils.close(connection,statement,resultSet);
+        return sellid;
+    }
+
+    @Override
+    public double getGoodsPriceByID(int goodID) throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select goodsPrice from goods where goodsID=?");
+        statement.setInt(1,goodID);
+        ResultSet resultSet = statement.executeQuery();
+        resultSet.next();
+        double price = resultSet.getDouble(1);
+        //System.out.println(price);
+        JDBCUtils.close(connection,statement,resultSet);
+        return price;
+    }
+
+    @Override
     public int updateGoods(Goods goods) throws SQLException {
         Connection connection = JDBCUtils.getConnection();
         PreparedStatement statement = connection.prepareStatement
@@ -121,7 +148,7 @@ public class GoodsDaoImpl implements  GoodsDao {
         goods.setGoodsID(resultSet.getInt(1));
         goods.setGoodsName(resultSet.getString(2));
         goods.setGoodsType(resultSet.getString(3));
-        goods.setGoodsPrice(resultSet.getInt(4));
+        goods.setGoodsPrice(resultSet.getDouble(4));
         goods.setGoodsStock(resultSet.getInt(5));
         goods.setGoodsSellID(resultSet.getInt(6));
         goods.setGoodsIntroduce(resultSet.getString(7));
@@ -132,7 +159,7 @@ public class GoodsDaoImpl implements  GoodsDao {
         statement.setInt(1,goods.getGoodsID());
         statement.setString(2,goods.getGoodsName());
         statement.setString(3,goods.getGoodsType());
-        statement.setInt(4,goods.getGoodsPrice());
+        statement.setDouble(4,goods.getGoodsPrice());
         statement.setInt(5,goods.getGoodsStock());
         statement.setInt(6,goods.getGoodsSellID());
         statement.setString(7,goods.getGoodsIntroduce());
@@ -141,7 +168,7 @@ public class GoodsDaoImpl implements  GoodsDao {
     private void setGoodsInfo(Goods goods, PreparedStatement statement,int not) throws SQLException {
         statement.setString(1,goods.getGoodsName());
         statement.setString(2,goods.getGoodsType());
-        statement.setInt(3,goods.getGoodsPrice());
+        statement.setDouble(3,goods.getGoodsPrice());
         statement.setInt(4,goods.getGoodsStock());
         statement.setInt(5,goods.getGoodsSellID());
         statement.setString(6,goods.getGoodsIntroduce());

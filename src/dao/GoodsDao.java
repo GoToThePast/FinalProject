@@ -13,4 +13,7 @@ public interface GoodsDao {
     public int updateGoods(Goods goods) throws SQLException;
     public Goods getGoods(String goodsname) throws SQLException;
     public List<Goods> getGoodsListType(String goodstype) throws SQLException;//查看分类
+    public  int goodsMerchantID(int goodID) throws SQLException;//通过商品ID得到商家ID
+    public double getGoodsPriceByID(int goodID) throws SQLException;//通过商品ID得到价格
+
 }

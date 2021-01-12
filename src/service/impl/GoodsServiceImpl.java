@@ -72,7 +72,27 @@ public class GoodsServiceImpl implements GoodsService{
         return goods;
     }
 
+    @Override
+    public int goodsMerchantID(int goodID) {
+        int goodsSellID=0;
+        try {
+            goodsSellID= goodsDao.goodsMerchantID(goodID);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return goodsSellID;
+    }
 
+    @Override
+    public double getGoodsPriceByID(int goodID) {
+        double price=0;
+        try {
+            price= goodsDao.getGoodsPriceByID(goodID);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return price;
+    }
 
     @Override
     public int updateGoods(Goods goods) {

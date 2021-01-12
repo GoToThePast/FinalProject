@@ -42,7 +42,7 @@ public class AddGoodsServlet extends HttpServlet {
         int goodsID=0;
         String goodsName = "";
         String goodsType ="";
-        int goodsPrice=0;
+        double goodsPrice=0;
         int goodsStock=0;
         int goodsSellID=0;
         String goodsIntroduce = "";
@@ -71,7 +71,7 @@ public class AddGoodsServlet extends HttpServlet {
                                 goodsType=item.getString("UTF-8");
                                 break;
                             case "gprice":
-                                goodsPrice=Integer.parseInt(item.getString());
+                                goodsPrice=Double.parseDouble(item.getString());
                                 break;
                             case "gstock":
                                 goodsStock=Integer.parseInt(item.getString());
