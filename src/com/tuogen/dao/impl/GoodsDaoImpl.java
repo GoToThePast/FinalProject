@@ -1,17 +1,15 @@
 package com.tuogen.dao.impl;
 
 
-import com.tuogen.dao.GoodsDao;
 import com.tuogen.model.Goods;
+import com.tuogen.dao.GoodsDao;
 import com.tuogen.utils.JDBCUtils;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 public class GoodsDaoImpl implements  GoodsDao {
     public Goods getGoods(String goodsname) throws SQLException {
         Connection connection = JDBCUtils.getConnection();
@@ -49,7 +47,26 @@ public class GoodsDaoImpl implements  GoodsDao {
     }
 
     @Override
-    public List<Goods> getGoodsList(int goodsstart, int goodsnum) throws SQLException {
+    public List<Goods> getGoodsList(int goodsstart, int goodsnum,int sellid) throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select * from goods where goodsSellID=? limit ?,?");
+        statement.setInt(1,sellid);
+        statement.setInt(2,goodsstart);
+        statement.setInt(3,goodsnum);
+        ResultSet resultSet = statement.executeQuery();
+        List<Goods> list=new ArrayList<>();
+        while (resultSet.next()){
+            Goods goods=new Goods();
+            getGoodsInfo(resultSet, goods);
+            list.add(goods);
+        }
+
+        JDBCUtils.close(connection,statement,resultSet);
+        return list;
+    }
+
+    @Override
+    public List<Goods> getGoodsListUser(int goodsstart, int goodsnum) throws SQLException {
         Connection connection = JDBCUtils.getConnection();
         PreparedStatement statement = connection.prepareStatement("select * from goods limit ?,?");
         statement.setInt(1,goodsstart);
@@ -61,9 +78,27 @@ public class GoodsDaoImpl implements  GoodsDao {
             getGoodsInfo(resultSet, goods);
             list.add(goods);
         }
+
         JDBCUtils.close(connection,statement,resultSet);
         return list;
     }
+
+    @Override
+    public List<Goods> getGoodsListType(String goodstype) throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select * from goods where goodsType=?");
+        statement.setString(1,goodstype);
+        ResultSet resultSet = statement.executeQuery();
+        List<Goods> listty=new ArrayList<>();
+        while (resultSet.next()){
+            Goods goods=new Goods();
+            getGoodsInfo(resultSet, goods);
+            listty.add(goods);
+        }
+        JDBCUtils.close(connection,statement,resultSet);
+        return listty;
+    }
+
 
     @Override
     public int deleteGoods(int goodsId) throws SQLException {
@@ -91,17 +126,29 @@ public class GoodsDaoImpl implements  GoodsDao {
     }
 
     @Override
-    public Goods queryGoodsList(String goodstype) throws SQLException {
+    public int goodsMerchantID(int goodID) throws SQLException {
         Connection connection = JDBCUtils.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select * from goods where goodsType=?");
-        statement.setString(1,goodstype);
+        PreparedStatement statement = connection.prepareStatement("select goodsSellID from goods where goodsID=?");
+        statement.setInt(1,goodID);
         ResultSet resultSet = statement.executeQuery();
-        Goods goods=new Goods();
-        while (resultSet.next()){
-            getGoodsInfo(resultSet, goods);
-        }
+        resultSet.next();
+        int sellid = resultSet.getInt(1);
+        //System.out.println(sellid);
         JDBCUtils.close(connection,statement,resultSet);
-        return goods;
+        return sellid;
+    }
+
+    @Override
+    public double getGoodsPriceByID(int goodID) throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select goodsPrice from goods where goodsID=?");
+        statement.setInt(1,goodID);
+        ResultSet resultSet = statement.executeQuery();
+        resultSet.next();
+        double price = resultSet.getDouble(1);
+        //System.out.println(price);
+        JDBCUtils.close(connection,statement,resultSet);
+        return price;
     }
 
     @Override
@@ -120,7 +167,7 @@ public class GoodsDaoImpl implements  GoodsDao {
         goods.setGoodsID(resultSet.getInt(1));
         goods.setGoodsName(resultSet.getString(2));
         goods.setGoodsType(resultSet.getString(3));
-        goods.setGoodsPrice(resultSet.getInt(4));
+        goods.setGoodsPrice(resultSet.getDouble(4));
         goods.setGoodsStock(resultSet.getInt(5));
         goods.setGoodsSellID(resultSet.getInt(6));
         goods.setGoodsIntroduce(resultSet.getString(7));
@@ -131,7 +178,7 @@ public class GoodsDaoImpl implements  GoodsDao {
         statement.setInt(1,goods.getGoodsID());
         statement.setString(2,goods.getGoodsName());
         statement.setString(3,goods.getGoodsType());
-        statement.setInt(4,goods.getGoodsPrice());
+        statement.setDouble(4,goods.getGoodsPrice());
         statement.setInt(5,goods.getGoodsStock());
         statement.setInt(6,goods.getGoodsSellID());
         statement.setString(7,goods.getGoodsIntroduce());
@@ -140,7 +187,7 @@ public class GoodsDaoImpl implements  GoodsDao {
     private void setGoodsInfo(Goods goods, PreparedStatement statement,int not) throws SQLException {
         statement.setString(1,goods.getGoodsName());
         statement.setString(2,goods.getGoodsType());
-        statement.setInt(3,goods.getGoodsPrice());
+        statement.setDouble(3,goods.getGoodsPrice());
         statement.setInt(4,goods.getGoodsStock());
         statement.setInt(5,goods.getGoodsSellID());
         statement.setString(6,goods.getGoodsIntroduce());
