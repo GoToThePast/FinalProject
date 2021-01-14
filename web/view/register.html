@@ -32,15 +32,19 @@
                                 <input type="text" name="email">
                             </li>
                             <li>
+                                <span class="name">电话:</span>
+                                <input type="text" name="phoneNumber">
+                            </li>
+                            <li>
                                 <span class="name">收货地址:</span>
-                                <input type="text" name="deliveryAddr">
+                                <input type="text" name="homeAddress">
                             </li>
                             <li>
                                 <div class="centerEle">
                                     <span class="name">头像:</span>
                                     <div class="form-group col-md-3  mb-2">
                                         <input type="text"  id="viewfile1" placeholder="未选择文件" disabled autocomplete="off" class="form-control">
-                                        <input type="file" style="display: none" name="photo" onchange="javascript: reShow1();" id="upload1"/>
+                                        <input type="file" style="display: none" name="picUrl" onchange="javascript: reShow1();" id="upload1"/>
                                     </div>
                                     <label class="btn btn-primary  mb-2" for="upload1" id="upText1">浏览</label>
                                 </div>
@@ -82,10 +86,13 @@
                             <li>
                                 <span class="name">类型:</span>
                                 <select name="type">
-                                    <option value="phone">手机</option>
-                                    <option value="iPad">平板</option>
-                                    <option value="Computer">笔记本</option>
-                                    <option value="electrical ">家电</option>
+                                    <option value="bedroom">卧室家具</option>
+                                    <option value="livingRoom">客厅家具</option>
+                                    <option value="diningRoom">餐厅家具</option>
+                                    <option value="studyRoom">书房家具</option>
+                                    <option value="kitchenRoom">厨房家具</option>
+                                    <option value="bathroom">卫生间家具</option>
+                                    <option value="outdoors">户外家具</option>
                                 </select>
                             </li>
                             <li>

@@ -16,14 +16,14 @@ public class SellerDaoImpl implements SellerDao {
     @Override
     public int addUser(Seller seller) throws SQLException {
         Connection connection = JDBCUtils.getConnection();
-        PreparedStatement statement = connection.prepareStatement("insert seller values(null,?,?,?,?,null,null ,null )", Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement statement = connection.prepareStatement("insert seller values(null,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
         statement.setString(1,seller.getName());
         statement.setString(2,seller.getPassword());
         statement.setString(3,seller.getType());
         statement.setString(4,seller.getEmail());
-        statement.setString(4,seller.getBankCard());
-        statement.setString(4,seller.getDeliveryAddr());
-        statement.setString(4,seller.getIcon());
+        statement.setString(5,seller.getBankCard());
+        statement.setString(6,seller.getDeliveryAddr());
+        statement.setString(7,seller.getIcon());
         statement.executeUpdate();
         ResultSet generatedKeys = statement.getGeneratedKeys();
         generatedKeys.next();
