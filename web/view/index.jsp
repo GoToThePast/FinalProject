@@ -8,6 +8,8 @@
     <title>坨根</title>
     <link rel="stylesheet" type="text/css" href="../css/cc_css/public.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cc_css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cc_css/idea.css"/>
+
 </head>
 <body><!------------------------------head------------------------------>
 
@@ -161,7 +163,139 @@
             </dl>
         </a></div>
     </div>
-</div><!--返回顶部-->
+</div>
+<div class="imgList1">
+    <div class="wrapper">
+        <h2><img src="../photo/cc_img/ih5.jpg"/></h2>
+        <div class="box2"><a href="proDetail.html" class="banner"><img src="../photo/cc_img/idea22.jpg"/></a>
+            <ul>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id1.jpg"/></dt>
+                        <dd>【最家】时尚家居摆件简约创意装饰品</dd>
+                        <dd>¥98.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id2.jpg"/></dt>
+                        <dd>【最家】时尚家居摆件简约创意装饰品</dd>
+                        <dd>¥98.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id3.jpg"/></dt>
+                        <dd>【最家】时尚家居摆件简约创意装饰品</dd>
+                        <dd>¥98.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id4.jpg"/></dt>
+                        <dd>【最家】时尚家居摆件简约创意装饰品</dd>
+                        <dd>¥98.00</dd>
+                    </dl>
+                </a></li>
+            </ul>
+            <ul>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id5.jpg"/></dt>
+                        <dd>【最家】时尚家居摆件简约创意装饰品</dd>
+                        <dd>¥98.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id6.jpg"/></dt>
+                        <dd>【最家】时尚家居摆件简约创意装饰品</dd>
+                        <dd>¥98.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id7.jpg"/></dt>
+                        <dd>【最家】时尚家居摆件简约创意装饰品</dd>
+                        <dd>¥98.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id8.jpg"/></dt>
+                        <dd>【最家】时尚家居摆件简约创意装饰品</dd>
+                        <dd>¥98.00</dd>
+                    </dl>
+                </a></li>
+            </ul>
+        </div>
+        <a name="1"></a>
+        <h2><img src="../photo/cc_img/ih6.jpg"/></h2>
+        <div class="box3">
+            <ul>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id9.jpg"/></dt>
+                        <dd>【最家】创意摆件自行车复古</dd>
+                        <dd>¥288.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id10.jpg"/></dt>
+                        <dd>【最家】创意女孩秋千公主荡秋千</dd>
+                        <dd>¥200.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id11.jpg"/></dt>
+                        <dd>【最家】创意墙式挂饰水瓶</dd>
+                        <dd>¥50.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id12.jpg"/></dt>
+                        <dd>【最家】创意两只鹿</dd>
+                        <dd>¥99.00</dd>
+                    </dl>
+                </a></li>
+            </ul>
+            <ul>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id13.jpg"/></dt>
+                        <dd>【最家】创意两只小象</dd>
+                        <dd>¥170.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id14.jpg"/></dt>
+                        <dd>【最家】简约客厅电视现代中式家居摆件</dd>
+                        <dd>¥179.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id15.jpg"/></dt>
+                        <dd>【最家】创意样板房树脂工艺品</dd>
+                        <dd>¥188.00</dd>
+                    </dl>
+                </a></li>
+                <li><a href="proDetail.html" class="on">
+                    <dl>
+                        <dt><img src="../photo/cc_img/id16.jpg"/></dt>
+                        <dd>【最家】创意笔筒小象</dd>
+                        <dd>¥30.00</dd>
+                    </dl>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--返回顶部-->
 <div class="gotop"><a href="cart.html">
     <dl>
         <dt><img src="../photo/cc_img/gt1.png"/></dt>

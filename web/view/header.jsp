@@ -29,13 +29,41 @@
             </div>
         </div>
         <ul class="clearfix" id="bott">
-            <li><a href="indexselect">首页</a></li>
-            <li><a href="selectproductlist?fid=${f.CATE_ID }">客厅家具</a></li>
-            <li><a href="selectproductlist?fid=${f.CATE_ID }">餐厅家具</a></li>
-            <li><a href="selectproductlist?fid=${f.CATE_ID }">书房家具</a></li>
-            <li><a href="selectproductlist?fid=${f.CATE_ID }">厨房家具</a></li>
-            <li><a href="selectproductlist?fid=${f.CATE_ID }">卫生间家具</a></li>
-            <li><a href="selectproductlist?fid=${f.CATE_ID }">户外家具</a></li>
+            <li><a href="../getGoodsByType">首页</a>
+                <div class="sList">
+                    <div class="wrapper  clearfix"><a href="paint.html">
+                        <dl>
+                            <dt><img src="../photo/cc_img/nav1.jpg"/></dt>
+                            <dd>装饰摆件</dd>
+                        </dl>
+                    </a><a href="paint.html">
+                        <dl>
+                            <dt><img src="../photo/cc_img/nav2.jpg"/></dt>
+                            <dd>布艺软饰</dd>
+                        </dl>
+                    </a><a href="paint.html">
+                        <dl>
+                            <dt><img src="../photo/cc_img/nav3.jpg"/></dt>
+                            <dd>墙式壁挂</dd>
+                        </dl>
+                    </a><a href="paint.html">
+                        <dl>
+                            <dt><img src="../photo/cc_img/nav6.jpg"/></dt>
+                            <dd>蜡艺香薰</dd>
+                        </dl>
+                    </a><a href="#1">
+                        <dl>
+                            <dt><img src="../photo/cc_img/nav7.jpg"/></dt>
+                            <dd>创意家居</dd>
+                        </dl>
+                    </a></div>
+                </div>
+            </li>
+            <li><a href="../getGoodsByType?type=餐厅家具">餐厅家具</a></li>
+            <li><a href="../getGoodsByType?type=书房家具">书房家具</a></li>
+            <li><a href="../getGoodsByType?type=厨房家具">厨房家具</a></li>
+            <li><a href="../getGoodsByType?type=卫生间家具">卫生间家具</a></li>
+            <li><a href="../getGoodsByType?type=户外家具">户外家具</a></li>
         </ul>
     </div>
 </div>

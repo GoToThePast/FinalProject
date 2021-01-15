@@ -141,7 +141,7 @@ article, aside, figcaption, figure, footer, header, hgroup, nav, section, summar
     float: right;
     width: 13%;
     padding-bottom: 10px;
-    background: url("../img/ss.png") no-repeat right 5px;
+    background: url("../../photo/cc_img/ss.png") no-repeat right 5px;
     cursor: pointer;
 }
 
@@ -163,7 +163,7 @@ article, aside, figcaption, figure, footer, header, hgroup, nav, section, summar
 
 .head ul li {
     float: left;
-    padding: 0 20px;
+    padding: 0 30px;
 }
 
 .head ul li > a {

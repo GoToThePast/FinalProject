@@ -28,7 +28,7 @@ public class ModGoodsServlet extends HttpServlet {
         Goods goods =this.getGoods(request);
         if (goods==null){
             request.getSession().setAttribute("updateStatus",0);
-            response.sendRedirect("/web_war_exploded/modGoods?goodsId="+goodsId);
+            response.sendRedirect("/web/modGoods?goodsId="+goodsId);
             return;
         }
         int tag = goodsService.updateGoods(goods);

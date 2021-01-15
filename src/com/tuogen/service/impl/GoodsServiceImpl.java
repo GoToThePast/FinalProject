@@ -107,9 +107,10 @@ public class GoodsServiceImpl implements GoodsService{
     }
 
     @Override
-    public void getGoodsListType(String type) {
+    public List<Goods> getGoodsListType(String type) {
         // 待实现
 
+        return null;
     }
 
     @Override

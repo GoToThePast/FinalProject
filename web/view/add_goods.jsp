@@ -147,13 +147,11 @@
                 <li>
                     <span class="item_name" style="width:120px;">商品类型：</span>
                     <select name="gtype" class="select">
-                        <option>卧室家具</option>
-                        <option>客厅家具</option>
-                        <option>餐厅家具</option>
-                        <option>书房家具</option>
-                        <option>厨房家具</option>
-                        <option>卫生间家具</option>
-                        <option>户外家具</option>
+                        <option>装饰摆件</option>
+                        <option>布艺软饰</option>
+                        <option>墙式壁挂</option>
+                        <option>蜡艺香熏</option>
+                        <option>创意家居</option>
                     </select>
                 </li>
                 <li>

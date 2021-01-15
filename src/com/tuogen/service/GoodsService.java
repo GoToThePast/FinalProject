@@ -2,7 +2,6 @@ package com.tuogen.service;
 
 import com.tuogen.model.Goods;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface GoodsService{
@@ -19,5 +18,5 @@ public interface GoodsService{
     public double getGoodsPriceByID(int goodID);//通过商品ID得到价格
 
     //getGoodsByTypeServlet  中调用待实现
-    void getGoodsListType(String type);
+    public List<Goods> getGoodsListType(String type);
 }

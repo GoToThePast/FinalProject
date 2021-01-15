@@ -147,13 +147,11 @@
                 <li>
                     <span class="item_name" style="width:120px;">商品类型：</span>
                     <select name="gtype" class="select" >
-                        <option value="卧室家具" <c:if test="${requestScope.goods.goodsType=='卧室家具'}">selected</c:if>>卧室家具</option>
-                        <option value="客厅家具" <c:if test="${requestScope.goods.goodsType=='客厅家具'}">selected</c:if>>客厅家具</option>
-                        <option value="餐厅家具" <c:if test="${requestScope.goods.goodsType=='餐厅家具'}">selected</c:if>>餐厅家具</option>
-                        <option value="书房家具" <c:if test="${requestScope.goods.goodsType=='书房家具'}">selected</c:if>>书房家具</option>
-                        <option value="厨房家具" <c:if test="${requestScope.goods.goodsType=='厨房家具'}">selected</c:if>>厨房家具</option>
-                        <option value="卫生间家具" <c:if test="${requestScope.goods.goodsType=='卫生间家具'}">selected</c:if>>卫生间家具</option>
-                        <option value="户外家具" <c:if test="${requestScope.goods.goodsType=='户外家具'}">selected</c:if>>户外家具</option>
+                        <option value="装饰摆件" <c:if test="${requestScope.goods.goodsType=='装饰摆件'}">selected</c:if>>卧室家具</option>
+                        <option value="布艺软饰" <c:if test="${requestScope.goods.goodsType=='布艺软饰'}">selected</c:if>>客厅家具</option>
+                        <option value="墙式壁挂" <c:if test="${requestScope.goods.goodsType=='墙式壁挂'}">selected</c:if>>餐厅家具</option>
+                        <option value="蜡艺香熏" <c:if test="${requestScope.goods.goodsType=='蜡艺香熏'}">selected</c:if>>书房家具</option>
+                        <option value="创意家居" <c:if test="${requestScope.goods.goodsType=='创意家居'}">selected</c:if>>厨房家具</option>
                     </select>
                 </li>
                 <li>

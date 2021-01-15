@@ -36,7 +36,7 @@ public class BuyerServlet extends BaseServlet {
         }
     }
 
-    private void Buyer_logInit(HttpServletRequest req, HttpServletResponse resp, Buyer buyer) throws IOException {
+    private void Buyer_logInit(HttpServletRequest req, HttpServletResponse resp, Buyer buyer) throws IOException, ServletException {
         HttpSession session = req.getSession();
 
         //设置session中islong=1
@@ -48,8 +48,11 @@ public class BuyerServlet extends BaseServlet {
         //添加OnlineUser session属性
         addOnlineUser(req,resp,buyer);
 
+        //获取所有商品
+
         //返回
         resp.sendRedirect("../view/index.jsp");
+//        req.getRequestDispatcher("goodsList").forward(req,resp);
     }
 
 
