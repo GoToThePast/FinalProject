@@ -22,8 +22,6 @@ public class GetGoodsByTypeServlet extends HttpServlet {
     private GoodsService goodsService=new GoodsServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 2021/1/8 编码待删除
-        request.setCharacterEncoding("utf-8");
         String type = request.getParameter("type");
         // TODO: 2021/1/9 goodsService.getGoodsListType
         List<Goods> goodsList= goodsService.getGoodsListType(type);

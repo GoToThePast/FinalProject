@@ -20,8 +20,6 @@ import java.io.IOException;
 public class PayServlet extends HttpServlet {
     OrderService orderService=new OrderServiceImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 2021/1/8 编码待删除
-        request.setCharacterEncoding("utf-8");
         //获取订单编号
         String orderID = request.getParameter("orderID");
         boolean isOk = orderService.payOrder(Integer.parseInt(orderID));

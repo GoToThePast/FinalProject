@@ -29,8 +29,6 @@ public class CartOperationServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 2021/1/8 编码
-        request.setCharacterEncoding("utf-8");
         //商品编号
         String goodsID="goodsID";
         //类型

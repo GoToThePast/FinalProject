@@ -29,8 +29,6 @@ public class CreateOrderServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 2021/1/8 编码待删除
-        request.setCharacterEncoding("utf-8");
         //获取用户ID
         String userID = request.getParameter("userID");
         //获得所有商品编号
