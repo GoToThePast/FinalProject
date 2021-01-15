@@ -15,8 +15,8 @@ public interface OrderService {
 
     /**
      * 支付订单
-     * @param orderID 订单编号
+     * @param ordersID 订单编号
      * @return 支付是否成功
      */
-    boolean payOrder(int orderID);
+    boolean payOrder(List<Integer> ordersID);
 }

@@ -12,7 +12,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public boolean payOrder(int orderID) {
+    public boolean payOrder(List<Integer> ordersID) {
         return false;
     }
 }
