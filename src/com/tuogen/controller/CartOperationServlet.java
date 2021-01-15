@@ -1,6 +1,6 @@
 package com.tuogen.controller;
 
-import com.tuogen.model.Googs;
+import com.tuogen.model.Goods;
 import com.tuogen.service.GoodsService;
 import com.tuogen.service.impl.GoodsServiceImpl;
 
@@ -36,13 +36,13 @@ public class CartOperationServlet extends HttpServlet {
         //类型
         String type="type";
         HttpSession session = request.getSession();
-        ArrayList<Googs> cart = (ArrayList<Googs>) session.getAttribute("cart");
+        ArrayList<Goods> cart = (ArrayList<Goods>) session.getAttribute("cart");
         if(cart==null){
-            cart=new ArrayList<Googs>();
+            cart=new ArrayList<Goods>();
             session.setAttribute("cart",cart);
         }
         String action = request.getParameter(type);
-        Googs googs=null;
+        Goods googs=null;
         // TODO: 2021/1/7 根据商品ID获取商品
         googs=goodsService.getGoods(Integer.parseInt(request.getParameter(goodsID)));
         if ("add".equals(action)){

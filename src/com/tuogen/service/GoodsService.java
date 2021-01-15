@@ -1,6 +1,6 @@
 package com.tuogen.service;
 
-import com.tuogen.model.Googs;
+import com.tuogen.model.Goods;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ public interface GoodsService {
      * @param goodsID
      * @return
      */
-    Googs getGoods(int goodsID);
+    Goods getGoods(int goodsID);
     /**
      * 根据商品类型获取所有该类型的商品
      * @param type
      * @return 商品List
      */
-    List<Googs> getGoodsListType(String type);
+    List<Goods> getGoodsListType(String type);
 }

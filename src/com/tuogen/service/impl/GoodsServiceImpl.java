@@ -1,18 +1,18 @@
 package com.tuogen.service.impl;
 
-import com.tuogen.model.Googs;
+import com.tuogen.model.Goods;
 import com.tuogen.service.GoodsService;
 
 import java.util.List;
 
 public class GoodsServiceImpl implements GoodsService {
     @Override
-    public Googs getGoods(int goodsID) {
+    public Goods getGoods(int goodsID) {
         return null;
     }
 
     @Override
-    public List<Googs> getGoodsListType(String type) {
+    public List<Goods> getGoodsListType(String type) {
         return null;
     }
 }

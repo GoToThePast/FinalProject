@@ -1,4 +1,4 @@
 package com.tuogen.model;
 
-public class Googs {
+public class Goods {
 }
