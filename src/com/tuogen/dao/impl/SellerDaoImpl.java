@@ -1,7 +1,6 @@
 package com.tuogen.dao.impl;
 
 import com.tuogen.dao.SellerDao;
-import com.tuogen.model.Buyer;
 import com.tuogen.model.Seller;
 import com.tuogen.utils.JDBCUtils;
 

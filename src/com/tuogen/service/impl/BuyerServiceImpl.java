@@ -11,10 +11,10 @@ public class BuyerServiceImpl implements BuyerService {
     BuyerDao buyerDao=new BuyerDaoImpl();
 
     @Override
-    public Buyer loginUseName(String name, String pwd) {
+    public Buyer loginUseID(String name, String pwd) {
         Buyer buyer=new Buyer();
         try {
-            buyer= buyerDao.loginUseName(name,pwd);
+            buyer= buyerDao.loginUseID(name,pwd);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -45,6 +45,11 @@ public class BuyerServiceImpl implements BuyerService {
 
     @Override
     public int addUser(Buyer buyer) {
+        try {
+            return buyerDao.addUser(buyer);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return -1;
     }
 }

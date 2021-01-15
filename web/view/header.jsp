@@ -13,19 +13,14 @@
             	</c:if>
             	
             	<c:if test="${isLogin ==1 }">
-            		<b>你好：</b><a href="login.jsp" id="login">${name.USER_NAME }</a>
-            	
-            	</c:if>
-            	
-            	<c:if test="${isAdminLogin ==1 }">
-            		<a href="manage/admin_index.jsp" id="login1">进入后台</a>
+            		<b>你好：</b><a href="login.jsp" id="login">${buyer.name}</a>
             	
             	</c:if>
             </p>
                 <form action="#" method="get" class="fl"><input type="text" placeholder="热门搜索：干花花瓶"/><input
                         type="button"/></form>
-                <div class="btn fl clearfix"><a href="mygxin.jsp"><img src="../photo/cc_img/grzx.png"/></a><a href="#" class="er1"><img
-                        src="../photo/cc_img/ewm.png"/></a>
+                <div class="btn fl clearfix">
+                    <a href="mygxin.jsp"><img src="../photo/cc_img/grzx.png"/>
                       <c:if test="${isLogin ==1 }">  
                         <a href="cart.html"><img src="../photo/cc_img/gwc.png"/></a>
                        </c:if> 
@@ -35,22 +30,12 @@
         </div>
         <ul class="clearfix" id="bott">
             <li><a href="indexselect">首页</a></li>
-            
-            
-            <c:forEach var="f" items="${flist }">
-            
-            <li><a href="selectproductlist?fid=${f.CATE_ID }">${f.CATE_NAME }</a>
-                <div class="sList2">
-                    <div class="clearfix">
-                    	<c:forEach var="c" items="${clist }">
-                    		<c:if test="${f.CATE_ID == c.CATE_PARENT_ID }">
-                    			<a href="selectproductlist?cid=${c.CATE_ID }">${c.CATE_NAME }</a>
-                    		</c:if>
-                    	</c:forEach>
-                    </div>
-                </div>
-            </li>
-           </c:forEach>
+            <li><a href="selectproductlist?fid=${f.CATE_ID }">客厅家具</a></li>
+            <li><a href="selectproductlist?fid=${f.CATE_ID }">餐厅家具</a></li>
+            <li><a href="selectproductlist?fid=${f.CATE_ID }">书房家具</a></li>
+            <li><a href="selectproductlist?fid=${f.CATE_ID }">厨房家具</a></li>
+            <li><a href="selectproductlist?fid=${f.CATE_ID }">卫生间家具</a></li>
+            <li><a href="selectproductlist?fid=${f.CATE_ID }">户外家具</a></li>
         </ul>
     </div>
 </div>

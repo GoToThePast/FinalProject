@@ -1,40 +1,27 @@
 package com.tuogen.model;
 
 
-public class Buyer implements User {
+public class Buyer implements User{
 
   private long id;
   private String name;
-  private String picUrl;
-  private String pwd;
+  private String password;
   private String email;
+  private String phoneNumber;
   private String homeAddress;
-  private String phoneNum;
-
-  @Override
-  public String toString() {
-    return "用户名"+name+"电子邮箱"+email;
-  }
+  private String picUrl;
 
   public Buyer() {
   }
 
-  public Buyer(long id, String name, String picUrl, String pwd, String email, String homeAddress, String phoneNum) {
+  public Buyer(String name, String password, String email, String phoneNumber, String homeAddress, String picUrl) {
     this.id = id;
     this.name = name;
-    this.picUrl = picUrl;
-    this.pwd = pwd;
+    this.password = password;
     this.email = email;
+    this.phoneNumber = phoneNumber;
     this.homeAddress = homeAddress;
-    this.phoneNum = phoneNum;
-  }
-
-  public String getPhoneNum() {
-    return phoneNum;
-  }
-
-  public void setPhoneNum(String phoneNum) {
-    this.phoneNum = phoneNum;
+    this.picUrl = picUrl;
   }
 
   public long getId() {
@@ -55,21 +42,12 @@ public class Buyer implements User {
   }
 
 
-  public String getPicUrl() {
-    return picUrl;
+  public String getPassword() {
+    return password;
   }
 
-  public void setPicUrl(String picUrl) {
-    this.picUrl = picUrl;
-  }
-
-
-  public String getPwd() {
-    return pwd;
-  }
-
-  public void setPwd(String pwd) {
-    this.pwd = pwd;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -82,12 +60,30 @@ public class Buyer implements User {
   }
 
 
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+
   public String getHomeAddress() {
     return homeAddress;
   }
 
   public void setHomeAddress(String homeAddress) {
     this.homeAddress = homeAddress;
+  }
+
+
+  public String getPicUrl() {
+    return picUrl;
+  }
+
+  public void setPicUrl(String picUrl) {
+    this.picUrl = picUrl;
   }
 
 }

@@ -26,14 +26,29 @@ public class BuyerServlet extends BaseServlet {
         String userAccout=req.getParameter("userName");
         String userPwd=req.getParameter("passWord");
         Buyer buyer=checkIdentity(userAccout,userPwd);
+
         if(buyer==null){
             System.out.println("登陆失败");
+            resp.sendRedirect("../view/login.jsp");
         }else{
             System.out.println("登陆成功");
+            Buyer_logInit(req,resp,buyer);
         }
+    }
+
+    private void Buyer_logInit(HttpServletRequest req, HttpServletResponse resp, Buyer buyer) throws IOException {
+        HttpSession session = req.getSession();
+
+        //设置session中islong=1
+        session.setAttribute("isLogin",1);
+
+        //设置session中的buyer
+        session.setAttribute("buyer",buyer);
+
         //添加OnlineUser session属性
         addOnlineUser(req,resp,buyer);
-//        req.getRequestDispatcher("/view/index.jsp").forward(req,resp);
+
+        //返回
         resp.sendRedirect("../view/index.jsp");
     }
 
@@ -49,7 +64,7 @@ public class BuyerServlet extends BaseServlet {
 
     private Buyer checkIdentity(String userAccout, String userPwd) {
         Buyer buyer=new Buyer();
-        buyer=buyerService.loginUseName(userAccout,userPwd);
+        buyer=buyerService.loginUseID(userAccout,userPwd);
         if(buyer!=null) return buyer;
         buyer=buyerService.loginUseEmail(userAccout,userPwd);
         if(buyer!=null) return buyer;
