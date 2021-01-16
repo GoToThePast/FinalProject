@@ -20,7 +20,6 @@ import java.util.List;
 @WebServlet("/getGoodsByType")
 public class GetGoodsByTypeServlet extends HttpServlet {
     private GoodsService goodsService=new GoodsServiceImpl();
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO: 2021/1/8 编码待删除
         request.setCharacterEncoding("utf-8");
@@ -34,28 +33,24 @@ public class GetGoodsByTypeServlet extends HttpServlet {
 //        request.getRequestDispatcher("/view/index.jsp").forward(request,response);
         respGoodsList(request,response,type);
 
-
     }
 
     private void respGoodsList(HttpServletRequest request, HttpServletResponse response, String type) throws IOException {
         switch (type){
-            case "客厅家具":
+            case "装饰摆件":
                 response.sendRedirect("view/decoration.jsp");
                 break;
-            case "餐厅家具":
+            case "布艺软饰":
                 response.sendRedirect("view/flowerDer.jsp");
                 break;
-            case "书房家具":
+            case "墙式壁挂":
                 response.sendRedirect("view/idea.jsp");
                 break;
-            case "厨房家具":
+            case "蜡艺香薰":
                 response.sendRedirect("view/paint.jsp");
                 break;
-            case "卫生间家具":
+            case "创意家居":
                 response.sendRedirect("view/perfume.jsp");
-                break;
-            case "户外家具":
-                response.sendRedirect("view/outDoor.jsp");
                 break;
             default:
                 response.sendRedirect("view/index.jsp");

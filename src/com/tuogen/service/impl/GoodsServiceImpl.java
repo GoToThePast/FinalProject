@@ -4,6 +4,7 @@ import com.tuogen.dao.impl.GoodsDaoImpl;
 import com.tuogen.model.Goods;
 import com.tuogen.service.GoodsService;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -108,9 +109,13 @@ public class GoodsServiceImpl implements GoodsService{
 
     @Override
     public List<Goods> getGoodsListType(String type) {
-        // 待实现
-
-        return null;
+        List<Goods> list = new ArrayList<>();
+        try {
+            list= goodsDao.getGoodsListType(type);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 
     @Override

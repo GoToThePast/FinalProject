@@ -16,11 +16,11 @@
 <div class="banner"><a href="#"><img src="../photo/cc_img/temp/banner1.jpg"/></a></div>
 <!-----------------address------------------------------->
 <div class="address">
-    <div class="wrapper clearfix"><a href="index.jsp">首页</a><span>/</span><a href="flowerDer.html" class="on">装饰摆件</a>
+    <div class="wrapper clearfix"><a href="index.jsp">首页</a><span>/</span><a href="flowerDer.html" class="on">布艺软饰</a>
     </div>
 </div><!-------------------current---------------------->
 <div class="current">
-    <div class="wrapper clearfix"><h3 class="fl">装饰摆件</h3>
+    <div class="wrapper clearfix"><h3 class="fl">布艺软饰</h3>
         <div class="fr choice"><p class="default">排序方式</p>
             <ul class="select">
                 <li>新品上市</li>
@@ -33,14 +33,14 @@
     </div>
 </div><!----------------proList------------------------->
 <ul class="proList wrapper clearfix">
-    <c:forEach var="goods" items="${goodsList}">
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="${goods.goodsPicUrl}"></dt>
-            <dd>${goods.goodsName}</dd>
-            <dd>￥${goods.goodsPrice}</dd>
-        </dl>
-    </a></li>
+    <c:forEach var="goods" items="${goodsList2}">
+        <li><a href='../getGoodUseID?goodID=${goods.goodsID}'>
+            <dl>
+                <dt><img src="/${goods.goodsPicUrl}"></dt>
+                <dd>${goods.goodsName}</dd>
+                <dd>￥${goods.goodsPrice}</dd>
+            </dl>
+        </a></li>
     </c:forEach>
 </ul><!----------------mask------------------->
 <div class="mask"></div><!-------------------mask内容------------------->
@@ -72,7 +72,7 @@
                 加入购物车</p></a></div>
         </div>
     </div>
-    <a class="more" href="proDetail.html">查看更多细节</a></div><!--返回顶部-->
+    <a class="more" href="getGoodUseID?$goodID={goods.goodsID}">查看更多细节</a></div><!--返回顶部-->
 <div class="gotop"><a href="cart.html">
     <dl class="goCart">
         <dt><img src="../photo/cc_img/gt1.png"/></dt>

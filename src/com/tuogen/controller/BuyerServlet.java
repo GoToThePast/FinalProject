@@ -1,10 +1,13 @@
 package com.tuogen.controller;
 
 import com.tuogen.model.Buyer;
+import com.tuogen.model.Goods;
 import com.tuogen.model.OnlineUser;
 import com.tuogen.model.Type;
 import com.tuogen.service.BuyerService;
+import com.tuogen.service.GoodsService;
 import com.tuogen.service.impl.BuyerServiceImpl;
+import com.tuogen.service.impl.GoodsServiceImpl;
 import com.tuogen.utils.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -15,12 +18,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 @WebServlet(name = "BuyerServlet",urlPatterns = "/Buyer/*")
 public class BuyerServlet extends BaseServlet {
     BuyerService buyerService=new BuyerServiceImpl();
-
+    private GoodsService goodsService=new GoodsServiceImpl();
     public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String userAccout=req.getParameter("userName");
@@ -49,12 +53,25 @@ public class BuyerServlet extends BaseServlet {
         addOnlineUser(req,resp,buyer);
 
         //获取所有商品
+        List<Goods> goodsList1= goodsService.getGoodsListType("装饰摆件");
+        session.setAttribute("goodsList1",goodsList1);
+        List<Goods> goodsList2= goodsService.getGoodsListType("布艺软饰");
+        session.setAttribute("goodsList2",goodsList2);
+        List<Goods> goodsList3= goodsService.getGoodsListType("墙式壁挂");
+        session.setAttribute("goodsList3",goodsList3);
+        List<Goods> goodsList4= goodsService.getGoodsListType("蜡艺香薰");
+        System.out.println(goodsList4.size());
+        session.setAttribute("goodsList4",goodsList4);
+        List<Goods> goodsList5= goodsService.getGoodsListType("创意家居");
+        session.setAttribute("goodsList5",goodsList5);
 
         //返回
         resp.sendRedirect("../view/index.jsp");
 //        req.getRequestDispatcher("goodsList").forward(req,resp);
     }
-
+    private void getGoodUseID(HttpServletRequest req, HttpServletResponse resp, Buyer buyer) {
+        String goodID=req.getParameter("goodID");
+    }
 
     private void addOnlineUser(HttpServletRequest req, HttpServletResponse resp, Buyer buyer) {
         HttpSession session = req.getSession();

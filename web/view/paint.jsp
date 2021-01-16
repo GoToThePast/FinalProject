@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -15,139 +16,56 @@
 <div class="banner"><a href="#"><img src="../photo/cc_img/temp/banner2.jpg"/></a></div>
 <!-----------------address------------------------------->
 <div class="address">
-    <div class="wrapper clearfix"><a href="index.html">首页</a><span>/</span><a href="paint.html" class="on">墙式壁挂</a>
+    <div class="wrapper clearfix"><a href="index.jsp">首页</a><span>/</span><a href="paint.html" class="on">蜡艺香薰</a>
     </div>
 </div><!-----------------paintCon------------------------------->
 <div class="paintCon">
-    <section class="wrapper"><h3><img src="../photo/cc_img/temp/tit01.jpg"></h3><img src="../photo/cc_img/temp/paint01.jpg"/>
-        <div class="paintList"><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec101.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec102.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec103.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec104.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec105.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec106.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a></div>
+    <section class="wrapper"><h3><img src="../photo/cc_img/temp/tit01.jpg"></h3><img
+            src="../photo/cc_img/temp/paint01.jpg"/>
+        <div class="paintList">
+            <c:forEach var="goods" begin="0" end="2" step="1"  items="${goodsList4}">
+                <a href="../getGoodUseID?goodID=${goods.goodsID}">
+                    <dl>
+                        <dt><img src="/${goods.goodsPicUrl}"></dt>
+                        <dd>${goods.goodsName}</dd>
+                        <dd>¥${goods.goodsPrice}</dd>
+                    </dl>
+                </a>
+            </c:forEach>
+        </div>
     </section>
-    <section class="wrapper"><h3><img src="../photo/cc_img/temp/tit02.jpg"></h3><img src="../photo/cc_img/temp/paint02.jpg"/>
-        <div class="paintList"><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec201.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec202.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec203.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec204.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec205.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/sec206.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>299.90</dd>
-            </dl>
-        </a></div>
+    <section class="wrapper"><h3><img src="../photo/cc_img/temp/tit02.jpg"></h3><img
+            src="../photo/cc_img/temp/paint02.jpg"/>
     </section>
     <section class="wrapper"><h3><img src="../photo/cc_img/temp/tit03.jpg"></h3>
-        <div class="paintList third"><p><a href="proDetail.html"><img src="../photo/cc_img/temp/sec301.jpg"/></a></p>
-            <div class="sec"><a href="proDetail.html">
-                <dl>
-                    <dt><img src="../photo/cc_img/temp/sec302.jpg"></dt>
-                    <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                    <dd>299.90</dd>
-                </dl>
-            </a><a href="proDetail.html">
-                <dl>
-                    <dt><img src="../photo/cc_img/temp/sec303.jpg"></dt>
-                    <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                    <dd>299.90</dd>
-                </dl>
-            </a><a href="proDetail.html">
-                <dl>
-                    <dt><img src="../photo/cc_img/temp/sec304.jpg"></dt>
-                    <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                    <dd>299.90</dd>
-                </dl>
-            </a><a href="proDetail.html">
-                <dl>
-                    <dt><img src="../photo/cc_img/temp/sec305.jpg"></dt>
-                    <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                    <dd>299.90</dd>
-                </dl>
-            </a></div>
+        <div class="paintList third"><p><a href="#"><img src="../photo/cc_img/temp/sec301.jpg"/></a></p>
+            <div class="sec">
+                <c:forEach var="goods" begin="3" end="6" step="1"  items="${goodsList4}">
+                    <a href="../getGoodUseID?goodID=${goods.goodsID}">
+                        <dl>
+                            <dt><img src="/${goods.goodsPicUrl}"></dt>
+                            <dd>${goods.goodsName}</dd>
+                            <dd>¥${goods.goodsPrice}</dd>
+                        </dl>
+                    </a>
+                </c:forEach>
+            </div>
         </div>
     </section>
     <section class="wrapper"><h3><img src="../photo/cc_img/temp/tit03.jpg"></h3>
-        <div class="paintList last"><p><a href="proDetail.html"><img src="../photo/cc_img/temp/sec401.jpg"/></a><a
-                href="proDetail.html"><img src="../photo/cc_img/temp/sec402.jpg"/></a></p>
-            <div class="sec"><a href="proDetail.html">
-                <dl>
-                    <dt><img src="../photo/cc_img/temp/sec403.jpg"></dt>
-                    <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                    <dd>299.90</dd>
-                </dl>
-            </a><a href="proDetail.html">
-                <dl>
-                    <dt><img src="../photo/cc_img/temp/sec404.jpg"></dt>
-                    <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                    <dd>299.90</dd>
-                </dl>
-            </a><a href="proDetail.html">
-                <dl>
-                    <dt><img src="../photo/cc_img/temp/sec405.jpg"></dt>
-                    <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                    <dd>299.90</dd>
-                </dl>
-            </a></div>
+        <div class="paintList last"><p><a href="#"><img src="../photo/cc_img/temp/sec401.jpg"/></a><a
+                href="#"><img src="../photo/cc_img/temp/sec402.jpg"/></a></p>
+            <div class="sec">
+                <c:forEach var="goods" begin="6" items="${goodsList4}">
+                    <a href="../getGoodUseID?goodID=${goods.goodsID}">
+                        <dl>
+                            <dt><img src="/${goods.goodsPicUrl}"></dt>
+                            <dd>${goods.goodsName}</dd>
+                            <dd>¥${goods.goodsPrice}</dd>
+                        </dl>
+                    </a>
+                </c:forEach>
+            </div>
         </div>
     </section>
 </div><!--返回顶部-->

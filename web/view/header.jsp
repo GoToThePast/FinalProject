@@ -29,7 +29,7 @@
             </div>
         </div>
         <ul class="clearfix" id="bott">
-            <li><a href="../getGoodsByType">首页</a>
+            <li><a href="../getGoodsByType?type=首页">首页</a>
                 <div class="sList">
                     <div class="wrapper  clearfix"><a href="paint.html">
                         <dl>
@@ -59,11 +59,11 @@
                     </a></div>
                 </div>
             </li>
-            <li><a href="../getGoodsByType?type=餐厅家具">餐厅家具</a></li>
-            <li><a href="../getGoodsByType?type=书房家具">书房家具</a></li>
-            <li><a href="../getGoodsByType?type=厨房家具">厨房家具</a></li>
-            <li><a href="../getGoodsByType?type=卫生间家具">卫生间家具</a></li>
-            <li><a href="../getGoodsByType?type=户外家具">户外家具</a></li>
+            <li><a href="../getGoodsByType?type=装饰摆件">装饰摆件</a></li>
+            <li><a href="../getGoodsByType?type=布艺软饰">布艺软饰</a></li>
+            <li><a href="../getGoodsByType?type=墙式壁挂">墙式壁挂</a></li>
+            <li><a href="../getGoodsByType?type=蜡艺香薰">蜡艺香薰</a></li>
+            <li><a href="../getGoodsByType?type=创意家居">创意家居</a></li>
         </ul>
     </div>
 </div>

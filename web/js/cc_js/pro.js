@@ -8,30 +8,30 @@ $(function () {
         $(".choice .default").text(c).removeClass("on");
         $(this).parent("ul").slideUp("fast")
     });
-    $(".proList li").on("mouseenter", function () {
-        var c = "";
-        c = '<p class="quick">快速浏览</p>';
-        $(this).css("border", "1px solid #000").append(c);
-        $(".quick").on("click", function () {
-            $(".mask").show();
-            $(".proDets").show()
-        });
-        $(".btns .cart").click(function () {
-            if ($(".categ p").hasClass("on")) {
-                $(".proDets").hide();
-                $(".mask").hide()
-            }
-        })
-    });
-    $(".proList li").on("mouseleave", function () {
-        $(this).find("p").remove();
-        $(this).css("border", "1px solid #fff")
-    });
-    $(".off").click(function () {
-        $(".mask").hide();
-        $(".proDets").hide();
-        $(".pleaseC").hide()
-    });
+    // $(".proList li").on("mouseenter", function () {
+    //     var c = "";
+    //     c = '<p class="quick">快速浏览</p>';
+    //     $(this).css("border", "1px solid #000").append(c);
+    //     $(".quick").on("click", function () {
+    //         $(".mask").show();
+    //         $(".proDets").show()
+    //     });
+    //     $(".btns .cart").click(function () {
+    //         if ($(".categ p").hasClass("on")) {
+    //             $(".proDets").hide();
+    //             $(".mask").hide()
+    //         }
+    //     })
+    // });
+    // $(".proList li").on("mouseleave", function () {
+    //     $(this).find("p").remove();
+    //     $(this).css("border", "1px solid #fff")
+    // });
+    // $(".off").click(function () {
+    //     $(".mask").hide();
+    //     $(".proDets").hide();
+    //     $(".pleaseC").hide()
+    // });
     $(".proIntro .smallImg p img").hover(function () {
         $(this).parents(".smallImg").find("span").remove();
         var d = $(this).position().left;

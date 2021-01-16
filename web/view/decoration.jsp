@@ -16,11 +16,11 @@
 <div class="banner"><a href="#"><img src="../photo/cc_img/temp/bzbig.jpg"/></a></div>
 <!-----------------address------------------------------->
 <div class="address">
-    <div class="wrapper clearfix"><a href="index.html">首页</a><span>/</span><a href="decoration.html" class="on">布艺软饰</a>
+    <div class="wrapper clearfix"><a href="index.jsp">首页</a><span>/</span><a href="decoration.html" class="on">装饰摆件</a>
     </div>
 </div><!-------------------current---------------------->
 <div class="current">
-    <div class="wrapper clearfix"><h3 class="fl">布艺软饰</h3>
+    <div class="wrapper clearfix"><h3 class="fl">装饰摆件</h3>
         <div class="fr choice"><p class="default">排序方式</p>
             <ul class="select">
                 <li>新品上市</li>
@@ -33,202 +33,15 @@
     </div>
 </div><!----------------proList------------------------->
 <ul class="proList wrapper clearfix">
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz07.jpg"></dt>
-            <dd>【最家】法式乡村复古抱枕</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz06.jpg"></dt>
-            <dd>【最家】时尚图案抱枕</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz05.jpg"></dt>
-            <dd>【最家】北欧时尚现代动物抱枕</dd>
-            <dd>￥59.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz04.jpg"></dt>
-            <dd>【最家】简约格子抱枕</dd>
-            <dd>￥20.90</dd>
-        </dl>
-    </a></li>
-    <li>
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz03.jpg"></dt>
-            <dd>【最家】纯色棉麻抱枕</dd>
-            <dd>￥47.90</dd>
-        </dl>
-    </li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz02.jpg"></dt>
-            <dd>【最家】时尚现代叮当猫抱枕</dd>
-            <dd>￥37.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz01.jpg"></dt>
-            <dd>【最家】欧式现代棉麻抱枕</dd>
-            <dd>￥39.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz08.jpg"></dt>
-            <dd>【最家】清新乡村田园抱枕</dd>
-            <dd>￥19.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz07.jpg"></dt>
-            <dd>【最家】法式乡村复古抱枕</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz06.jpg"></dt>
-            <dd>【最家】时尚图案抱枕</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb08.jpg"></dt>
-            <dd>【最家】清新乡村田园桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb07.jpg"></dt>
-            <dd>【最家】法式乡村复古桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb06.jpg"></dt>
-            <dd>【最家】清新简约防水桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb05.jpg"></dt>
-            <dd>【最家】北欧圣诞节防水桌布红色</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb04.jpg"></dt>
-            <dd>【最家】田园桌布防水防油布</dd>
-            <dd>￥47.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb03.jpg"></dt>
-            <dd>【最家】欧式家用小方桌台布</dd>
-            <dd>￥20.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb02.jpg"></dt>
-            <dd>【最家】地中海格子桌布</dd>
-            <dd>￥37.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb01.jpg"></dt>
-            <dd>【最家】欧式田园棉麻桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb08.jpg"></dt>
-            <dd>【最家】清新乡村田园桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb07.jpg"></dt>
-            <dd>【最家】法式乡村复古桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb06.jpg"></dt>
-            <dd>【最家】清新简约防水桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb05.jpg"></dt>
-            <dd>【最家】北欧圣诞节防水桌布红色</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/zb04.jpg"></dt>
-            <dd>【最家】田园桌布防水防油布</dd>
-            <dd>￥47.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz05.jpg"></dt>
-            <dd>【最家】北欧时尚现代动物抱枕</dd>
-            <dd>￥59.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz04.jpg"></dt>
-            <dd>【最家】简约格子抱枕</dd>
-            <dd>￥20.90</dd>
-        </dl>
-    </a></li>
-    <li>
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz03.jpg"></dt>
-            <dd>【最家】纯色棉麻抱枕</dd>
-            <dd>￥47.90</dd>
-        </dl>
-    </li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz02.jpg"></dt>
-            <dd>【最家】时尚现代叮当猫抱枕</dd>
-            <dd>￥37.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail.html">
-        <dl>
-            <dt><img src="../photo/cc_img/temp/bz01.jpg"></dt>
-            <dd>【最家】欧式现代棉麻抱枕</dd>
-            <dd>￥39.90</dd>
-        </dl>
-    </a></li>
+    <c:forEach var="goods" begin="0"   items="${goodsList1}">
+        <li><a href="../getGoodUseID?goodID=${goods.goodsID}">
+            <dl>
+                <dt><img src="/${goods.goodsPicUrl}"></dt>
+                <dd>${goods.goodsName}</dd>
+                <dd>￥${goods.goodsPrice}</dd>
+            </dl>
+        </a></li>
+    </c:forEach>
 </ul><!----------------mask------------------->
 <div class="mask"></div><!-------------------mask内容------------------->
 <div class="proDets"><img class="off" src="../photo/cc_img/temp/off.jpg"/>
@@ -259,7 +72,7 @@
                 加入购物车</p></a></div>
         </div>
     </div>
-    <a class="more" href="proDetail.html">查看更多细节</a></div><!--返回顶部-->
+    <a class="more" href="#">查看更多细节</a></div><!--返回顶部-->
 <div class="gotop"><a href="cart.html">
     <dl class="goCart">
         <dt><img src="../photo/cc_img/gt1.png"/></dt>

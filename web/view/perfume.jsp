@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -15,87 +16,35 @@
 <div class="banner"><a href="#"><img src="../photo/cc_img/temp/perfume_Banner.jpg"/></a></div>
 <!-----------------address------------------------------->
 <div class="address">
-    <div class="wrapper clearfix"><a href="index.html">首页</a><span>/</span><a href="perfume.html" class="on">蜡艺香薰</a>
+    <div class="wrapper clearfix"><a href="index.jsp">首页</a><span>/</span><a href="perfume.html" class="on">创意家居</a>
     </div>
 </div><!-----------------paintCon------------------------------->
 <div class="paintCon">
     <section class="wrapper"><h3><img src="../photo/cc_img/temp/perfumeTit01.jpg"></h3><img src="../photo/cc_img/temp/xxB01.jpg"/>
-        <div class="paintList"><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx01.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx02.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx103.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx104.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx105.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx106.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a></div>
+        <div class="paintList">
+            <c:forEach var="goods" begin="0" end="2" step="1"  items="${goodsList5}">
+                <a href="../getGoodUseID?goodID=${goods.goodsID}">
+                    <dl>
+                        <dt><img src="/${goods.goodsPicUrl}"></dt>
+                        <dd>${goods.goodsName}</dd>
+                        <dd>¥${goods.goodsPrice}</dd>
+                    </dl>
+                </a>
+            </c:forEach>
+        </div>
     </section>
     <section class="wrapper"><h3><img src="../photo/cc_img/temp/perfumeTit02.jpg"></h3><img src="../photo/cc_img/temp/xxB02.jpg"/>
-        <div class="paintList"><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx201.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx202.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx203.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx204.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx205.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a><a href="proDetail.html">
-            <dl>
-                <dt><img src="../photo/cc_img/temp/xx206.jpg"></dt>
-                <dd>新中式客厅山水装饰画墙壁挂画</dd>
-                <dd>￥299.90</dd>
-            </dl>
-        </a></div>
+        <div class="paintList">
+            <c:forEach var="goods" begin="3"  items="${goodsList5}">
+                <a href="../getGoodUseID?goodID=${goods.goodsID}">
+                    <dl>
+                        <dt><img src="/${goods.goodsPicUrl}"></dt>
+                        <dd>${goods.goodsName}</dd>
+                        <dd>¥${goods.goodsPrice}</dd>
+                    </dl>
+                </a>
+            </c:forEach>
+        </div>
     </section>
 </div><!--返回顶部-->
 <div class="gotop"><a href="cart.html">
