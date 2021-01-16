@@ -7,6 +7,7 @@ import com.tuogen.service.OrderService;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Vector;
 
 public class OrderServiceImpl implements OrderService {
     OrderDaoImpl orderDao=new OrderDaoImpl();
@@ -108,7 +109,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public boolean payOrder(int orderID) {
+    public boolean payOrder(long orderID) {
         List<Order> order=null;
         try {
             boolean tag=orderDao.updateUser(orderID,"已付款");
@@ -123,6 +124,28 @@ public class OrderServiceImpl implements OrderService {
         List<OrderQuery> orderList=null;
         try {
             orderList=orderDao.getOrderQueryListMer(merchantID);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return orderList;
+    }
+
+    @Override
+    public Vector<Integer> getGoodsByGoodListID(int goodsListId) {
+        Vector<Integer> goodIds=null;
+        try {
+            goodIds=orderDao.getGoodsByGoodListID(goodsListId);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return goodIds;
+    }
+
+    @Override
+    public List<OrderQuery> getOrderQueryListByBuyer(int id) {
+        List<OrderQuery> orderList=null;
+        try {
+            orderList=orderDao.getOrderQueryListMerByBuyer(id);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

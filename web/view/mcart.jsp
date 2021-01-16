@@ -30,35 +30,37 @@ a
             <div>小计</div>
             <div>操作</div>
         </div>
-
-        <c:forEach var="rs" items="${qOrders}">
+        <p class="buyerID" style="display: none">${buyer.id}</p>
+        <c:forEach var="rs" items="${cart}">
 
             <div class="th">
                 <div class="pro clearfix"><label class="fl">
-                    <input name="ck" type="checkbox" value="${rs.order.orderNum }"/>
+<%--                    <input name="ck" type="checkbox" value="${rs.order.orderNum }"/>--%>
 
                     <span></span></label>
                     <a class="fl" href="#">
 
                         <dl class="clearfix">
                             <dt class="fl">
-                                <img width="120" height="120" src="/${rs.goods[0].goodsPicUrl}">
+                                <img width="120" height="120" src="/${rs.goodsPicUrl}">
                             </dt>
                             <dd class="fl">
-                                <p>${rs.goods[0].goodsName}</p>
-                                <p>库存: ${rs.goods[0].goodsStock}</p>
-                                <p>白色瓷瓶+白色串枚</p></dd>
+                                <p class="goodID" style="display: none">${rs.goodsID}</p>
+
+                                <p>${rs.goodsName}</p>
+                                <p>库存: ${rs.goodsStock}</p>
+                                <p>${re.goodsIntroduce}</p></dd>
                         </dl>
                     </a>
                 </div>
-                <div class="price">￥${rs.goods[0].goodsPrice}</div>
+                <div  class="gprice price">${rs.goodsPrice}</div>
                 <div class="number">
                     <p class="num clearfix">
                         <img class="fl sub" src="../photo/cc_img/temp/sub.jpg">
                         <span datasrc="" class="fl">1</span>
                         <img class="fl add" src="../photo/cc_img/temp/add.jpg"></p>
                 </div>
-                <div class="price sAll">￥${rs.goods[0].goodsPrice}</div>
+                <div id="priceAll" class="price sAll">${rs.goodsPrice}</div>
                 <div class="price"><a class="del" datasrc="" href="#2">删除</a></div>
             </div>
 
@@ -68,15 +70,36 @@ a
         <div class="goOn">空空如也~<a href="indexselect">去逛逛</a></div>
         <div class="tr clearfix"><label class="fl"><input class="checkAll" type="checkbox"/><span></span></label>
             <p class="fl"><a href="#">全选</a><a href="#" class="del">删除</a></p>
-            <p class="fr"><span>共<small id="sl">0</small>件商品</span><span>合计:&nbsp;<small id="all">￥0.00</small></span><a
-                    href="order.jsp" class="count">结算</a></p></div>
+            <p class="fr">
+                <span>共<small id="sl">0</small>件商品</span>
+                <span>合计:&nbsp;<small id="all">￥0.00</small></span>
+                <a  class="count">结算</a></p>
+        </div>
     </div>
 </div>
 
 <script>
+
+    $(".count").click(function (){
+        var goodsID=new Array();
+        var buyerID=$(".buyerID").text();
+        $(".goodID").each(function (){
+            goodsID.push($(this).text());
+        })
+        console.log("商品id集合="+goodsID+"BuyerID="+buyerID);
+        $.ajax({
+            type: 'post',
+            url: "/web/createOrder",
+            traditional:true,
+            data: {"userID":buyerID,"goodsIDList":goodsID},
+            success:function (){
+                window.location.href='order.jsp'
+            }
+        });
+    })
+    // 创建订单
     function toorder() {
         var str = "";
-
         $("input[name='ck']:checked").each(function (index, item) {
             if ($("input[name='ck']:checked").length - 1 == index) {
                 str += $(this).val();
@@ -93,7 +116,8 @@ a
 <div class="mask"></div>
 <div class="tipDel"><p>确定要删除该商品吗？</p>
     <p class="clearfix"><a class="fl cer" href="#">确定</a><a class="fr cancel" href="#">取消</a></p></div><!--返回顶部-->
-<div class="gotop"><a href="cart.html">
+<div class="gotop">
+    <a href="cart.html">
     <dl>
         <dt><img src="../photo/cc_img/gt1.png"/></dt>
         <dd>去购<br/>物车</dd>
@@ -164,5 +188,15 @@ a
 <script src="../js/cc_js/public.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/cc_js/pro.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/cc_js/cart.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var price=0;
+    var num=0;
+    $(".gprice").each(function (){
+        num ++;
+        price +=parseFloat($(this).text()) ;
+    })
+    $("#all").html("￥"+price);
+    $("#sl").html(num)
+</script>
 </body>
 </html>

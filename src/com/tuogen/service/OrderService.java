@@ -4,6 +4,7 @@ import com.tuogen.model.Order;
 import com.tuogen.model.OrderQuery;
 
 import java.util.List;
+import java.util.Vector;
 
 public interface OrderService {
 
@@ -43,7 +44,11 @@ public interface OrderService {
      * @param orderID 订单编号
      * @return 支付是否成功
      */
-    boolean payOrder(int orderID);
+    public boolean payOrder(long orderID);
 
     public List<OrderQuery> getOrderQueryList(int merchantID);
+
+    Vector<Integer> getGoodsByGoodListID(int goodsListId);
+
+    public  List<OrderQuery> getOrderQueryListByBuyer(int id);
 }

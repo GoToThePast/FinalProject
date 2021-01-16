@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="head">
     <div class="wrapper clearfix">
@@ -22,7 +21,7 @@
                 <div class="btn fl clearfix">
                     <a href="mygxin.jsp"><img src="../photo/cc_img/grzx.png"/>
                       <c:if test="${isLogin ==1 }">  
-                        <a href="cart.html"><img src="../photo/cc_img/gwc.png"/></a>
+                        <a href="cart.jsp"><img src="../photo/cc_img/gwc.png"/></a>
                        </c:if> 
                         
                     <p><a href="#"><img src="../photo/cc_img/smewm.png"/></a></p></div>

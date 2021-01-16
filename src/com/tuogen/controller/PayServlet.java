@@ -24,15 +24,15 @@ public class PayServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         //获取订单编号
         String orderID = request.getParameter("orderID");
-        boolean isOk = orderService.payOrder(Integer.parseInt(orderID));
+        boolean isOk = orderService.payOrder(Long.parseLong(orderID));
         if (isOk){
             //支付成功 跳转至订单管理页面
             // TODO: 2021/1/8 跳转至订单管理页面
-            response.sendRedirect("./view/");
+            response.sendRedirect("./view/ok.html");
         }else {
             //支付失败 跳转至支付页面
             // TODO: 2021/1/8 跳转至支付页面
-            response.sendRedirect("./view/");
+            response.sendRedirect("./view/ok.html");
         }
     }
 

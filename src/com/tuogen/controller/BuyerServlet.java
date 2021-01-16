@@ -1,13 +1,12 @@
 package com.tuogen.controller;
 
-import com.tuogen.model.Buyer;
-import com.tuogen.model.Goods;
-import com.tuogen.model.OnlineUser;
-import com.tuogen.model.Type;
+import com.tuogen.model.*;
 import com.tuogen.service.BuyerService;
 import com.tuogen.service.GoodsService;
+import com.tuogen.service.OrderService;
 import com.tuogen.service.impl.BuyerServiceImpl;
 import com.tuogen.service.impl.GoodsServiceImpl;
+import com.tuogen.service.impl.OrderServiceImpl;
 import com.tuogen.utils.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -24,6 +23,7 @@ import java.util.List;
 @WebServlet(name = "BuyerServlet",urlPatterns = "/Buyer/*")
 public class BuyerServlet extends BaseServlet {
     BuyerService buyerService=new BuyerServiceImpl();
+    OrderService orderService=new OrderServiceImpl();
     private GoodsService goodsService=new GoodsServiceImpl();
     public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
@@ -40,6 +40,14 @@ public class BuyerServlet extends BaseServlet {
         }
     }
 
+    public void queryOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        String buyerID=req.getParameter("buyerID");
+        List<OrderQuery> buyerOrderQueryList = orderService.getOrderQueryListByBuyer(Integer.parseInt(buyerID));
+        req.getSession().setAttribute("buyerOrderList", buyerOrderQueryList);
+        resp.sendRedirect("../view/myorderq.jsp");
+    }
+
     private void Buyer_logInit(HttpServletRequest req, HttpServletResponse resp, Buyer buyer) throws IOException, ServletException {
         HttpSession session = req.getSession();
 
@@ -51,6 +59,10 @@ public class BuyerServlet extends BaseServlet {
 
         //添加OnlineUser session属性
         addOnlineUser(req,resp,buyer);
+
+        //获取用户订单数据
+        List<OrderQuery> buyerOrderQueryList = orderService.getOrderQueryListByBuyer((int)buyer.getId());
+        session.setAttribute("buyerOrderList", buyerOrderQueryList);
 
         //获取所有商品
         List<Goods> goodsList1= goodsService.getGoodsListType("装饰摆件");
@@ -69,9 +81,11 @@ public class BuyerServlet extends BaseServlet {
         resp.sendRedirect("../view/index.jsp");
 //        req.getRequestDispatcher("goodsList").forward(req,resp);
     }
+
     private void getGoodUseID(HttpServletRequest req, HttpServletResponse resp, Buyer buyer) {
         String goodID=req.getParameter("goodID");
     }
+
 
     private void addOnlineUser(HttpServletRequest req, HttpServletResponse resp, Buyer buyer) {
         HttpSession session = req.getSession();

@@ -25,9 +25,13 @@ public interface OrderDao {
 
     public List<Order> getOrderListByMerchantID(int merchantID) throws SQLException;
 
-    List<OrderQuery> getOrderQueryListMer(int merchantID) throws SQLException;
+    public List<OrderQuery> getOrderQueryListMer(int merchantID) throws SQLException;
 
     public List<Order> creatOder(int userID, List<Integer> goodsID) throws SQLException;
 
-    public boolean updateUser(int orderID, String status) throws SQLException;
+    public boolean updateUser(long orderID, String status) throws SQLException;
+
+    public List<Integer> getGoodsByGoodListID(int goodsListId) throws SQLException;
+
+    public  List<OrderQuery> getOrderQueryListMerByBuyer(int id) throws SQLException;
 }

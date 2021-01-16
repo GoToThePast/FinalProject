@@ -73,7 +73,7 @@
         </div>
     </div>
     <a class="more" href="getGoodUseID?$goodID={goods.goodsID}">查看更多细节</a></div><!--返回顶部-->
-<div class="gotop"><a href="cart.html">
+<div class="gotop"><a href="mcart.jsp">
     <dl class="goCart">
         <dt><img src="../photo/cc_img/gt1.png"/></dt>
         <dd>去购<br/>物车</dd>

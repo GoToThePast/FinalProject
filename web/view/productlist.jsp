@@ -39,7 +39,7 @@
 	    <li><a href="selectproductview?id=${p.PRODUCT_ID}">
 	        <dl>
 	            <dt><img src="images/product/${p.PRODUCT_FILENAME }"></dt>
-	            <dd>【学习猿地】${p.PRODUCT_NAME }</dd>
+	            <dd>${p.PRODUCT_NAME }</dd>
 	            <dd>￥${p.PRODUCT_PRICE }.00</dd>
 	        </dl>
 	    </a></li>

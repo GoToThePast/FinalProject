@@ -28,6 +28,10 @@ public class OrderDaoImpl implements OrderDao {
         statement.executeUpdate();
         JDBCUtils.close(connection,statement);
     }
+    public void addOrders(Order order, Connection connection, PreparedStatement statement1) throws SQLException {
+        setOrderInfo(order, statement1);
+        statement1.executeUpdate();
+    }
 
     @Override
     public List<Order> getOrderList(int start, int num) throws SQLException {
@@ -100,8 +104,11 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public List<Order> creatOder(int userID, List<Integer> goodsID) throws SQLException {
+
         List<Order> orders=new ArrayList<>();
         Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement =JDBCUtils.getConnection().prepareStatement("insert into `goodsList` values(?,?)");
+        PreparedStatement statement1 =JDBCUtils.getConnection().prepareStatement("insert into `order` values(?,?,?,?,?,?,?)");
         Order order=new Order();
         long orderNum=System.currentTimeMillis();
 
@@ -125,7 +132,6 @@ public class OrderDaoImpl implements OrderDao {
         }
         java.sql.Timestamp dateTime = new java.sql.Timestamp(timeDate.getTime());//Timestamp类型,timeDate.getTime()返回一个long型
         order.setCreaterTime(dateTime);
-
         //getMap
         HashMap<Integer, List<Integer>> merchantMap = getMerMap(goodsID);
         //遍历Map添加订单
@@ -133,59 +139,102 @@ public class OrderDaoImpl implements OrderDao {
         for(Map.Entry<Integer, List<Integer>> entry : merchantMap.entrySet()){
             //totalPrice
             double totalPrice=getAllPrice(entry.getValue());
+
             order.setTotalPrice(totalPrice);
             //merchantID
             order.setMerchantId(entry.getKey());
             //goodsListID
             order.setGoodsListId((int)orderNum+i);
             //添加GoodList表
-            doAddGoodsListId((int)orderNum+i,entry.getValue());
+            doAddGoodsListId((int)orderNum+i,entry.getValue(),connection, statement);
             //执行添加订单SQL操作
-            this.addOrder(order);
+            this.addOrders(order,connection,statement1);
             i++;
             orders.add(order);
         }
+        JDBCUtils.close(connection,statement);
+        JDBCUtils.close(connection,statement1);
         return orders;
     }
 
     @Override
-    public boolean updateUser(int orderID, String status) throws SQLException {
-        Order order=this.queryOrderByOrderNum(Long.valueOf((int)orderID));
+    public boolean updateUser(long orderID, String status) throws SQLException {
+        Order order=this.queryOrderByOrderNum(orderID);
+        System.out.println("更新订单"+order.toString());
         order.setOrderStatus(status);
         return this.updateUser(order);
     }
 
-    private void doAddGoodsListId(int listID, List<Integer> value) throws SQLException {
+    @Override
+    public Vector<Integer> getGoodsByGoodListID(int goodsListId) throws SQLException {
+        Vector<Integer> goodIDs=new Vector<>();
         Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select `prodectNum` from `goodsList` where goodsListID=?");
+        statement.setInt(1,goodsListId);
+        ResultSet resultSet = statement.executeQuery();
+        while(resultSet.next()){
+            goodIDs.add(resultSet.getInt(1));
+        }
+        JDBCUtils.close(connection,statement,resultSet);
+        return goodIDs;
+    }
+
+    @Override
+    public List<OrderQuery> getOrderQueryListMerByBuyer(int id) throws SQLException {
+        List<OrderQuery> orderList=new ArrayList<>();
+        List<Order> orders=this.getOrderListByBuyerID(id);
+        for(Order order:orders){
+            OrderQuery orderQuery = new OrderQuery();
+            Vector<Integer> goodIDs=this.getGoodList(order.getGoodsListId());
+            Vector<Goods> goods=new Vector<>();
+            for(Integer i:goodIDs){
+                Goods good=goodsService.queryGoods(i);
+                goods.add(good);
+            }
+            orderQuery.setOrder(order);
+            orderQuery.setGoodsId(goodIDs);
+            orderQuery.setGoods(goods);
+            orderList.add(orderQuery);
+        }
+        return orderList;
+    }
+
+    private void doAddGoodsListId(int listID, List<Integer> value, Connection connection, PreparedStatement statement) throws SQLException {
         for(int goodId:value){
-            PreparedStatement statement =JDBCUtils.getConnection().prepareStatement("insert into `goodsList` values(?,?)");
             statement.setInt(1,listID);
             statement.setInt(2,goodId);
             statement.executeUpdate();
-            JDBCUtils.close(connection,statement);
         }
     }
     //需要更改
     private double getAllPrice(List<Integer> goodsID) {
+
         double price = 0;
         for(int goodID:goodsID){
+            System.out.println("@goodID"+goodID);
             price+=goodsService.getGoodsPriceByID(goodID);
         }
         return price;
     }
 
     private HashMap<Integer, List<Integer>> getMerMap(List<Integer> goodsID) {
+        System.out.println("商品id列表"+goodsID);
         HashMap<Integer, List<Integer>> merchantMap=new HashMap<>();
         int[] goodIDs=new int[goodsID.size()];       //goodIDs
         for(int i=0;i<goodsID.size();i++){
+            System.out.println("商品id:"+goodsID.get(i));
 
-            int merID=goodsService.goodsMerchantID(goodIDs[i]);
+            int merID=goodsService.goodsMerchantID(goodsID.get(i));
 
             if(merchantMap.containsKey(merID)){
-                merchantMap.get(merID).add(goodIDs[i]);
+
+                merchantMap.get(merID).add(goodsID.get(i));
+
             }else{
+                System.out.println("商家id:"+merID);
+
                 List<Integer> ls=new ArrayList<>();
-                ls.add(goodIDs[i]);
+                ls.add(goodsID.get(i));
                 merchantMap.put(merID,ls);
             }
         }
@@ -260,12 +309,13 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public boolean updateUser(Order order) throws SQLException {
+        System.out.println("订单ID="+order.getOrderNum()+"订单状态="+order.getOrderStatus());
         Connection connection = JDBCUtils.getConnection();
         PreparedStatement statement = connection.prepareStatement(
                 "update `order` set orderNum=?,orderUserNum=?,goodsListID=?,orderStatus=?,createrTime=?,merchantID=?, totalPrice=?" +
                         "  where orderNum=?");
         setOrderInfo(order, statement);
-        statement.setLong(7,order.getOrderNum());
+        statement.setLong(8,order.getOrderNum());
         int i= statement.executeUpdate();
         JDBCUtils.close(connection,statement);
         return i==1?true:false;

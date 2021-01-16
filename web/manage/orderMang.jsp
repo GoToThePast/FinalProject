@@ -46,12 +46,12 @@
                 <div class="info-roderNum">${orderQuery.order.orderNum}</div>
             </div>
             <div class="good-button">
-                <div class="but-1"><p class="on">确认发货</p></div>
+                <div class="but-1 orderSta"><p class="on">确认发货</p></div>
             </div>
             <c:forEach var="good" items="${orderQuery.goods}">
             <div class="order-good">
                 <div class="good-img">
-                    <img src="..${good.goodsPicUrl}" alt="">
+                    <img src="/${good.goodsPicUrl}" alt="">
                 </div>
                 <div class="goodInfo">
                     <div class="good-name"><p>${good.goodsName}</p></div>
@@ -68,6 +68,11 @@
         </div>
     </div>
 </div>
-
+<script src="./js/jquery2_14.js"></script>
+<script>
+    $(".orderSta").click(function(){
+        console.log("该发货啦！！")
+    })
+</script>
 </body>
 </html>

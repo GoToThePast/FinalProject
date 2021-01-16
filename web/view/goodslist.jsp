@@ -140,7 +140,7 @@
             </tr>
             <c:forEach var="goods" items="${goodsList}">
             <tr>
-                <td class="center"><img src="${goods.goodsPicUrl}" width="50" height="50"/></td>
+                <td class="center"><img src="/${goods.goodsPicUrl}" width="50" height="50"/></td>
                 <td class="center" id="gid">${goods.goodsID}</td>
                 <td id="gname">${goods.goodsName}</td>
                 <td class="center" id="gtype">${goods.goodsType}</td>

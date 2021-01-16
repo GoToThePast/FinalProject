@@ -100,15 +100,16 @@ $(function () {
     });
     var a = $(".ok span").text();
 
+    setInterval(b, 1000);
     function b() {
         a--;
         $(".ok span").text(a);
         if (a == 0) {
-            window.location.href = ("myorderq.html")
+            window.location.href = ("mygxin.jsp")
         }
     }
 
-    setInterval(b, 1000);
+
     $(".next").click(function () {
         $(".two").show();
         $(".one").hide();

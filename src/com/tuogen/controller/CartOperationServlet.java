@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.nio.file.attribute.UserPrincipal;
 import java.util.ArrayList;
 
 /**
@@ -54,9 +55,25 @@ public class CartOperationServlet extends HttpServlet {
             Cookie cookie=new Cookie("JSESSIONID",session.getId());
             cookie.setMaxAge(60*60*2);
             response.addCookie(cookie);
+            //跳转
+            response.sendRedirect("view/index.jsp");
         }else if ("remove".equals(action)){
             //移除购物车中商品
             cart.remove(goods);
+            //跳转
+            response.sendRedirect("view/index.jsp");
+        }else if("buyNow".equals(action)){
+            //立即购买
+            //添加商品至购物车
+            cart.add(goods);
+            //设置session存活时长
+            session.setMaxInactiveInterval(60*60*2);
+            //设置cookie存活时间
+            Cookie cookie=new Cookie("JSESSIONID",session.getId());
+            cookie.setMaxAge(60*60*2);
+            response.addCookie(cookie);
+            //完成跳转
+            response.sendRedirect("view/mcart.jsp");
         }
     }
 }

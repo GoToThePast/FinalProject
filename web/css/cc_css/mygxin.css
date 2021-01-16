@@ -21,6 +21,8 @@
 
 .Bott .zuo h3 a img {
     display: block;
+    width: 90px;
+    border-radius: 50%;
     margin: 0 auto;
 }
 
@@ -92,6 +94,11 @@
     padding: 1px;
 }
 
+.Bott .you .tx div a.fl img{
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+}
 .Bott .you .tx div p {
     margin: 25px 0 0 15px;
 }
