@@ -28,7 +28,7 @@
             </div>
             <div class="fr intro">
                 <div class="title"><h4>${good.goodsName}</h4>
-                    <p>${good.goodsIntroduce}</p><span>￥59.90</span></div>
+                    <p>${good.goodsIntroduce}</p><span>￥${good.price}</span></div>
                 <div class="proIntro"><p></p>
                     <div class="smallImg clearfix categ"><p class="fl">
 
@@ -76,14 +76,17 @@
 <script src="../js/cc_js/nav.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/cc_js/pro.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/cc_js/cart.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">jQuery(".bottom").slide({
-    titCell: ".hd ul",
-    mainCell: ".bd .likeList",
-    autoPage: true,
-    autoPlay: false,
-    effect: "leftLoop",
-    autoPlay: true,
-    vis: 1
-});</script>
+<script type="text/javascript">
+    jQuery(".bottom").slide({
+        titCell: ".hd ul",
+        mainCell: ".bd .likeList",
+        autoPage: true,
+        autoPlay: false,
+        effect: "leftLoop",
+        autoPlay: true,
+        vis: 1
+    });
+
+</script>
 </body>
 </html>
