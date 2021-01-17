@@ -73,7 +73,7 @@
         <div class="bc"><input type="button" value="保存"/><input type="button" value="取消"/></div>
     </form>
 </div><!--返回顶部-->
-<div class="gotop"><a href="cart.html">
+<div class="gotop"><a href="mcart.jsp">
     <dl>
         <dt><img src="../photo/cc_img/gt1.png"/></dt>
         <dd>去购<br/>物车</dd>
@@ -83,7 +83,7 @@
         <dt><img src="../photo/cc_img/gt2.png"/></dt>
         <dd>联系<br/>客服</dd>
     </dl>
-</a><a href="mygxin.html">
+</a><a href="mygxin.jsp">
     <dl>
         <dt><img src="../photo/cc_img/gt3.png"/></dt>
         <dd>个人<br/>中心</dd>

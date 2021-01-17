@@ -93,7 +93,7 @@ a
 <div class="mask"></div>
 <div class="tipDel"><p>确定要删除该商品吗？</p>
     <p class="clearfix"><a class="fl cer" href="#">确定</a><a class="fr cancel" href="#">取消</a></p></div><!--返回顶部-->
-<div class="gotop"><a href="cart.html">
+<div class="gotop"><a href="mcart.jsp">
     <dl>
         <dt><img src="../photo/cc_img/gt1.png"/></dt>
         <dd>去购<br/>物车</dd>
@@ -103,7 +103,7 @@ a
         <dt><img src="../photo/cc_img/gt2.png"/></dt>
         <dd>联系<br/>客服</dd>
     </dl>
-</a><a href="mygxin.html">
+</a><a href="mygxin.jsp">
     <dl>
         <dt><img src="../photo/cc_img/gt3.png"/></dt>
         <dd>个人<br/>中心</dd>

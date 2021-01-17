@@ -22,7 +22,7 @@ public class DelGoodsServlet extends HttpServlet {
         }else{
             request.getSession().setAttribute("deleteStatus","false");
         }
-        response.sendRedirect("/web_war_exploded/goodsList");
+        response.sendRedirect("/web/goodsList");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

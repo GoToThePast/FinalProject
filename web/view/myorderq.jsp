@@ -27,24 +27,24 @@
 <div class="Bott">
     <div class="wrapper clearfix">
         <div class="zuo fl">
-            <h3><a href="#"><img src="../photo/cc_img/tx.png"/></a>
+            <h3><a href="#"><img src="/web/${buyer.picUrl}"/></a>
                 <p class="clearfix"><span class="fl">[${buyer.name}]</span><span class="fr">[退出登录]</span></p></h3>
             <div><h4>我的交易</h4>
                 <ul>
                     <li><a href="cart.jsp">我的购物车</a></li>
                     <li><a href="myorderq.jsp">我的订单</a></li>
-                    <li><a href="#">评价晒单</a></li>
+<%--                    <li><a href="#">评价晒单</a></li>--%>
                 </ul>
                 <h4>个人中心</h4>
                 <ul>
                     <li><a href="mygxin.jsp">我的中心</a></li>
-                    <li><a href="#">地址管理</a></li>
+<%--                    <li><a href="#">地址管理</a></li>--%>
                 </ul>
-                <h4>账户管理</h4>
-                <ul>
-                    <li class="on"><a href="mygrxx.html">个人信息</a></li>
-                    <li><a href="#">修改密码</a></li>
-                </ul>
+<%--                <h4>账户管理</h4>--%>
+<%--                <ul>--%>
+<%--                    <li class="on"><a href="mygrxx.html">个人信息</a></li>--%>
+<%--                    <li><a href="#">修改密码</a></li>--%>
+<%--                </ul>--%>
             </div>
         </div>
         <div class="you fl">
@@ -90,7 +90,7 @@
     </div>
 </div><!--返回顶部-->
 <div class="gotop">
-    <a href="cart.html">
+    <a href="mcart.jsp">
         <dl>
             <dt><img src="../photo/cc_img/gt1.png"/></dt>
             <dd>去购<br/>物车</dd>
@@ -100,7 +100,7 @@
         <dt><img src="../photo/cc_img/gt2.png"/></dt>
         <dd>联系<br/>客服</dd>
     </dl>
-</a><a href="mygxin.html">
+</a><a href="mygxin.jsp">
     <dl>
         <dt><img src="../photo/cc_img/gt3.png"/></dt>
         <dd>个人<br/>中心</dd>

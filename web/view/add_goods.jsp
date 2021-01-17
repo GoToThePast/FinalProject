@@ -132,7 +132,7 @@
     <div class="rt_content">
         <div class="page_title">
             <h2 class="fl">添加商品</h2>
-            <a  href="./view/goodslist.jsp" class="fr top_rt_btn">返回商品列表</a>
+            <a  href="#" onClick="javascript :history.back(-1);" class="fr top_rt_btn">返回商品列表</a>
         </div>
         <section>
             <ul class="ulColumn2">

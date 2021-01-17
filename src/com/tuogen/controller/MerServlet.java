@@ -1,8 +1,6 @@
 package com.tuogen.controller;
 
-import com.tuogen.model.Goods;
-import com.tuogen.model.OrderQuery;
-import com.tuogen.model.Seller;
+import com.tuogen.model.*;
 import com.tuogen.service.GoodsService;
 import com.tuogen.service.OrderService;
 import com.tuogen.service.SellerService;
@@ -17,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -37,12 +37,13 @@ public class MerServlet extends BaseServlet {
             System.out.println("登陆失败");
         } else {
             System.out.println("登陆成功");
-            login_init(seller.getId(), session, req);
+            login_init(seller.getId(), session, req, seller);
         }
+        addOnlineUser(req,resp,seller);
         resp.sendRedirect("/web/manage/index.jsp");
     }
 
-    public void login_init(int merID, HttpSession session, HttpServletRequest request) {
+    public void login_init(int merID, HttpSession session, HttpServletRequest request ,Seller seller) {
         //查询用户相关订单
         List<OrderQuery> orderQueryList = orderService.getOrderQueryList(merID);
         session.setAttribute("orderList", orderQueryList);
@@ -64,6 +65,15 @@ public class MerServlet extends BaseServlet {
         System.out.println("商品列表"+goodsList.get(0).getGoodsName());
         session.setAttribute("pageIndex", pageIndex);
         session.setAttribute("goodsList", goodsList);
+    }
+
+    private void addOnlineUser(HttpServletRequest req, HttpServletResponse resp, Seller seller) {
+        HttpSession session = req.getSession();
+        //获取时间
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
+        OnlineUser onlineUser=new OnlineUser(Type.SELLER,seller,date);
+        session.setAttribute("onlineUser",onlineUser);
     }
 
     private Seller checkIdentity(String userAccout, String userPwd) {
