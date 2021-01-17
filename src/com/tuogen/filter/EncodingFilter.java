@@ -6,28 +6,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter("")
+@WebFilter("/*")
 public class EncodingFilter implements Filter {
     private String encoding;
-    private static final String DEFAULT_CHARSET = "UTF-8";
+    private static final String DEFAULT_CHARSET = "utf-8";
     public void destroy() {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-        chain.doFilter(req,resp);
-//        HttpServletRequest request = (HttpServletRequest) req;
-//        HttpServletResponse response=(HttpServletResponse) resp;
-//        //根据请求方式不同设置编码
-//        if ("GET".equals(request.getMethod())){
-//            EncodingWrapper wrapper = new EncodingWrapper(request, encoding);
-//            response.setContentType("text/html;charset="+encoding);
-//            chain.doFilter(wrapper,resp);
-//        }else{
-//            //设置post方式编码
-//            request.setCharacterEncoding(encoding);
-//            response.setContentType("text/html;charset="+encoding);
-//            chain.doFilter(req, resp);
-//        }
+        HttpServletRequest request = (HttpServletRequest) req;
+        //根据请求方式不同设置编码
+        if ("GET".equals(request.getMethod())){
+            EncodingWrapper wrapper = new EncodingWrapper(request, encoding);
+            request.setCharacterEncoding(encoding);
+            chain.doFilter(wrapper,resp);
+        }else{
+            //设置post方式编码
+            request.setCharacterEncoding(encoding);
+            resp.setContentType("text/html;charset="+encoding);
+            chain.doFilter(req, resp);
+        }
     }
 
     public void init(FilterConfig config) throws ServletException {

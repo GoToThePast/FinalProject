@@ -61,7 +61,7 @@ a
                         <img class="fl add" src="../photo/cc_img/temp/add.jpg"></p>
                 </div>
                 <div id="priceAll" class="price sAll">${rs.goodsPrice}</div>
-                <div class="price"><a class="del" datasrc="" href="#2">删除</a></div>
+                <div class="price"><a  datasrc="" href="../addToCart?type=remove&goodsID=${rs.goodsID}">删除</a></div>
             </div>
 
         </c:forEach>

@@ -128,7 +128,7 @@
 
 </style>
 <body>
-<form  class="rt_wrap content mCustomScrollbar"  action="/web_war_exploded/AddGoods" method="post" enctype="multipart/form-data">
+<form  class="rt_wrap content mCustomScrollbar"  action="/web/AddGoods" method="post" enctype="multipart/form-data">
     <div class="rt_content">
         <div class="page_title">
             <h2 class="fl">添加商品</h2>

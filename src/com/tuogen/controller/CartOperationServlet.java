@@ -61,7 +61,7 @@ public class CartOperationServlet extends HttpServlet {
             //移除购物车中商品
             cart.remove(goods);
             //跳转
-            response.sendRedirect("view/index.jsp");
+            response.sendRedirect("view/mcart.jsp");
         }else if("buyNow".equals(action)){
             //立即购买
             //添加商品至购物车
