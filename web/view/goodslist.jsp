@@ -124,7 +124,7 @@
     <div class="rt_content">
         <div class="page_title">
             <h2 class="fl">商品列表</h2>
-            <a href="./add_goods.jsp" class="fr top_rt_btn add_icon">添加商品</a>
+            <a href="add_goods.jsp" class="fr top_rt_btn add_icon">添加商品</a>
         </div>
         <table class="table">
             <tr>
@@ -149,16 +149,16 @@
                 <td class="center" id="gsellid">${goods.goodsSellID}</td>
                 <td class="center" id="gintroduce">${goods.goodsIntroduce}</td>
                 <td class="center">
-                    <a href="../gmodPer?goodsId=${goods.goodsID}" title="编辑" ><img src="../photo/page/编辑.png" width="30" height="30"/></a>
-                    <a href="../delGoods?goodsId=${goods.goodsID}" title="删除" ><img src="../photo/page/删除.png" width="30" height="30"/></a>
+                    <a href="/web/gmodPer?goodsId=${goods.goodsID}" title="编辑" ><img src="/web/photo/page/编辑.png" width="30" height="30"/></a>
+                    <a href="/web/delGoods?goodsId=${goods.goodsID}" title="删除" ><img src="/web/photo/page/删除.png" width="30" height="30"/></a>
                 </td>
             </tr>
             </c:forEach>
         </table>
         <aside class="paging">
-            <a href="/web_war_exploded/goodsList?pageIndex=${(pageIndex-1)<1?1:(pageIndex-1)}">上一页</a>
+            <a href="/web/goodsList?pageIndex=${(pageIndex-1)<1?1:(pageIndex-1)}">上一页</a>
             <a> 第${pageIndex}页</a>
-            <a href="/web_war_exploded/goodsList?pageIndex=${(pageIndex+1)>pageCount?pageCount:(pageIndex+1)}">下一页</a>
+            <a href="/web/goodsList?pageIndex=${(pageIndex+1)>pageCount?pageCount:(pageIndex+1)}">下一页</a>
         </aside>
     </div>
 </section>

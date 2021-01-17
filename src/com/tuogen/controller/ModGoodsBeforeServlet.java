@@ -25,7 +25,7 @@ public class ModGoodsBeforeServlet extends HttpServlet {
         }
         Goods goods = goodsService.queryGoods(goodsId);
         request.setAttribute("goods", goods);
-        request.getRequestDispatcher("../view/mod_goods.jsp").forward(request, response);
+        request.getRequestDispatcher("view/mod_goods.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -72,7 +72,7 @@
         <dt><img src="../photo/cc_img/gt2.png"/></dt>
         <dd>联系<br/>客服</dd>
     </dl>
-</a><a href="mygxin.html">
+</a><a href="mygxin.jsp">
     <dl>
         <dt><img src="../photo/cc_img/gt3.png"/></dt>
         <dd>个人<br/>中心</dd>

@@ -12,7 +12,7 @@
             	</c:if>
             	
             	<c:if test="${isLogin ==1 }">
-            		<b>你好：</b><a href="login.jsp" id="login">${buyer.name}</a>
+            		<b>你好：</b><a href="#" id="login">${buyer.name}</a>
             	
             	</c:if>
             </p>
@@ -21,7 +21,7 @@
                 <div class="btn fl clearfix">
                     <a href="mygxin.jsp"><img src="../photo/cc_img/grzx.png"/>
                       <c:if test="${isLogin ==1 }">  
-                        <a href="cart.jsp"><img src="../photo/cc_img/gwc.png"/></a>
+                        <a href="mcart.jsp"><img src="../photo/cc_img/gwc.png"/></a>
                        </c:if> 
                         
                     <p><a href="#"><img src="../photo/cc_img/smewm.png"/></a></p></div>
@@ -58,11 +58,11 @@
                     </a></div>
                 </div>
             </li>
-            <li><a href="../getGoodsByType?type=装饰摆件">装饰摆件</a></li>
-            <li><a href="../getGoodsByType?type=布艺软饰">布艺软饰</a></li>
-            <li><a href="../getGoodsByType?type=墙式壁挂">墙式壁挂</a></li>
-            <li><a href="../getGoodsByType?type=蜡艺香薰">蜡艺香薰</a></li>
-            <li><a href="../getGoodsByType?type=创意家居">创意家居</a></li>
+            <li><a href="decoration.jsp">装饰摆件</a></li>
+            <li><a href="flowerDer.jsp">布艺软饰</a></li>
+            <li><a href="idea.jsp">墙式壁挂</a></li>
+            <li><a href="paint.jsp">蜡艺香薰</a></li>
+            <li><a href="perfume.jsp">创意家居</a></li>
         </ul>
     </div>
 </div>

@@ -166,7 +166,7 @@
                     <span class="item_name" style="width:120px;">上传图片：</span>
                     <label class="uploadImg">
                         <input name="gpic" type="file" onchange="previewFile()"><br>
-                        <img src="../photo/page/图片.png" height="60" width="60" alt="Image preview..."  />
+                        <img src="/web/photo/page/图片.png" height="60" width="60" alt="Image preview..."  />
                     </label>
                 </li>
                 <script>
