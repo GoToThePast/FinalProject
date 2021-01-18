@@ -39,10 +39,10 @@ public class AddGoodsServlet extends HttpServlet {
 
     static Goods getGoods(HttpServletRequest request) {
         boolean isMult = ServletFileUpload.isMultipartContent(request);
-        int goodsID=0;
+        int goodsID=(int)System.currentTimeMillis();
         String goodsName = "";
         String goodsType ="";
-        int goodsPrice=0;
+        double goodsPrice=0;
         int goodsStock=0;
         int goodsSellID=0;
         String goodsIntroduce = "";
@@ -62,7 +62,7 @@ public class AddGoodsServlet extends HttpServlet {
                     if(item.isFormField()){//not picture
                         switch(itemName){
                             case "gid":
-                                goodsID=Integer.parseInt(item.getString());
+                                goodsID=(int)System.currentTimeMillis();
                                 break;
                             case "gname":
                                 goodsName=item.getString("UTF-8");
@@ -71,7 +71,7 @@ public class AddGoodsServlet extends HttpServlet {
                                 goodsType=item.getString("UTF-8");
                                 break;
                             case "gprice":
-                                goodsPrice=Integer.parseInt(item.getString());
+                                goodsPrice=Double.parseDouble(item.getString());
                                 break;
                             case "gstock":
                                 goodsStock=Integer.parseInt(item.getString());

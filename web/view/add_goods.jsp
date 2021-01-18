@@ -136,10 +136,6 @@
         </div>
         <section>
             <ul class="ulColumn2">
-                <li >
-                    <span class="item_name" style="width:120px;">商品编号：</span>
-                    <input name="gid" type="text" class="textbox textbox_295" placeholder="商品编号..."/>
-                </li>
                 <li>
                     <span class="item_name" style="width:120px;">商品名称：</span>
                     <input name="gname" type="text" class="textbox" placeholder="商品名称..."/>
