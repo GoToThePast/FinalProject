@@ -19,7 +19,7 @@
 <div class="Bott">
     <div class="wrapper clearfix">
         <div class="zuo fl">
-            <h3><a href="#"><img src="../${buyer.picUrl}"/></a>
+            <h3><a href="#"><img src="/web/${buyer.picUrl}"/></a>
                 <p class="clearfix"><span class="fl">[${buyer.name}]</span><span>[<a href="#">退出登录</a>]</span></p></h3>
             <div><h4>我的交易</h4>
                 <ul>

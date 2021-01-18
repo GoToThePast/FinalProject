@@ -39,12 +39,17 @@
             <p></p></a><a href="#"><img src="../photo/cc_img/n2.jpg"/>
             <p></p></a><a href="#"><img src="../photo/cc_img/n3.jpg"/>
             <p></p></a></div>
-        <div class="bott clearfix"><a href="#"><img src="../photo/cc_img/n4.jpg"/>
-            <p></p></a><a href="#"><img src="../photo/cc_img/n5.jpg"/>
-            <p></p></a><a href="#"><img src="../photo/cc_img/n6.jpg"/>
-            <p></p></a></div>
+        <div class="bott clearfix">
+            <a href="#"><img src="../photo/cc_img/n4.jpg"/>
+            <p></p>
+            </a><a href="#"><img src="../photo/cc_img/n5.jpg"/>
+            <p></p>
+        </a><a href="#"><img src="../photo/cc_img/n6.jpg"/>
+            <p></p>
+        </a></div>
         <h2><img src="../photo/cc_img/ih2.jpg"/></h2>
         <div class="flower clearfix tran">
+            <a name="0"></a>
             <c:forEach var="goods" begin="0" end="2" step="1" items="${goodsList1}">
                 <a href="../getGoodUseID?goodID=${goods.goodsID}">
                     <dl>
@@ -67,10 +72,12 @@
             </c:forEach>
         </div>
     </div>
-</div><!------------------------------ad------------------------------><a href="#" class="ad"><img
+</div><!------------------------------ad------------------------------>
+<a href="#" class="ad"><img
         src="../photo/cc_img/ib1.jpg"/></a><!------------------------------people------------------------------>
 <div class="people">
     <div class="wrapper"><h2><img src="../photo/cc_img/ih3.jpg"/></h2>
+        <a name="1"></a>
         <div class="pList clearfix tran">
             <c:forEach var="goods" begin="0" end="2" step="1" items="${goodsList2}">
                 <a href="../getGoodUseID?goodID=${goods.goodsID}">
@@ -82,6 +89,7 @@
                 </a>
             </c:forEach>
         </div>
+        <a name="2"></a>
         <div class="pList clearfix tran">
             <c:forEach var="goods" begin="3" end="5" step="1" items="${goodsList2}">
                 <a href="../getGoodUseID?goodID=${goods.goodsID}">
@@ -97,6 +105,7 @@
 </div>
 <div class="imgList1">
     <div class="wrapper">
+        <a name="3"></a>
         <h2><img src="../photo/cc_img/ih5.jpg"/></h2>
         <div class="box2"><a href="#" class="banner"><img
                 src="../photo/cc_img/idea22.jpg"/></a>
@@ -127,7 +136,7 @@
                 </c:forEach>
             </ul>
         </div>
-        <a name="1"></a>
+        <a name="4"></a>
         <h2><img src="../photo/cc_img/ih6.jpg"/></h2>
         <div class="box3">
             <ul>
