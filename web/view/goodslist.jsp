@@ -124,7 +124,7 @@
     <div class="rt_content">
         <div class="page_title">
             <h2 class="fl">商品列表</h2>
-            <a href="add_goods.jsp" class="fr top_rt_btn add_icon">添加商品</a>
+            <a href="/web/view/add_goods.jsp" class="fr top_rt_btn add_icon">添加商品</a>
         </div>
         <table class="table">
             <tr>

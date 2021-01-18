@@ -95,6 +95,7 @@ public class OrderDaoImpl implements OrderDao {
                 Goods good=goodsService.queryGoods(i);
                 goods.add(good);
             }
+
             orderQuery.setOrder(order);
             orderQuery.setGoodsId(goodIDs);
             orderQuery.setGoods(goods);

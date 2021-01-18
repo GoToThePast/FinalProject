@@ -24,6 +24,11 @@ import java.util.List;
 public class AddGoodsServlet extends HttpServlet {
     GoodsService goodsService = new GoodsServiceImpl();
 
+    @Override
+    public void init() throws ServletException {
+        super.init();
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("utf-8");
@@ -87,9 +92,9 @@ public class AddGoodsServlet extends HttpServlet {
                         }
                     }else{//img pictuer ->file
 
-                        String path[]=request.getSession().getServletContext().getRealPath("").split("out");
+                        String path=request.getSession().getServletContext().getRealPath("photo/goods/");
                         String fileName=item.getName();
-                        File file = new File(path[0]+"web/photo/goods/",goodspicId+fileName.substring(fileName.lastIndexOf(".") ));
+                        File file = new File(path,goodspicId+fileName.substring(fileName.lastIndexOf(".") ));
                         item.write(file);
                         goodsPicUrl+="web/photo/goods/"+goodspicId+fileName.substring(fileName.lastIndexOf("."));
                     }

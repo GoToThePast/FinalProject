@@ -45,8 +45,14 @@ public class MerServlet extends BaseServlet {
 
     public void login_init(int merID, HttpSession session, HttpServletRequest request ,Seller seller) {
         //查询用户相关订单
+        long start = System.currentTimeMillis();
+
+        System.out.println("start="+start);
         List<OrderQuery> orderQueryList = orderService.getOrderQueryList(merID);
         session.setAttribute("orderList", orderQueryList);
+        System.out.println("end="+(System.currentTimeMillis()-start));
+
+
         //查询用户相关商品
         String pageIndexStr = request.getParameter("pageIndex");
         if (pageIndexStr == null || pageIndexStr == "")
