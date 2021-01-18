@@ -21,7 +21,7 @@ a
     <!-----------------site------------------->
     <div class="site"><p class=" wrapper clearfix"><span class="fl">购物车</span><img class="top"
                                                                                    src="../photo/cc_img/temp/cartTop01.png"><a
-            href="indexselect" class="fr">继续购物&gt;</a></p></div><!-----------------table------------------->
+            href="index.jsp" class="fr">继续购物&gt;</a></p></div><!-----------------table------------------->
     <div class="table wrapper">
         <div class="tr">
             <div>商品</div>
@@ -67,7 +67,7 @@ a
         </c:forEach>
 
 
-        <div class="goOn">空空如也~<a href="indexselect">去逛逛</a></div>
+        <div class="goOn">空空如也~<a href="index.jsp">去逛逛</a></div>
         <div class="tr clearfix"><label class="fl"><input class="checkAll" type="checkbox"/><span></span></label>
             <p class="fl"><a href="#">全选</a><a href="#" class="del">删除</a></p>
             <p class="fr">

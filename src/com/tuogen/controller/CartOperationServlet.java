@@ -85,7 +85,6 @@ public class CartOperationServlet extends HttpServlet {
         if (cart!=null){
             cart.clear();
         }
-        session.setAttribute("cart",null);
     }
 
 
