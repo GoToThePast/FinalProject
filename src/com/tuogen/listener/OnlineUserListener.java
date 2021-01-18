@@ -1,12 +1,17 @@
 package com.tuogen.listener;
 
+import com.tuogen.model.Buyer;
 import com.tuogen.model.OnlineUser;
+import com.tuogen.model.Type;
+import com.tuogen.model.User;
 
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 @WebListener()
 public class OnlineUserListener implements HttpSessionAttributeListener {

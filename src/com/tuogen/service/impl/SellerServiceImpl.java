@@ -22,13 +22,11 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller loginUseID(int ID, String pwd) {
-        Seller seller=null;
+    public void init() {
         try {
-            seller = sellerDao.sellerLoginUseID(ID,pwd);
+            sellerDao.init();
         } catch (SQLException throwables) {
-            System.out.println("添加商家用户出错");
+            throwables.printStackTrace();
         }
-        return seller;
     }
 }

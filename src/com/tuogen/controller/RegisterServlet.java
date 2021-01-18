@@ -1,8 +1,6 @@
 package com.tuogen.controller;
 
-import com.tuogen.model.Buyer;
-import com.tuogen.model.Seller;
-import com.tuogen.model.User;
+import com.tuogen.model.*;
 import com.tuogen.service.BuyerService;
 import com.tuogen.service.SellerService;
 import com.tuogen.service.impl.BuyerServiceImpl;
@@ -20,6 +18,8 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -28,8 +28,10 @@ import java.util.List;
  * Made By 王炜
  * 供注册使用Servlet
  */
-@WebServlet("/register")
+//@WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
+    public static final String ANSI_RESET ="\u001B[0m";
+    public static final String ANSI_RED ="\u001B[31m";
     private static final HashMap<String,Field> BuyerFieldMap=getFieldMap(Buyer.class);
     private static final HashMap<String,Field> SellerFieldMap=getFieldMap(Seller.class);
     private static Constructor BuyerConstructor;
@@ -42,6 +44,7 @@ public class RegisterServlet extends HttpServlet {
         try {
             BuyerConstructor= Buyer.class.getConstructor();
             SellerConstructor=Seller.class.getConstructor();
+            sellerService.init();
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -52,26 +55,29 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 2021/1/6 完成EncodingFilter后需删除
-        request.setCharacterEncoding("UTF-8");
         //解析请求，判断注册类型
         String registerType = request.getParameter("registerType");
         int account=-1;
-        if ("Buyer".equals(registerType)){
-            //注册用户
-            Buyer buyer = (Buyer)getUser(request, BuyerFieldMap, BuyerConstructor);
-            // TODO: 2021/1/8 buyerService.addUser
-            account = buyerService.addUser(buyer);
-        }else if ("Seller".equals(registerType)){
-            //注册商家
-            Seller seller = (Seller)getUser(request, SellerFieldMap, SellerConstructor);
-            account = sellerService.addUser(seller);
+        try{
+            if ("Buyer".equals(registerType)){
+                //注册用户
+                Buyer buyer = (Buyer)getUser(request, BuyerFieldMap, BuyerConstructor);
+                // TODO: 2021/1/8 buyerService.addUser
+                account = buyerService.addUser(buyer);
+            }else if ("Seller".equals(registerType)){
+                //注册商家
+                Seller seller = (Seller)getUser(request, SellerFieldMap, SellerConstructor);
+                account = sellerService.addUser(seller);
+
+            }
+        }catch (Exception e){
+            System.out.println(ANSI_RED +e.getMessage() + ANSI_RESET);
+            //注册失败
+            response.sendRedirect("./view/registerFailed.jsp");
         }
         if (account>0){
             request.getSession().setAttribute("account",account);
             response.sendRedirect("./view/registerSuccess.jsp");
-        }else{
-            response.sendRedirect("./view/registerFailed.jsp");
         }
     }
 
@@ -102,7 +108,7 @@ public class RegisterServlet extends HttpServlet {
      * @param constructor
      * @return 返回User
      */
-    public static User getUser(HttpServletRequest request, HashMap<String, Field> map, Constructor constructor ) {
+    public static User getUser(HttpServletRequest request, HashMap<String, Field> map, Constructor constructor ) throws ParametersMismatchException {
         Object user;
         DiskFileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
@@ -137,9 +143,14 @@ public class RegisterServlet extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new ParametersMismatchException("模型与表单参数不一致!");
         }
         return (User)user;
+    }
+}
+
+class ParametersMismatchException extends Exception{
+    public ParametersMismatchException(String msg) {
+        super(msg);
     }
 }
