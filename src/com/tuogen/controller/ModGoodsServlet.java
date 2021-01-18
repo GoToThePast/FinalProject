@@ -49,7 +49,7 @@ public class ModGoodsServlet extends HttpServlet {
         int goodsID=0;
         String goodsName = "";
         String goodsType ="";
-        int goodsPrice=0;
+        double goodsPrice=0;
         int goodsStock=0;
         int goodsSellID=0;
         String goodsIntroduce = "";
@@ -78,7 +78,7 @@ public class ModGoodsServlet extends HttpServlet {
                                 goodsType=item.getString("UTF-8");
                                 break;
                             case "gprice":
-                                goodsPrice=Integer.parseInt(item.getString());
+                                goodsPrice=Double.parseDouble(item.getString());
                                 break;
                             case "gstock":
                                 goodsStock=Integer.parseInt(item.getString());
@@ -94,11 +94,11 @@ public class ModGoodsServlet extends HttpServlet {
                         }
                     }else{//img pictuer ->file
 
-                        String path[]=request.getSession().getServletContext().getRealPath("").split("out");
+                        String path=request.getSession().getServletContext().getRealPath("photo/goods/");
                         String fileName=item.getName();
-                        File file = new File(path[0]+"web/photo/goods/",goodspicId+fileName.substring(fileName.lastIndexOf(".") ));
+                        File file = new File(path,goodspicId+fileName.substring(fileName.lastIndexOf(".") ));
                         item.write(file);
-                        goodsPicUrl+="/photo/goods/"+goodspicId+fileName.substring(fileName.lastIndexOf("."));
+                        goodsPicUrl+="web/photo/goods/"+goodspicId+fileName.substring(fileName.lastIndexOf("."));
                     }
                 }
             } catch (FileUploadException e) {

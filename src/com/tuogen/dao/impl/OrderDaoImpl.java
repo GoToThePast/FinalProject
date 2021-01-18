@@ -31,6 +31,7 @@ public class OrderDaoImpl implements OrderDao {
     public void addOrders(Order order, Connection connection, PreparedStatement statement1) throws SQLException {
         setOrderInfo(order, statement1);
         statement1.executeUpdate();
+
     }
 
     @Override
@@ -94,6 +95,7 @@ public class OrderDaoImpl implements OrderDao {
                 Goods good=goodsService.queryGoods(i);
                 goods.add(good);
             }
+
             orderQuery.setOrder(order);
             orderQuery.setGoodsId(goodIDs);
             orderQuery.setGoods(goods);

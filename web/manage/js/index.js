@@ -6,6 +6,7 @@ function init(){
         $(el).click(function () {
             switch(index){
                 case 0:
+                    // $("#iframe-contains").attr('src',"../goodslist");
                     $("#iframe-contains").attr('src',"../view/goodslist.jsp");
                     $("#navLocation").html("<span class='firstP'>首页</span>/商品管理</span>")
                     break;

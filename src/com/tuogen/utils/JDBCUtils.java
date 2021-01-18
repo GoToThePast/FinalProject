@@ -12,6 +12,9 @@ public class JDBCUtils {
     static DataSource ds;
 
     static {
+        long start = System.currentTimeMillis();
+
+        System.out.println("start2="+start);
         Properties pro=new Properties();
         InputStream is = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
         try {
@@ -20,6 +23,7 @@ public class JDBCUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("end2="+(System.currentTimeMillis()-start));
     }
 
     /**

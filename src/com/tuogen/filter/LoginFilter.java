@@ -18,7 +18,7 @@ public class LoginFilter implements Filter {
         //放行资源文件
         if (requestURI.contains("/css/")||requestURI.contains("/js/")
                 ||requestURI.contains("/image/")||requestURI.contains("/photo/")
-                ||requestURI.contains("/validCode")||requestURI.contains("/web/")){
+                ||requestURI.contains("/validCode")||requestURI.equals("/web/")){
             chain.doFilter(req,resp);
             return;
         }

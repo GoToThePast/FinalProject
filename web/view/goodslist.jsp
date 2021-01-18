@@ -124,7 +124,7 @@
     <div class="rt_content">
         <div class="page_title">
             <h2 class="fl">商品列表</h2>
-            <a href="add_goods.jsp" class="fr top_rt_btn add_icon">添加商品</a>
+            <a href="/web/view/add_goods.jsp" class="fr top_rt_btn add_icon">添加商品</a>
         </div>
         <table class="table">
             <tr>
@@ -140,7 +140,7 @@
             </tr>
             <c:forEach var="goods" items="${goodsList}">
             <tr>
-                <td class="center"><img src="/web/${goods.goodsPicUrl}" width="50" height="50"/></td>
+                <td class="center"><img src="/${goods.goodsPicUrl}" width="50" height="50"/></td>
                 <td class="center" id="gid">${goods.goodsID}</td>
                 <td id="gname">${goods.goodsName}</td>
                 <td class="center" id="gtype">${goods.goodsType}</td>

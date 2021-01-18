@@ -52,8 +52,10 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 2021/1/6 完成EncodingFilter后需删除
-        request.setCharacterEncoding("UTF-8");
+
+        long start = System.currentTimeMillis();
+
+        System.out.println("start3="+start);
         //解析请求，判断注册类型
         String registerType = request.getParameter("registerType");
         int account=-1;
@@ -73,6 +75,7 @@ public class RegisterServlet extends HttpServlet {
         }else{
             response.sendRedirect("./view/registerFailed.jsp");
         }
+        System.out.println("end3="+(System.currentTimeMillis()-start));
     }
 
     /**
