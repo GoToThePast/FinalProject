@@ -10,6 +10,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.nio.file.attribute.UserPrincipal;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 /**
  * Made By 王炜
@@ -47,33 +48,33 @@ public class CartOperationServlet extends HttpServlet {
         // TODO: 2021/1/7 根据商品ID获取商品
         goods=goodsService.queryGoods(Integer.parseInt(request.getParameter(goodsID)));
         if ("add".equals(action)){
-            //添加商品至购物车
-            cart.add(goods);
-            //设置session存活时长
-            session.setMaxInactiveInterval(60*60*2);
-            //设置cookie存活时间
-            Cookie cookie=new Cookie("JSESSIONID",session.getId());
-            cookie.setMaxAge(60*60*2);
-            response.addCookie(cookie);
+            addCart(response, session, cart, goods);
             //跳转
             response.sendRedirect("view/index.jsp");
         }else if ("remove".equals(action)){
             //移除购物车中商品
-            cart.remove(goods);
+            System.out.println("goodsid="+goods.getGoodsID());
+            System.out.println(System.identityHashCode(goods));
+            Goods finalGoods = goods;
+            cart.removeIf(e->e.getGoodsID()== finalGoods.getGoodsID());
             //跳转
             response.sendRedirect("view/mcart.jsp");
         }else if("buyNow".equals(action)){
-            //立即购买
-            //添加商品至购物车
-            cart.add(goods);
-            //设置session存活时长
-            session.setMaxInactiveInterval(60*60*2);
-            //设置cookie存活时间
-            Cookie cookie=new Cookie("JSESSIONID",session.getId());
-            cookie.setMaxAge(60*60*2);
-            response.addCookie(cookie);
-            //完成跳转
+            addCart(response, session, cart, goods);
+            //跳转
             response.sendRedirect("view/mcart.jsp");
         }
+    }
+
+    private void addCart(HttpServletResponse response, HttpSession session, ArrayList<Goods> cart, Goods goods) throws IOException {
+        //添加商品至购物车
+        cart.add(goods);
+        //设置session存活时长
+        session.setMaxInactiveInterval(60*60*2);
+        //设置cookie存活时间
+        Cookie cookie=new Cookie("JSESSIONID",session.getId());
+        cookie.setMaxAge(60*60*2);
+        response.addCookie(cookie);
+
     }
 }
