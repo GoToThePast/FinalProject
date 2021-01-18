@@ -6,14 +6,14 @@ html, body {
 .reg {
     width: 100%;
     height: 100%;
-    background: url("../img/temp/20.jpg") no-repeat;
+    background: url("../../photo/cc_img/temp/20.jpg") no-repeat;
     background-size: 100% 100%;
 }
 
 .login {
     width: 100%;
     height: 100%;
-    background: url("../img/temp/19.jpg") no-repeat;
+    background: url("../../photo/cc_img/temp/19.jpg") no-repeat;
     background-size: 100% 100%;
 }
 
@@ -115,7 +115,7 @@ div.reg form p.txtL a {
     text-align: right;
 }
 
-.reg p.txt a, .login p.txt a, {
+.reg p.txt a, .login p.txt a{
     color: #666;
     text-decoration: underline;
 }

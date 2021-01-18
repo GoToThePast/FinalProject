@@ -62,7 +62,7 @@ public class MerServlet extends BaseServlet {
             pageIndex = 1;
         }
         List<Goods> goodsList = goodsService.getGoodsList((pageIndex - 1) * count, count, merID);
-        System.out.println("商品列表"+goodsList.get(0).getGoodsName());
+
         session.setAttribute("pageIndex", pageIndex);
         session.setAttribute("goodsList", goodsList);
     }
