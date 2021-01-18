@@ -29,4 +29,14 @@ public class SellerServiceImpl implements SellerService {
             throwables.printStackTrace();
         }
     }
+    @Override
+    public Seller loginUseID(int ID, String pwd) {
+        Seller seller=null;
+        try {
+            seller = sellerDao.sellerLoginUseID(ID,pwd);
+        } catch (SQLException throwables) {
+            System.out.println("添加商家用户出错");
+        }
+        return seller;
+    }
 }
