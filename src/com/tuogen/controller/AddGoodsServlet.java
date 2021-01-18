@@ -91,7 +91,7 @@ public class AddGoodsServlet extends HttpServlet {
                         String fileName=item.getName();
                         File file = new File(path[0]+"web/photo/goods/",goodspicId+fileName.substring(fileName.lastIndexOf(".") ));
                         item.write(file);
-                        goodsPicUrl+="/photo/goods/"+goodspicId+fileName.substring(fileName.lastIndexOf("."));
+                        goodsPicUrl+="web/photo/goods/"+goodspicId+fileName.substring(fileName.lastIndexOf("."));
                     }
                 }
             } catch (FileUploadException e) {
