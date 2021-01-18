@@ -31,4 +31,10 @@ public class SellerDaoImpl implements SellerDao {
         JDBCUtils.close(connection,statement,generatedKeys);
         return ID;
     }
+
+    @Override
+    public void init() throws SQLException {
+        Connection connection = JDBCUtils.getConnection();
+        JDBCUtils.close(connection);
+    }
 }

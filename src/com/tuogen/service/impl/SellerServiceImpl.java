@@ -20,4 +20,13 @@ public class SellerServiceImpl implements SellerService {
         }
         return id;
     }
+
+    @Override
+    public void init() {
+        try {
+            sellerDao.init();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }

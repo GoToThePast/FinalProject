@@ -28,7 +28,7 @@ import java.util.List;
  * Made By 王炜
  * 供注册使用Servlet
  */
-@WebServlet("/register")
+//@WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     public static final String ANSI_RESET ="\u001B[0m";
     public static final String ANSI_RED ="\u001B[31m";
@@ -44,6 +44,7 @@ public class RegisterServlet extends HttpServlet {
         try {
             BuyerConstructor= Buyer.class.getConstructor();
             SellerConstructor=Seller.class.getConstructor();
+            sellerService.init();
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -54,7 +55,6 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         //解析请求，判断注册类型
         String registerType = request.getParameter("registerType");
         int account=-1;
@@ -68,6 +68,7 @@ public class RegisterServlet extends HttpServlet {
                 //注册商家
                 Seller seller = (Seller)getUser(request, SellerFieldMap, SellerConstructor);
                 account = sellerService.addUser(seller);
+
             }
         }catch (Exception e){
             System.out.println(ANSI_RED +e.getMessage() + ANSI_RESET);
