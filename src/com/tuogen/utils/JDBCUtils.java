@@ -40,7 +40,9 @@ public class JDBCUtils {
      * @return
      * @throws SQLException
      */
+    static int num=0;
     public static Connection getConnection() throws SQLException {
+        System.out.println("获得连接="+(num++));
         return ds.getConnection();
     }
 
@@ -70,6 +72,7 @@ public class JDBCUtils {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
+        System.out.println("关闭连接="+(num--));
     }
 
 }

@@ -34,4 +34,12 @@ public interface OrderDao {
     public List<Integer> getGoodsByGoodListID(int goodsListId) throws SQLException;
 
     public  List<OrderQuery> getOrderQueryListMerByBuyer(int id) throws SQLException;
+
+    List<OrderQuery> getOrderQueryListMer(int id, int begin, int pageNum) throws SQLException;
+    //查询商家订单数量
+    int getOrderCount(int id) throws SQLException;
+    //查询买家订单数量
+    int getOrderCount(long buyerId) throws SQLException;
+    //获取查询订单通过买家ID
+    List<OrderQuery> getOrderQueryListBuyer(long id, int i, int pageNum) throws SQLException;
 }

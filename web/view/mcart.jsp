@@ -93,7 +93,7 @@ a
             traditional:true,
             data: {"userID":buyerID,"goodsIDList":goodsID},
             success:function (){
-                window.location.href='order.jsp'
+                window.location.href='morder.jsp'
             }
         });
     })

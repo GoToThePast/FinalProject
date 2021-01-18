@@ -104,6 +104,109 @@ public class OrderDaoImpl implements OrderDao {
         return orderList;
     }
 
+
+    @Override
+    public List<OrderQuery> getOrderQueryListMer(int id, int begin, int pageNum) throws SQLException {
+        List<OrderQuery> orderList=new ArrayList<>();
+        List<Order> orders=this.getOrderListByMerchantID(id,begin,pageNum);
+        for(Order order:orders){
+            OrderQuery orderQuery = new OrderQuery();
+            Vector<Integer> goodIDs=this.getGoodList(order.getGoodsListId());
+            Vector<Goods> goods=new Vector<>();
+            for(Integer i:goodIDs){
+                Goods good=goodsService.queryGoods(i);
+                goods.add(good);
+            }
+            orderQuery.setOrder(order);
+            orderQuery.setGoodsId(goodIDs);
+            orderQuery.setGoods(goods);
+            orderList.add(orderQuery);
+        }
+        return orderList;
+    }
+
+    @Override
+    public int getOrderCount(int id) throws SQLException {
+        int count=0;
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select count(*) from `order` where merchantID=?");
+        statement.setInt(1,id);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            count = resultSet.getInt(1);
+        }
+        JDBCUtils.close(connection,statement,resultSet);
+        return count;
+    }
+
+    @Override
+    public int getOrderCount(long buyerId) throws SQLException {
+        int count=0;
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select count(*) from `order` where orderUserNum=?");
+        statement.setLong(1,buyerId);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            count = resultSet.getInt(1);
+        }
+        JDBCUtils.close(connection,statement,resultSet);
+        return count;
+    }
+
+    @Override
+    public List<OrderQuery> getOrderQueryListBuyer(long id, int begin, int pageNum) throws SQLException {
+        List<OrderQuery> orderList=new ArrayList<>();
+        List<Order> orders=this.getOrderListByBuyerID(id,begin,pageNum);
+        for(Order order:orders){
+            OrderQuery orderQuery = new OrderQuery();
+            Vector<Integer> goodIDs=this.getGoodList(order.getGoodsListId());
+            Vector<Goods> goods=new Vector<>();
+            for(Integer i:goodIDs){
+                Goods good=goodsService.queryGoods(i);
+                goods.add(good);
+            }
+            orderQuery.setOrder(order);
+            orderQuery.setGoodsId(goodIDs);
+            orderQuery.setGoods(goods);
+            orderList.add(orderQuery);
+        }
+        return orderList;
+    }
+
+    private List<Order> getOrderListByBuyerID(long id, int begin, int pageNum) throws SQLException {
+        List<Order> orders=new ArrayList<>();
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select * from `order` where orderUserNum=? limit ?,?");
+        statement.setLong(1,id);
+        statement.setInt(2,begin);
+        statement.setInt(3,pageNum);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            Order order=new Order();
+            getOrderInfo(resultSet, order);
+            orders.add(order);
+        }
+        JDBCUtils.close(connection,statement,resultSet);
+        return orders;
+    }
+
+    private List<Order> getOrderListByMerchantID(int id, int begin, int pageNum) throws SQLException {
+        List<Order> orders=new ArrayList<>();
+        Connection connection = JDBCUtils.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select * from `order` where merchantID=? limit ?,?");
+        statement.setInt(1,id);
+        statement.setInt(2,begin);
+        statement.setInt(3,pageNum);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            Order order=new Order();
+            getOrderInfo(resultSet, order);
+            orders.add(order);
+        }
+        JDBCUtils.close(connection,statement,resultSet);
+        return orders;
+    }
+
     @Override
     public List<Order> creatOder(int userID, List<Integer> goodsID) throws SQLException {
 
@@ -200,6 +303,7 @@ public class OrderDaoImpl implements OrderDao {
         }
         return orderList;
     }
+
 
     private void doAddGoodsListId(int listID, List<Integer> value, Connection connection, PreparedStatement statement) throws SQLException {
         for(int goodId:value){

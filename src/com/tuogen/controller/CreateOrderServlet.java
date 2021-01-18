@@ -53,8 +53,6 @@ public class CreateOrderServlet extends HttpServlet {
         //创建订单集
         List<OrderQuery> qOrders=creatOrderQuerys(orderList);
 
-        System.out.println("订单："+qOrders.get(0).toString());
-        System.out.println("订单："+qOrders.get(0).getGoods().get(0).getGoodsName());
 
         //将订单信息加入属性供支付使用
         request.getSession().setAttribute("qOrders",qOrders);
@@ -68,9 +66,13 @@ public class CreateOrderServlet extends HttpServlet {
         System.out.println("开始创建");
         List<OrderQuery> queryList=new ArrayList<>();
         for(Order order:orderList){
+            // 创建订单信息原子
             OrderQuery orderQuery=new OrderQuery();
+            //
             orderQuery.setOrder(order);
+
             orderQuery.setGoodsId(orderService.getGoodsByGoodListID(order.getGoodsListId()));
+
             Vector<Goods> goods=new Vector<>();
             for(int i:orderQuery.getGoodsId()){
                 goods.add(goodsService.queryGoods(i));

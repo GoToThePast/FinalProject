@@ -129,6 +129,49 @@ public class OrderServiceImpl implements OrderService {
         }
         return orderList;
     }
+    @Override
+    public List<OrderQuery> getOrderQueryList(int id, int begin, int pageNum) {
+        List<OrderQuery> orderList=null;
+        try {
+            orderList=orderDao.getOrderQueryListMer(id,begin,pageNum);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return orderList;
+    }
+
+    @Override
+    public int getOrderCount(int id) {
+        int  orderCount=0;
+        try {
+            orderCount=orderDao.getOrderCount(id);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return orderCount;
+    }
+
+    @Override
+    public int getOrderCount(long buyerId) {
+        int  orderCount=0;
+        try {
+            orderCount=orderDao.getOrderCount(buyerId);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return orderCount;
+    }
+
+    @Override
+    public List<OrderQuery> getOrderQueryListByBuyer(long id, int i, int pageNum) {
+        List<OrderQuery> orderList=null;
+        try {
+            orderList=orderDao.getOrderQueryListBuyer(id,i,pageNum);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return orderList;
+    }
 
     @Override
     public Vector<Integer> getGoodsByGoodListID(int goodsListId) {
@@ -151,5 +194,6 @@ public class OrderServiceImpl implements OrderService {
         }
         return orderList;
     }
+
 
 }

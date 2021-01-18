@@ -1,7 +1,9 @@
 package com.tuogen.controller;
 
+import com.tuogen.model.Goods;
 import com.tuogen.model.Order;
 import com.tuogen.model.OrderQuery;
+import com.tuogen.model.Seller;
 import com.tuogen.service.GoodsService;
 import com.tuogen.service.OrderService;
 import com.tuogen.service.impl.GoodsServiceImpl;
@@ -21,16 +23,7 @@ import java.util.List;
 public class MerchantOrderServlet extends BaseServlet {
     OrderService orderService=new OrderServiceImpl();
     GoodsService goodsService=new GoodsServiceImpl();
-    public void addOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Order order=getOrder(req,resp);
-        boolean tag=orderService.addOrder(order);
-        if(tag){
-            req.setAttribute("isAdd",true);
-        }else{
-            req.setAttribute("isAdd",false);
-        }
-        req.getRequestDispatcher("#").forward(req,resp);
-    }
+    private int pageNum=4;
     public void queryOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Order order=null;
         Long orderNum=null;
@@ -38,19 +31,6 @@ public class MerchantOrderServlet extends BaseServlet {
         req.setAttribute("order",order);
         req.getRequestDispatcher("#").forward(req,resp);
     }
-
-    private Order getOrder(HttpServletRequest req, HttpServletResponse resp) {
-        Order order=null;
-        order.setOrderNum(Long.parseLong(req.getParameter("#")));
-        order.setOrderUserNum(Integer.parseInt(req.getParameter("#")));
-        order.setGoodsListId(Integer.parseInt(req.getParameter("#")));
-        order.setOrderStatus(req.getParameter("#"));
-        order.setCreaterTime(Timestamp.valueOf(req.getParameter("#")));
-        order.setMerchantId(Integer.parseInt(req.getParameter("#")));
-        order.setTotalPrice(Double.parseDouble(req.getParameter("#")));
-        return order;
-    }
-
     public void delOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String delId=req.getParameter("delId");
         boolean tag=orderService.deleteOrder(Long.parseLong(delId));
@@ -63,11 +43,6 @@ public class MerchantOrderServlet extends BaseServlet {
     }
 
     public void listOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int merchantID = 45;
-        List<OrderQuery> orderQueryList = orderService.getOrderQueryList(merchantID);
-        HttpSession session = req.getSession();
-        session.setAttribute("orderList",orderQueryList);
-//        req.getRequestDispatcher("/manage/index.jsp").forward(req,resp);
-        resp.sendRedirect("/web/manage/index.jsp");
+
     }
 }

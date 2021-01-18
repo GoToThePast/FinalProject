@@ -11,6 +11,8 @@ import java.util.Vector;
  */
 public class OrderQuery {
     Order order=null;
+    // 订单 商品id
+
     Vector<Integer> goodsId=null;
     Vector<Goods> goods=null;
 

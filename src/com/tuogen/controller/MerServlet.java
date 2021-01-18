@@ -33,11 +33,13 @@ public class MerServlet extends BaseServlet {
         String userPwd = req.getParameter("passWord");
         Seller seller = checkIdentity(userAccout, userPwd);
         HttpSession session = req.getSession();
+        //将当前用户添加到session
+        session.setAttribute("seller",seller);
         if (seller == null) {
             System.out.println("登陆失败");
         } else {
             System.out.println("登陆成功");
-            login_init(seller.getId(), session, req, seller);
+//            login_init(seller.getId(), session, req, seller);
         }
         addOnlineUser(req,resp,seller);
         resp.sendRedirect("/web/manage/index.jsp");

@@ -7,16 +7,16 @@ function init(){
             switch(index){
                 case 0:
                     // $("#iframe-contains").attr('src',"../goodslist");
-                    $("#iframe-contains").attr('src',"../view/goodslist.jsp");
+                    $("#iframe-contains").attr('src',"../goodsList");
                     $("#navLocation").html("<span class='firstP'>首页</span>/商品管理</span>")
                     break;
                 case 1:
-                    $("#iframe-contains").attr('src',"orderMang.jsp");
+                    $("#iframe-contains").attr('src',"../listOrder?orderPageIndex=0");
                     $("#navLocation").html("<span class='firstP'>首页</span><span>/订单管理</span>")
                     break;
                 case 2:
-                    $("#iframe-contains").attr('src',"sortMang.jsp");
-                    $("#navLocation").html("<span class='firstP'>首页</span><span>/分类管理</span>")
+                    $("#iframe-contains").attr('src',"../view/onlineUser.jsp");
+                    $("#navLocation").html("<span class='firstP'>首页</span><span>/在线用户</span>")
                     break;
                 case 3:
                     $("#iframe-contains").attr('src',"messMang.jsp");
@@ -59,7 +59,7 @@ function init(){
         })
     })
     $(".welcomePage").click(function () {
-        $("#iframe-contains").attr('src',"welcome.jsp");
+        $("#iframe-contains").attr('src',"../view/sellerUserInfo.jsp");
         $("#navLocation").html("<i class=\"icon-font\">&#xe06b;</i><span>欢迎使用 Breeze商城。</span>")
     })
 }

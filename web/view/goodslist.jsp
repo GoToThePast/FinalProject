@@ -157,8 +157,8 @@
         </table>
         <aside class="paging">
             <a href="/web/goodsList?pageIndex=${(pageIndex-1)<1?1:(pageIndex-1)}">上一页</a>
-            <a> 第${pageIndex}页</a>
-            <a href="/web/goodsList?pageIndex=${(pageIndex+1)>pageCount?pageCount:(pageIndex+1)}">下一页</a>
+            <a> 第${pageIndex+1}页</a>
+            <a href="/web/goodsList?pageIndex=${(pageIndex+1)>orderPageCount?orderPageCount:(pageIndex+1)}">下一页</a>
         </aside>
     </div>
 </section>

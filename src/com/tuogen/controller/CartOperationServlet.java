@@ -77,4 +77,16 @@ public class CartOperationServlet extends HttpServlet {
         response.addCookie(cookie);
 
     }
+
+    public static void clearCart(HttpServletRequest request){
+        System.out.println("清除购物车");
+        HttpSession session = request.getSession();
+        ArrayList<Goods> cart = (ArrayList<Goods>) session.getAttribute("cart");
+        if (cart!=null){
+            cart.clear();
+        }
+        session.setAttribute("cart",null);
+    }
+
+
 }

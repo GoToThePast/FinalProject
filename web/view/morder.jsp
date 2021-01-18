@@ -53,7 +53,7 @@
                 <p><span class="fl">优惠金额：</span><span class="fr">￥0.00</span></p>
                 <p><span class="fl">运费：</span><span class="fr">免运费</span></p></div><!--------tips count---------------->
             <div class="count tips"><p><span class="fl">合计：</span><span class="fr">￥${qOrders[0].order.totalPrice}</span></p></div>
-            <!--<input type="button" name="" value="去支付">--> <a href="../pay?orderID=${qOrders[0].order.orderNum}" class="pay">去支付</a></div>
+            <!--<input type="button" name="" value="去支付">--> <a href="../pay?ordersID=${qOrders[0].order.orderNum}" class="pay">去支付</a></div>
     </div>
 </div><!--编辑弹框--><!--遮罩-->
 <div class="mask"></div>

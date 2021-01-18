@@ -20,11 +20,11 @@
     <div class="wrapper clearfix">
         <div class="zuo fl">
             <h3><a href="#"><img src="/web/${buyer.picUrl}"/></a>
-                <p class="clearfix"><span class="fl">[${buyer.name}]</span><span>[<a href="#">退出登录</a>]</span></p></h3>
+                <p class="clearfix"><span class="fl">[${buyer.name}]</span><span>[<a href="../logout">退出登录</a>]</span></p></h3>
             <div><h4>我的交易</h4>
                 <ul>
                     <li><a href="cart.jsp">我的购物车</a></li>
-                    <li><a href="../Buyer/queryOrder?buyerID=${buyer.id}">我的订单</a></li>
+                    <li><a href="../listOrderBuyer?buyerID=${buyer.id}&pageIndex=0">我的订单</a></li>
 <%--                    <li><a href="#">评价晒单</a></li>--%>
                 </ul>
                 <h4>个人中心</h4>

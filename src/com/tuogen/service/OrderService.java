@@ -51,4 +51,12 @@ public interface OrderService {
     Vector<Integer> getGoodsByGoodListID(int goodsListId);
 
     public  List<OrderQuery> getOrderQueryListByBuyer(int id);
+
+    List<OrderQuery> getOrderQueryList(int id, int begin,int pageNum);
+
+    int getOrderCount(int id);
+
+    int getOrderCount(long buyerId);
+
+    List<OrderQuery> getOrderQueryListByBuyer(long id, int i, int pageNum);
 }

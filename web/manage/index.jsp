@@ -9,11 +9,11 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/web/manage/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
-<script src="./js/jquery2_14.js"></script>
-<script src="./js/index.js"></script>
+<script src="/web/manage/js/jquery2_14.js"></script>
+<script src="/web/manage/js/index.js"></script>
 <body>
 <div class="topbar-wrap white">
     <div class="topbar-inner clearfix">
@@ -26,9 +26,9 @@
         </div>
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">
-                <li><a href="#" class="welcomePage">信息</a></li>
+                <li><a href="" class="welcomePage">信息</a></li>
                 <li><a href="#">修改密码</a></li>
-                <li><a href="#">退出</a></li>
+                <li><a href="../logout">退出</a></li>
             </ul>
         </div>
     </div>
@@ -45,7 +45,7 @@
                     <ul class="sub-menu">
                         <li><a href="#" class="icon-sel"><i class="icon-font selectIcon">&#xe009;</i>商品管理</a></li>
                         <li><a href="#" class="icon-sel"><i class="icon-font selectIcon">&#xe005;</i>订单管理</a></li>
-                        <li><a href="#" class="icon-sel"><i class="icon-font selectIcon">&#xe006;</i>分类管理</a></li>
+                        <li><a href="#" class="icon-sel"><i class="icon-font selectIcon">&#xe006;</i>在线用户</a></li>
                         <li><a href="#" class="icon-sel"><i class="icon-font selectIcon">&#xe004;</i>留言管理</a></li>
                         <li><a href="#" class="icon-sel"><i class="icon-font selectIcon">&#xe012;</i>评论管理</a></li>
                         <li><a href="#" class="icon-sel"><i class="icon-font selectIcon">&#xe052;</i>友情链接</a></li>
@@ -69,8 +69,9 @@
         <div class="crumb-wrap">
             <div class="crumb-list" id="navLocation"><i class="icon-font">&#xe06b;</i><span>欢迎使用 Breeze商城。</span></div>
         </div>
-        <iframe class="iframe-contain" id="iframe-contains" src="welcome.jsp" frameborder="0" width="100%" height="100%"></iframe>
+        <iframe  id="iframe-contains" src="../view/sellerUserInfo.jsp" frameborder="0" width="100%" height="90%"></iframe>
     </div>
+<%--    class="iframe-contain"--%>
     <!--/main-->
 </div>
 </body>

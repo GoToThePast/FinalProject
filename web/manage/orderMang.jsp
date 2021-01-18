@@ -12,9 +12,9 @@
 <html>
 <head>
     <title>订单管理</title>
-    <link rel="stylesheet" type="text/css" href="css/myorder.css"/>
-    <script src="./js/jquery2_14.js"></script>
-    <script src="./js/myorder.js"></script>
+    <link rel="stylesheet" type="text/css" href="/web/manage/css/myorder.css"/>
+    <script src="/web/manage/js/jquery2_14.js"></script>
+    <script src="/web/manage/js/myorder.js"></script>
 </head>
 <body>
 
@@ -62,13 +62,12 @@
         </div>
         </c:forEach>
         <div class="orderPag">
-            <div class="prePage"><a href="#">上一页</a></div>
-            <div class="indexPage">1</div>
-            <div class="nextPage"><a href="#">下一页</a></div>
+            <div class="prePage"><a href="/web/listOrder?orderPageIndex=${(orderPageIndex-1)}">上一页</a></div>
+            <div class="indexPage">${orderPageIndex+1}</div>
+            <div class="nextPage"><a href="/web/listOrder?orderPageIndex=${(orderPageIndex+1)}">下一页</a></div>
         </div>
     </div>
 </div>
-<script src="./js/jquery2_14.js"></script>
 <script>
     $(".orderSta").click(function(){
         console.log("该发货啦！！")

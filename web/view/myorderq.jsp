@@ -11,8 +11,8 @@
 <head lang="en">
     <meta charset="utf-8"/>
     <title>最家</title>
-    <link rel="stylesheet" type="text/css" href="../css/cc_css/public.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/cc_css/myorder.css"/>
+    <link rel="stylesheet" type="text/css" href="/web/css/cc_css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="/web/css/cc_css/myorder.css"/>
 </head>
 <body>
 <!------------------------------head------------------------------>
@@ -20,24 +20,24 @@
 <!------------------------------idea------------------------------>
 <div class="address mt">
     <div class="wrapper clearfix">
-        <a href="index.jsp" class="fl">首页</a>
+        <a href="/web/view/index.jsp" class="fl">首页</a>
         <span>/</span>
-        <a href="mygxin.jsp">个人中心</a><span>/</span><a href="myorderq.jsp" class="on">我的订单</a></div>
+        <a href="/web/view/mygxin.jsp">个人中心</a><span>/</span><a href="/web/view/myorderq.jsp" class="on">我的订单</a></div>
 </div><!------------------------------Bott------------------------------>
 <div class="Bott">
     <div class="wrapper clearfix">
         <div class="zuo fl">
             <h3><a href="#"><img src="/web/${buyer.picUrl}"/></a>
-                <p class="clearfix"><span class="fl">[${buyer.name}]</span><span class="fr">[退出登录]</span></p></h3>
+                <p class="clearfix"><span class="fl">[${buyer.name}]</span><span class="fr">[<a href="/web/logout">退出登录</a>]</span></p></h3>
             <div><h4>我的交易</h4>
                 <ul>
-                    <li><a href="cart.jsp">我的购物车</a></li>
-                    <li><a href="myorderq.jsp">我的订单</a></li>
+                    <li><a href="/web/view/cart.jsp">我的购物车</a></li>
+                    <li><a href="/web/view/myorderq.jsp">我的订单</a></li>
 <%--                    <li><a href="#">评价晒单</a></li>--%>
                 </ul>
                 <h4>个人中心</h4>
                 <ul>
-                    <li><a href="mygxin.jsp">我的中心</a></li>
+                    <li><a href="/web/view/mygxin.jsp">我的中心</a></li>
 <%--                    <li><a href="#">地址管理</a></li>--%>
                 </ul>
 <%--                <h4>账户管理</h4>--%>
@@ -81,33 +81,36 @@
                 </div>
             </c:forEach>
 
-            <div class="fenye clearfix"><a href="#">
-                <img src="../photo/cc_img/zuo.jpg"/></a>
-                <a href="#">1</a><a href="#"><img src="../photo/cc_img/you.jpg"/>
+            <div class="fenye clearfix">
+                <a href="/web/listOrderBuyer?pageIndex=${pageIndex-1}">
+                    <img src="/web/photo/cc_img/zuo.jpg"/></a>
+                <a href="#">${pageIndex+1}</a>
+                <a href="/web/listOrderBuyer?pageIndex=${pageIndex+1}">
+                    <img src="/web/photo/cc_img/you.jpg"/>
                 </a>
             </div>
         </div>
     </div>
 </div><!--返回顶部-->
 <div class="gotop">
-    <a href="mcart.jsp">
+    <a href="/web/view/mcart.jsp">
         <dl>
-            <dt><img src="../photo/cc_img/gt1.png"/></dt>
+            <dt><img src="/web/photo/cc_img/gt1.png"/></dt>
             <dd>去购<br/>物车</dd>
         </dl>
     </a><a href="#" class="dh">
     <dl>
-        <dt><img src="../photo/cc_img/gt2.png"/></dt>
+        <dt><img src="/web/photo/cc_img/gt2.png"/></dt>
         <dd>联系<br/>客服</dd>
     </dl>
-</a><a href="mygxin.jsp">
+</a><a href="/web/view/mygxin.jsp">
     <dl>
-        <dt><img src="../photo/cc_img/gt3.png"/></dt>
+        <dt><img src="/web/photo/cc_img/gt3.png"/></dt>
         <dd>个人<br/>中心</dd>
     </dl>
 </a><a href="#" class="toptop" style="display: none">
     <dl>
-        <dt><img src="../photo/cc_img/gt4.png"/></dt>
+        <dt><img src="/web/photo/cc_img/gt4.png"/></dt>
         <dd>返回<br/>顶部</dd>
     </dl>
 </a>
@@ -115,20 +118,20 @@
 <div class="footer">
     <div class="top">
         <div class="wrapper">
-            <div class="clearfix"><a href="#2" class="fl"><img src="../photo/cc_img/foot1.png"/></a><span class="fl">7天无理由退货</span>
+            <div class="clearfix"><a href="#2" class="fl"><img src="/web/photo/cc_img/foot1.png"/></a><span class="fl">7天无理由退货</span>
             </div>
-            <div class="clearfix"><a href="#2" class="fl"><img src="../photo/cc_img/foot2.png"/></a><span class="fl">15天免费换货</span>
+            <div class="clearfix"><a href="#2" class="fl"><img src="/web/photo/cc_img/foot2.png"/></a><span class="fl">15天免费换货</span>
             </div>
-            <div class="clearfix"><a href="#2" class="fl"><img src="../photo/cc_img/foot3.png"/></a><span class="fl">满599包邮</span>
+            <div class="clearfix"><a href="#2" class="fl"><img src="/web/photo/cc_img/foot3.png"/></a><span class="fl">满599包邮</span>
             </div>
-            <div class="clearfix"><a href="#2" class="fl"><img src="../photo/cc_img/foot4.png"/></a><span class="fl">手机特色服务</span>
+            <div class="clearfix"><a href="#2" class="fl"><img src="/web/photo/cc_img/foot4.png"/></a><span class="fl">手机特色服务</span>
             </div>
         </div>
     </div>
     <p class="dibu">坨根家居&copy;2020-2021团队版权所有 京ICP备080100-44备0000111888号<br/>
         违法和不良信息举报电话：400-800-8200，本网站所列数据，除特殊说明，所有数据均出自我队自行测试</p></div>
-<script src="../js/cc_js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="../js/cc_js/public.js" type="text/javascript" charset="utf-8"></script>
-<script src="../js/cc_js/user.js" type="text/javascript" charset="utf-8"></script>
+<script src="/web/js/cc_js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/web/js/cc_js/public.js" type="text/javascript" charset="utf-8"></script>
+<script src="/web/js/cc_js/user.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
