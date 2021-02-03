@@ -1,14 +1,16 @@
 package com.tuogen.controller;
 
-import com.tuogen.model.Goods;
 import com.tuogen.service.GoodsService;
+import com.tuogen.model.Goods;
 import com.tuogen.service.impl.GoodsServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.nio.file.attribute.UserPrincipal;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 /**
  * Made By 王炜
@@ -20,7 +22,7 @@ import java.util.ArrayList;
  * 将购物车中的信息封装成 ArrayList<Googs> cart 保存至session
  * 查看购物车只需使用session中的cart即可
  */
-@WebServlet("/addToCart")
+@WebServlet(urlPatterns = "/addToCart")
 public class CartOperationServlet extends HttpServlet {
     private GoodsService goodsService=new GoodsServiceImpl();
     @Override
@@ -29,6 +31,8 @@ public class CartOperationServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO: 2021/1/8 编码
+        request.setCharacterEncoding("utf-8");
         //商品编号
         String goodsID="goodsID";
         //类型
@@ -40,21 +44,48 @@ public class CartOperationServlet extends HttpServlet {
             session.setAttribute("cart",cart);
         }
         String action = request.getParameter(type);
-        Goods googs=null;
+        Goods goods=null;
         // TODO: 2021/1/7 根据商品ID获取商品
-        googs=goodsService.getGoods(Integer.parseInt(request.getParameter(goodsID)));
+        goods=goodsService.queryGoods(Integer.parseInt(request.getParameter(goodsID)));
         if ("add".equals(action)){
-            //添加商品至购物车
-            cart.add(googs);
-            //设置session存活时长
-            session.setMaxInactiveInterval(60*60*2);
-            //设置cookie存活时间
-            Cookie cookie=new Cookie("JSESSIONID",session.getId());
-            cookie.setMaxAge(60*60*2);
-            response.addCookie(cookie);
+            addCart(response, session, cart, goods);
+            //跳转
+            response.sendRedirect("view/index.jsp");
         }else if ("remove".equals(action)){
             //移除购物车中商品
-            cart.remove(googs);
+            System.out.println("goodsid="+goods.getGoodsID());
+            System.out.println(System.identityHashCode(goods));
+            Goods finalGoods = goods;
+            cart.removeIf(e->e.getGoodsID()== finalGoods.getGoodsID());
+            //跳转
+            response.sendRedirect("view/mcart.jsp");
+        }else if("buyNow".equals(action)){
+            addCart(response, session, cart, goods);
+            //跳转
+            response.sendRedirect("view/mcart.jsp");
         }
     }
+
+    private void addCart(HttpServletResponse response, HttpSession session, ArrayList<Goods> cart, Goods goods) throws IOException {
+        //添加商品至购物车
+        cart.add(goods);
+        //设置session存活时长
+        session.setMaxInactiveInterval(60*60*2);
+        //设置cookie存活时间
+        Cookie cookie=new Cookie("JSESSIONID",session.getId());
+        cookie.setMaxAge(60*60*2);
+        response.addCookie(cookie);
+
+    }
+
+    public static void clearCart(HttpServletRequest request){
+        System.out.println("清除购物车");
+        HttpSession session = request.getSession();
+        ArrayList<Goods> cart = (ArrayList<Goods>) session.getAttribute("cart");
+        if (cart!=null){
+            cart.clear();
+        }
+    }
+
+
 }

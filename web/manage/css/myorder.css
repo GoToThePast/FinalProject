@@ -1,0 +1,141 @@
+
+
+.order-head{
+    margin-left: 10px;
+    display: flex;
+}
+
+.ordHeadTital{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.sel-left{
+    display: flex;
+    margin-left:-28px;
+
+}
+
+.sel-left li{
+    text-align: center;
+    width: 100px;
+    padding-right: 20px;
+    padding-left: 20px;
+    list-style-type:none;
+    color: rgba(9,5,32,0.35);
+    /*border-right: 1px solid #888888;*/
+}
+
+.sel-left .on{
+    color: rgba(191,14,36,0.93);
+}
+
+.order-center{
+    display: flex;
+}
+
+
+
+#search-box{
+    margin-top: 12px;
+    /*position: absolute;*/
+    height: 30px;
+    left: 65%;
+}
+
+#search-button{
+    margin-top: 12px;
+    /*position: absolute;*/
+    left: 76%;
+    float: right;
+    width: 30px;
+    height: 30px;
+    background: url(../img/ds.png) no-repeat center center;
+}
+body{
+    background-color: rgb(233, 236, 236);
+}
+.all{
+    border: 1px solid #ced3d5;
+    margin-left: 3%;
+    width: 90%;
+    background-color: #ffffff;
+}
+
+.order-infomation{
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.order-good{
+    display: flex;
+}
+
+.order-container{
+    margin-left: 3%;
+}
+
+.order-info{
+    border: 1px solid #96d8ee;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.order-status {
+    margin-left: 20px;
+}
+
+.order-infomation>div{
+    margin-left: 20px;
+    /*border-right: 1px solid #2a85a0;*/
+    padding-right: 10px;
+}
+
+
+.order-infomation{
+    border-bottom: 1px solid #2f96b4;
+}
+
+.good-img{
+    width: 100px;
+    height: 100px;
+}
+.good-img img{
+    position: relative;
+    margin: 10% 10%;
+    width: 80%;
+    height: 80%;
+}
+.good-button{
+    position: absolute;
+    left:60%;
+}
+
+.good-button p{
+    color: #24272b;
+}
+
+.good-button .on{
+    color: rgba(191,14,36,0.93);
+}
+
+.orderPag{
+    display: flex;
+    margin: 0 40%;
+    width: 20%;
+    height: 50px;
+}
+.orderPag div{
+    width: 33.3%;
+}
+.indexPage{
+    text-align: center;
+}
+
+.iframe-contain{
+    position: fixed;
+    margin: 10% 10%;
+}
+::-webkit-scrollbar {
+    display: none;
+}

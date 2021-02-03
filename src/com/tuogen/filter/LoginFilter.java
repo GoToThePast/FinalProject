@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter("")
+@WebFilter("/*")
 public class LoginFilter implements Filter {
     public void destroy() {
     }
@@ -18,7 +18,7 @@ public class LoginFilter implements Filter {
         //放行资源文件
         if (requestURI.contains("/css/")||requestURI.contains("/js/")
                 ||requestURI.contains("/image/")||requestURI.contains("/photo/")
-                ||requestURI.contains("/validCode")){
+                ||requestURI.contains("/validCode")||requestURI.equals("/web/")){
             chain.doFilter(req,resp);
             return;
         }

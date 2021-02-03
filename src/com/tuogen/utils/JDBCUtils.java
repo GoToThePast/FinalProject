@@ -1,6 +1,7 @@
 package com.tuogen.utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+
 import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.*;
@@ -11,6 +12,9 @@ public class JDBCUtils {
     static DataSource ds;
 
     static {
+        long start = System.currentTimeMillis();
+
+        System.out.println("start2="+start);
         Properties pro=new Properties();
         InputStream is = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
         try {
@@ -19,7 +23,7 @@ public class JDBCUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        System.out.println("end2="+(System.currentTimeMillis()-start));
     }
 
     /**
@@ -36,7 +40,9 @@ public class JDBCUtils {
      * @return
      * @throws SQLException
      */
+    static int num=0;
     public static Connection getConnection() throws SQLException {
+        System.out.println("获得连接="+(num++));
         return ds.getConnection();
     }
 
@@ -66,6 +72,7 @@ public class JDBCUtils {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
+        System.out.println("关闭连接="+(num--));
     }
 
 }

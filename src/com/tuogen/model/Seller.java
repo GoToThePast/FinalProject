@@ -94,6 +94,9 @@ public class Seller implements User{
         return icon;
     }
 
+    public String getPicUrl() {
+        return icon;
+    }
     @Override
     public String toString() {
         return "Seller{" +

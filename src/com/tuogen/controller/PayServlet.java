@@ -24,22 +24,23 @@ public class PayServlet extends HttpServlet {
     OrderService orderService=new OrderServiceImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取订单编号
-        List<Integer> ordersID = Arrays.stream(request.getParameterValues("ordersID")).
-                map(id -> Integer.parseInt(id)).
-                collect(Collectors.toList());;
+        long ordersID =Long.parseLong(request.getParameter("ordersID"));
         boolean isOk = orderService.payOrder(ordersID);
         if (isOk){
             //支付成功 跳转至订单管理页面
             // TODO: 2021/1/8 跳转至订单管理页面
-            response.sendRedirect("./view/");
+            response.sendRedirect("./view/ok.html");
+            CartOperationServlet.clearCart(request);
         }else {
             //支付失败 跳转至支付页面
             // TODO: 2021/1/8 跳转至支付页面
-            response.sendRedirect("./view/");
+            response.sendRedirect("./view/ok.html");
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
+
+
 }

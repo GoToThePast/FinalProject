@@ -18,7 +18,7 @@
     <div class="content">
         <div class="info clearFix">
             <div class="text">头像</div>
-            <img class="icon" src="${onlineUser.user.icon}">
+            <img class="icon" src="../${onlineUser.user.icon}">
         </div>
         <div class="info">
             <div class="text">账号</div>
